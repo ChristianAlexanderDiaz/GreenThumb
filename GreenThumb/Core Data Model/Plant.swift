@@ -9,14 +9,14 @@
 import SwiftUI
 import CoreData
 
-public class Video: NSManagedObject, Identifiable {
+public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var id: NSNumber?
     @NSManaged public var name: String?
 }
 
-extension Video {
-    static func allVideoFetchRequest() -> NSFetchRequest<Video> {
-        let fetchRequest = NSFetchRequest<Video>(entityName: "Plant")
+extension Plant {
+    static func allVideoFetchRequest() -> NSFetchRequest<Plant> {
+        let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         return fetchRequest
     }
