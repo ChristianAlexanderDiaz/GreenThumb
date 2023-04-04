@@ -11,7 +11,7 @@ import CoreData
 
 public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var id: NSNumber?
-    @NSManaged public var name: String?
+    @NSManaged public var common_name: String?
 }
 
 extension Plant {

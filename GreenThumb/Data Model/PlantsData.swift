@@ -34,7 +34,7 @@ public func createPlantsDatabase() {
     
     // Local variable arrayOfVideoStructs obtained from the JSON file to create the database
     var arrayOfPlantStructs = [PlantStruct]()
-    arrayOfPlantStructs = decodeJsonFileIntoArrayOfStructs(fullFilename: "PlantsData.geojson", fileLocation: "Main Bundle")
+    arrayOfPlantStructs = decodeJsonFileIntoArrayOfStructs(fullFilename: "PlantsData.json", fileLocation: "Main Bundle")
 
     for aPlant in arrayOfPlantStructs {
         // 1️⃣ Create an instance of the Video entity in managedObjectContext
@@ -42,7 +42,7 @@ public func createPlantsDatabase() {
         
         // 2️⃣ Dress it up by specifying its attributes
         plantEntity.id = aPlant.id as NSNumber
-        plantEntity.name = aPlant.name
+        plantEntity.common_name = aPlant.common_name
         
         // 3️⃣ It has no relationship to another Entity
         PersistenceController.shared.saveContext()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@main
 struct GreenThumbApp: App {
     @AppStorage("darkMode") private var darkMode = false
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate

@@ -17,6 +17,8 @@
 		D304EC7829DCA6DC005486C6 /* PlantsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC7729DCA6DC005486C6 /* PlantsData.swift */; };
 		D304EC7B29DCA75D005486C6 /* PlantStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC7A29DCA75D005486C6 /* PlantStruct.swift */; };
 		D304EC7E29DCA7B6005486C6 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC7D29DCA7B6005486C6 /* UtilityFunctions.swift */; };
+		D304EC8029DCA90B005486C6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC7F29DCA90B005486C6 /* Home.swift */; };
+		D304EC8529DCAB5B005486C6 /* PlantsData.json in Resources */ = {isa = PBXBuildFile; fileRef = D304EC8429DCAB5B005486C6 /* PlantsData.json */; };
 		D3288F5F29CCDDE600ED7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3288F5E29CCDDE600ED7EFB /* Assets.xcassets */; };
 		D3288F6229CCDDE600ED7EFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3288F6129CCDDE600ED7EFB /* Preview Assets.xcassets */; };
 		D3288F6729CCDDE600ED7EFB /* GreenThumb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3288F6529CCDDE600ED7EFB /* GreenThumb.xcdatamodeld */; };
@@ -31,9 +33,10 @@
 		D304EC7029DCA271005486C6 /* DatabaseChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseChange.swift; sourceTree = "<group>"; };
 		D304EC7429DCA2CD005486C6 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		D304EC7729DCA6DC005486C6 /* PlantsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsData.swift; sourceTree = "<group>"; };
-		D304EC7929DCA74D005486C6 /* PlantsData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlantsData.geojson; sourceTree = "<group>"; };
 		D304EC7A29DCA75D005486C6 /* PlantStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStruct.swift; sourceTree = "<group>"; };
 		D304EC7D29DCA7B6005486C6 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		D304EC7F29DCA90B005486C6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		D304EC8429DCAB5B005486C6 /* PlantsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlantsData.json; sourceTree = "<group>"; };
 		D3288F5729CCDDE400ED7EFB /* GreenThumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenThumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3288F5E29CCDDE600ED7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3288F6129CCDDE600ED7EFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		D304EC6729DCA1A8005486C6 /* Tab Bar Views */ = {
 			isa = PBXGroup;
 			children = (
+				D304EC8129DCA910005486C6 /* Home */,
 				D304EC6A29DCA1B7005486C6 /* Settings */,
 			);
 			path = "Tab Bar Views";
@@ -81,7 +85,7 @@
 		D304EC6F29DCA266005486C6 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				D304EC7929DCA74D005486C6 /* PlantsData.geojson */,
+				D304EC8429DCAB5B005486C6 /* PlantsData.json */,
 				D304EC7729DCA6DC005486C6 /* PlantsData.swift */,
 				D304EC7A29DCA75D005486C6 /* PlantStruct.swift */,
 				D304EC7029DCA271005486C6 /* DatabaseChange.swift */,
@@ -95,6 +99,14 @@
 				D304EC7D29DCA7B6005486C6 /* UtilityFunctions.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D304EC8129DCA910005486C6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D304EC7F29DCA90B005486C6 /* Home.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D3288F4E29CCDDE400ED7EFB = {
@@ -198,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D304EC8529DCAB5B005486C6 /* PlantsData.json in Resources */,
 				D3288F6229CCDDE600ED7EFB /* Preview Assets.xcassets in Resources */,
 				D3288F5F29CCDDE600ED7EFB /* Assets.xcassets in Resources */,
 			);
@@ -220,6 +233,7 @@
 				D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */,
 				D3288F6729CCDDE600ED7EFB /* GreenThumb.xcdatamodeld in Sources */,
 				D304EC6929DCA1B0005486C6 /* Settings.swift in Sources */,
+				D304EC8029DCA90B005486C6 /* Home.swift in Sources */,
 				D304EC7829DCA6DC005486C6 /* PlantsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
