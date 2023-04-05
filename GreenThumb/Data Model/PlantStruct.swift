@@ -11,4 +11,6 @@ import SwiftUI
 struct PlantStruct: Decodable {
     var id: Int32
     var common_name: String
+    var watering: String
+    var thumbnail: String
 }

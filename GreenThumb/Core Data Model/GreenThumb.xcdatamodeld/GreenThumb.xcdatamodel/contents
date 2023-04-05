@@ -3,5 +3,7 @@
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
         <attribute name="common_name" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <attribute name="watering" optional="YES" attributeType="String"/>
     </entity>
 </model>

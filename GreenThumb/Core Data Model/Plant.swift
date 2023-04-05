@@ -12,6 +12,10 @@ import CoreData
 public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var id: NSNumber?
     @NSManaged public var common_name: String?
+    @NSManaged public var watering: String?
+    @NSManaged public var thumbnail: String?
+
+    
 }
 
 extension Plant {
