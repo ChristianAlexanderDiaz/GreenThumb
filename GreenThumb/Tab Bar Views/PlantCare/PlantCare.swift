@@ -1,21 +1,21 @@
 //
-//  Home.swift
+//  PlantCare.swift
 //  GreenThumb
 //
-//  Created by Christian Alexander Diaz on 4/4/23.
+//  Created by Christian Alexander Diaz on 4/11/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 
-struct Home: View {
+struct PlantCare: View {
     var body: some View {
-        Text("Home")
+        Text("PlantCare")
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct PlantCare_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        PlantCare()
     }
 }

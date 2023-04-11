@@ -10,32 +10,32 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-//            Home()
-//                .tabItem {
-//                    Image(systemName: "house")
-//                    Text("Home")
-//                }
-//            FavoritesList()
-//                .tabItem {
-//                    Image(systemName: "star.fill")
-//                    Text("Favorites")
-//                }
-//            SearchDatabase()
-//                .tabItem {
-//                    Image(systemName: "magnifyingglass")
-//                    Text("Search Database")
-//                }
-//            ApiSearchHome()
-//                .tabItem {
-//                    Image(systemName: "magnifyingglass.circle")
-//                    Text("Search API")
-//                }
-            Settings()
+            Home()
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
+                    Image(systemName: "house.fill")
+                    Text("Home")
                 }
-        } // end of TabView
+            MyPlants()
+                .tabItem {
+                    Image(systemName: "leaf.fill")
+                    Text("My Plants")
+                }
+            PlantCare()
+                .tabItem {
+                    Image(systemName: "list.bullet.rectangle")
+                    Text("Plant Care")
+                }
+            ExploreApi()
+                .tabItem {
+                    Image(systemName: "magnifyingglass.circle.fill")
+                    Text("Explore API")
+                }
+            More()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("More")
+                }
+        }
         .font(.headline)
         .imageScale(.medium)
         .font(Font.title.weight(.regular))

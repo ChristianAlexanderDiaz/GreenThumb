@@ -1,18 +1,14 @@
 //
 //  Settings.swift
-//  Videos
+//  GreenThumb
 //
-//  Created by Christian Alexander Diaz on 3/24/23.
-//  Copyright © 2023 Christian Alexander Diaz. All rights reserved.
+//  Created by Christian Alexander Diaz on 4/11/23.
+//  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 
-/**
-    A struct called `Settings` which manages the one thing in there which is `darkMode`.
- */
 struct Settings: View {
-    
     //dark mode
     @AppStorage("darkMode") private var darkMode = false
     

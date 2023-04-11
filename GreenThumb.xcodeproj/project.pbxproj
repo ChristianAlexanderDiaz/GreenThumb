@@ -10,7 +10,6 @@
 		D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6029DCA13D005486C6 /* AppDelegate.swift */; };
 		D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6329DCA172005486C6 /* GreenThumbApp.swift */; };
 		D304EC6629DCA188005486C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6529DCA188005486C6 /* ContentView.swift */; };
-		D304EC6929DCA1B0005486C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6829DCA1B0005486C6 /* Settings.swift */; };
 		D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6B29DCA1D7005486C6 /* Persistence.swift */; };
 		D304EC7129DCA271005486C6 /* DatabaseChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC7029DCA271005486C6 /* DatabaseChange.swift */; };
 		D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC7429DCA2CD005486C6 /* Plant.swift */; };
@@ -22,13 +21,17 @@
 		D3288F5F29CCDDE600ED7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3288F5E29CCDDE600ED7EFB /* Assets.xcassets */; };
 		D3288F6229CCDDE600ED7EFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3288F6129CCDDE600ED7EFB /* Preview Assets.xcassets */; };
 		D3288F6729CCDDE600ED7EFB /* GreenThumb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3288F6529CCDDE600ED7EFB /* GreenThumb.xcdatamodeld */; };
+		D36F9E0E29E5E48F0085C0B2 /* MyPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E0D29E5E48F0085C0B2 /* MyPlants.swift */; };
+		D36F9E1029E5E4980085C0B2 /* PlantCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E0F29E5E4980085C0B2 /* PlantCare.swift */; };
+		D36F9E1429E5E4AA0085C0B2 /* ExploreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */; };
+		D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E1729E5E4C90085C0B2 /* More.swift */; };
+		D36F9E1A29E5E4CE0085C0B2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E1929E5E4CE0085C0B2 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D304EC6029DCA13D005486C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D304EC6329DCA172005486C6 /* GreenThumbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenThumbApp.swift; sourceTree = "<group>"; };
 		D304EC6529DCA188005486C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D304EC6829DCA1B0005486C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D304EC6B29DCA1D7005486C6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D304EC7029DCA271005486C6 /* DatabaseChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseChange.swift; sourceTree = "<group>"; };
 		D304EC7429DCA2CD005486C6 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
@@ -42,6 +45,11 @@
 		D3288F6129CCDDE600ED7EFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3288F6629CCDDE600ED7EFB /* GreenThumb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreenThumb.xcdatamodel; sourceTree = "<group>"; };
 		D3288F6829CCDDE600ED7EFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D36F9E0D29E5E48F0085C0B2 /* MyPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlants.swift; sourceTree = "<group>"; };
+		D36F9E0F29E5E4980085C0B2 /* PlantCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCare.swift; sourceTree = "<group>"; };
+		D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApi.swift; sourceTree = "<group>"; };
+		D36F9E1729E5E4C90085C0B2 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
+		D36F9E1929E5E4CE0085C0B2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,17 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				D304EC8129DCA910005486C6 /* Home */,
-				D304EC6A29DCA1B7005486C6 /* Settings */,
+				D36F9E0929E5E3F70085C0B2 /* MyPlants */,
+				D36F9E0A29E5E4020085C0B2 /* PlantCare */,
+				D36F9E0C29E5E42A0085C0B2 /* Explore API */,
+				D36F9E1629E5E4B90085C0B2 /* More */,
 			);
 			path = "Tab Bar Views";
-			sourceTree = "<group>";
-		};
-		D304EC6A29DCA1B7005486C6 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				D304EC6829DCA1B0005486C6 /* Settings.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		D304EC6F29DCA266005486C6 /* Data Model */ = {
@@ -148,6 +151,39 @@
 				D3288F6129CCDDE600ED7EFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D36F9E0929E5E3F70085C0B2 /* MyPlants */ = {
+			isa = PBXGroup;
+			children = (
+				D36F9E0D29E5E48F0085C0B2 /* MyPlants.swift */,
+			);
+			path = MyPlants;
+			sourceTree = "<group>";
+		};
+		D36F9E0A29E5E4020085C0B2 /* PlantCare */ = {
+			isa = PBXGroup;
+			children = (
+				D36F9E0F29E5E4980085C0B2 /* PlantCare.swift */,
+			);
+			path = PlantCare;
+			sourceTree = "<group>";
+		};
+		D36F9E0C29E5E42A0085C0B2 /* Explore API */ = {
+			isa = PBXGroup;
+			children = (
+				D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */,
+			);
+			path = "Explore API";
+			sourceTree = "<group>";
+		};
+		D36F9E1629E5E4B90085C0B2 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				D36F9E1729E5E4C90085C0B2 /* More.swift */,
+				D36F9E1929E5E4CE0085C0B2 /* Settings.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,15 +260,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D304EC7B29DCA75D005486C6 /* PlantStruct.swift in Sources */,
+				D36F9E0E29E5E48F0085C0B2 /* MyPlants.swift in Sources */,
 				D304EC7E29DCA7B6005486C6 /* UtilityFunctions.swift in Sources */,
+				D36F9E1A29E5E4CE0085C0B2 /* Settings.swift in Sources */,
 				D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */,
 				D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */,
 				D304EC6629DCA188005486C6 /* ContentView.swift in Sources */,
+				D36F9E1429E5E4AA0085C0B2 /* ExploreApi.swift in Sources */,
 				D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */,
+				D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */,
 				D304EC7129DCA271005486C6 /* DatabaseChange.swift in Sources */,
 				D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */,
 				D3288F6729CCDDE600ED7EFB /* GreenThumb.xcdatamodeld in Sources */,
-				D304EC6929DCA1B0005486C6 /* Settings.swift in Sources */,
+				D36F9E1029E5E4980085C0B2 /* PlantCare.swift in Sources */,
 				D304EC8029DCA90B005486C6 /* Home.swift in Sources */,
 				D304EC7829DCA6DC005486C6 /* PlantsData.swift in Sources */,
 			);

@@ -1,21 +1,21 @@
 //
-//  Home.swift
+//  ExploreApi.swift
 //  GreenThumb
 //
-//  Created by Christian Alexander Diaz on 4/4/23.
+//  Created by Christian Alexander Diaz on 4/11/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 
-struct Home: View {
+struct ExploreApi: View {
     var body: some View {
-        Text("Home")
+        Text("Explore API")
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct ExploreApi_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        ExploreApi()
     }
 }
