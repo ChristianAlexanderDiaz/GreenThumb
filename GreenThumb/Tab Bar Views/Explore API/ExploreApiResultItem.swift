@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct ExploreApiResultItem: View {
+    let plant: PlantStruct
+    
+    // Subscribe to changes in Core Data database
+    @EnvironmentObject var databaseChange: DatabaseChange
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(plant.common_name)
+        }
     }
-}
-
-struct ExploreApiResultItem_Previews: PreviewProvider {
-    static var previews: some View {
-        ExploreApiResultItem()
-    }
+    
 }

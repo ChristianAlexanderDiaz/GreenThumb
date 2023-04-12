@@ -9,17 +9,17 @@
 import SwiftUI
 
 struct ExploreApiResultsList: View {
+    
+    var exploreApiResultPlants: [PlantStruct]
+    
     var body: some View {
-        Form {
-            Section(header: Text("Plant Name")) {
-                Text("Example Plant Name")
+        List {
+            ForEach(exploreApiResultPlants, id: \.id) { aPlant in
+                NavigationLink(destination: ExploreApiResultDetails(plant: aPlant)) {
+                    ExploreApiResultItem(plant: aPlant)
+                }
+                .navigationBarTitle(Text("Search Results"), displayMode: .inline)
             }
         }
-    }
-}
-
-struct ExploreApiResultsList_Previews: PreviewProvider {
-    static var previews: some View {
-        ExploreApiResultsList()
     }
 }
