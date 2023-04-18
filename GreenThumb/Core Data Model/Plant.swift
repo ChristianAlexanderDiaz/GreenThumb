@@ -12,14 +12,16 @@ import CoreData
 public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var id: NSNumber?
     @NSManaged public var common_name: String?
+    @NSManaged public var scientific_name: [String]?
+    @NSManaged public var other_name: [String]?
+    @NSManaged public var cycle: String?
     @NSManaged public var watering: String?
+    @NSManaged public var sunlight: [String]?
     @NSManaged public var thumbnail: String?
-
-    
 }
 
 extension Plant {
-    static func allVideoFetchRequest() -> NSFetchRequest<Plant> {
+    static func allPlantsFetchRequest() -> NSFetchRequest<Plant> {
         let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         return fetchRequest
