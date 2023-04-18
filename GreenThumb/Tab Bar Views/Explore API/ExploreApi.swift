@@ -58,13 +58,13 @@ struct ExploreApi: View {
                     } //end of HStack
                 } //end of Section 2
                 if searchCompleted {
-                    Section(header: Text("List Plants Found")) {
+                    Section(header: Text("Plants Found")) {
                         NavigationLink(destination: showSearchResults) {
                             HStack {
                                 Image(systemName: "list.bullet")
                                     .imageScale(.medium)
                                     .font(Font.title.weight(.regular))
-                                Text("List Businesses Found")
+                                Text("List Plants Found")
                                     .font(.system(size: 16))
                             }
                             .foregroundColor(.blue)
