@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34C9207329F5C7F4009ABB0B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9207229F5C7F4009ABB0B /* Photo.swift */; };
 		D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6029DCA13D005486C6 /* AppDelegate.swift */; };
 		D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6329DCA172005486C6 /* GreenThumbApp.swift */; };
 		D304EC6629DCA188005486C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6529DCA188005486C6 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34C9207229F5C7F4009ABB0B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D304EC6029DCA13D005486C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D304EC6329DCA172005486C6 /* GreenThumbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenThumbApp.swift; sourceTree = "<group>"; };
 		D304EC6529DCA188005486C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				D3288F6529CCDDE600ED7EFB /* GreenThumb.xcdatamodeld */,
 				D304EC6B29DCA1D7005486C6 /* Persistence.swift */,
 				D304EC7429DCA2CD005486C6 /* Plant.swift */,
+				34C9207229F5C7F4009ABB0B /* Photo.swift */,
 			);
 			path = "Core Data Model";
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */,
 				D35DE8D529E5F1CF00E204E1 /* PerenualApiData.swift in Sources */,
 				D304EC7129DCA271005486C6 /* DatabaseChange.swift in Sources */,
+				34C9207329F5C7F4009ABB0B /* Photo.swift in Sources */,
 				D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */,
 				D3288F6729CCDDE600ED7EFB /* GreenThumb.xcdatamodeld in Sources */,
 				D36F9E1029E5E4980085C0B2 /* PlantCare.swift in Sources */,
