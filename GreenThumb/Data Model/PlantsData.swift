@@ -46,6 +46,7 @@ public func createPlantsDatabase() {
         plantEntity.id = aPlant.id as NSNumber
         plantEntity.common_name = aPlant.common_name
         plantEntity.starred = true
+        plantEntity.diseaseNotes = ""
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy"
