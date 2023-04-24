@@ -10,7 +10,10 @@
         <attribute name="common_name" optional="YES" attributeType="String"/>
         <attribute name="cycle" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastWateringDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="nextWateringDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="other_name" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="primaryImage" optional="YES" attributeType="Binary"/>
         <attribute name="scientific_name" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
         <attribute name="starred" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="sunlight" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>

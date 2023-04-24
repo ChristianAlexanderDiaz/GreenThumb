@@ -1,14 +1,16 @@
 //
-//  PlantStruct.swift
+//  PlantAPIStruct.swift
 //  GreenThumb
 //
-//  Created by Christian Alexander Diaz on 4/4/23.
+//  Created by Taylor Flieg on 4/24/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 
-struct PlantStruct: Decodable {
+import SwiftUI
+
+struct PlantAPIStruct: Hashable, Codable, Identifiable {
     var id: Int32
     var common_name: String
     var scientific_name: [String]
@@ -17,6 +19,4 @@ struct PlantStruct: Decodable {
     var watering: String
     var sunlight: [String]
     var thumbnail: String
-    var lastWateringDate: String
-    var nextWateringDate: String
 }

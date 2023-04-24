@@ -1,23 +1,25 @@
 //
-//  ExploreApiResultItem.swift
+//  DiseasedPlantCareDetails.swift
 //  GreenThumb
 //
-//  Created by Christian Alexander Diaz on 4/11/23.
+//  Created by Taylor Flieg on 4/24/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 
-struct ExploreApiResultItem: View {
-    let plant: PlantAPIStruct
+struct DiseasedPlantCareDetails: View {
+    // Input Parameter
+    let plant: Plant
     
-    // Subscribe to changes in Core Data database
     @EnvironmentObject var databaseChange: DatabaseChange
     
     var body: some View {
         HStack {
-            Text(plant.common_name)
+            Text(plant.common_name ?? "error")
+            Text("Diseased")
         }
     }
-    
 }
+
+

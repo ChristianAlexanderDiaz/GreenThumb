@@ -7,7 +7,7 @@
 
 import Foundation
 
-var foundPlantsList = [PlantStruct]()
+var foundPlantsList = [PlantAPIStruct]()
 
 let perenualApiKey = "sk-LAYB6435bb62d3145488"
 
@@ -19,7 +19,7 @@ let perenualApiHeaders = [
 ]
 
 public func getFoundPlantsFromApi(query: String) {
-    foundPlantsList = [PlantStruct]()
+    foundPlantsList = [PlantAPIStruct]()
     
     let apiUrlStringQuery = "https://perenual.com/api/species-list?key=\(perenualApiKey)&q=\(query)"
     
@@ -67,7 +67,7 @@ public func getFoundPlantsFromApi(query: String) {
                             thumbnail = ""
                         }
                         
-                        let newPlant = PlantStruct(id: Int32(id), common_name: common_name, scientific_name: scientific_name, other_name: other_name, cycle: cycle, watering: watering, sunlight: sunlight, thumbnail: thumbnail)
+                        let newPlant = PlantAPIStruct(id: Int32(id), common_name: common_name, scientific_name: scientific_name, other_name: other_name, cycle: cycle, watering: watering, sunlight: sunlight, thumbnail: thumbnail)
                         foundPlantsList.append(newPlant)
                     }
                 }
