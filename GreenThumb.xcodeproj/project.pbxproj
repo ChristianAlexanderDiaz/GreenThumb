@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34C9208A29F70F44009ABB0B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208929F70F44009ABB0B /* Photo.swift */; };
 		D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6029DCA13D005486C6 /* AppDelegate.swift */; };
 		D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6329DCA172005486C6 /* GreenThumbApp.swift */; };
 		D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6B29DCA1D7005486C6 /* Persistence.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34C9208929F70F44009ABB0B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D304EC6029DCA13D005486C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D304EC6329DCA172005486C6 /* GreenThumbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenThumbApp.swift; sourceTree = "<group>"; };
 		D304EC6B29DCA1D7005486C6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				FF0177E329F70BE7001C6C0A /* GreenThumb.xcdatamodeld */,
 				D304EC6B29DCA1D7005486C6 /* Persistence.swift */,
 				D304EC7429DCA2CD005486C6 /* Plant.swift */,
+				34C9208929F70F44009ABB0B /* Photo.swift */,
 			);
 			path = "Core Data Model";
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */,
 				D35DE8D929E60D7300E204E1 /* NotFound.swift in Sources */,
 				D36F9E2629E5E7180085C0B2 /* ExploreApiResultsList.swift in Sources */,
+				34C9208A29F70F44009ABB0B /* Photo.swift in Sources */,
 				FF0177E529F70BE7001C6C0A /* GreenThumb.xcdatamodeld in Sources */,
 				D36F9E1429E5E4AA0085C0B2 /* ExploreApi.swift in Sources */,
 				FFBF385929F5B27300926291 /* UserData.swift in Sources */,
