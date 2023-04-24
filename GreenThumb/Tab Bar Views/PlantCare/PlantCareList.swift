@@ -2,7 +2,7 @@
 //  PlantCareList.swift
 //  GreenThumb
 //
-//  Created by Taylor Adeline Flieg on 4/24/23.
+//  Created by Taylor Adeline Flieg on 4/24/2023.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
@@ -67,7 +67,6 @@ struct PlantCareList: View {
                 default:
                     fatalError("Sort type is out of range!")
                 }
-
                 
             }   // End of List
         }

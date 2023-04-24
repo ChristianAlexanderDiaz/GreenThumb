@@ -14,7 +14,6 @@ public class Photo: NSManagedObject, Identifiable {
     // Attributes
     @NSManaged public var title: String?
     @NSManaged public var date: String?
-    @NSManaged public var image: Data?
     
     // Relationship
     @NSManaged public var plant: Plant?
