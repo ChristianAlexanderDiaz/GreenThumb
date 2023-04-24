@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ExploreApiResultsList: View {
     
-    var exploreApiResultPlants: [PlantStruct]
+    var exploreApiResultPlants: [PlantAPIStruct]
     
     var body: some View {
         List {

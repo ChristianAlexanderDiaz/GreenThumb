@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ExploreApiResultDetails: View {
-    let plant: PlantStruct
+    let plant: PlantAPIStruct
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) var managedObjectContext

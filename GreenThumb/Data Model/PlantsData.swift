@@ -3,11 +3,13 @@
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/4/23.
+//  Edited by Taylor Adeline Flieg on 4/24/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 import CoreData
+import Foundation
 
 /**
  The `createVideosDatabase` function creates the videos database in Core Data by decoding a JSON file and populating the Video entity with the decoded data.
@@ -43,7 +45,21 @@ public func createPlantsDatabase() {
         // 2️⃣ Dress it up by specifying its attributes
         plantEntity.id = aPlant.id as NSNumber
         plantEntity.common_name = aPlant.common_name
-        plantEntity.starred = false
+        plantEntity.starred = true
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+
+        
+        let lastWater = dateFormatter.date(from: aPlant.lastWateringDate)
+        
+        let nextWater = dateFormatter.date(from: aPlant.nextWateringDate)
+
+        plantEntity.lastWateringDate = lastWater
+        plantEntity.nextWateringDate = nextWater
+        
+        // Fetch Image Data
+        plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
         
         // 3️⃣ It has no relationship to another Entity
         PersistenceController.shared.saveContext()

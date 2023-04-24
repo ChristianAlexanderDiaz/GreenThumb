@@ -21,6 +21,9 @@ public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var sunlight: [String]?
     @NSManaged public var thumbnail: String?
     @NSManaged public var starred: Bool
+    @NSManaged public var lastWateringDate: Date?
+    @NSManaged public var nextWateringDate: Date?
+    @NSManaged public var primaryImage: Data?
     
     // Relationship
     @NSManaged public var photos: NSSet?
@@ -40,6 +43,8 @@ extension Plant {
         //check for watering needs
         //check if watering date is less than or equal to current date and time - consider storing as date rather than string
         //fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", searchQuery)
+        let currentDate = Date.now
+        fetchRequest.predicate = NSPredicate(format: "nextWateringDate <= %@", currentDate as CVarArg)
         
         return fetchRequest
     }

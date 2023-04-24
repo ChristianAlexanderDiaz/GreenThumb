@@ -13,6 +13,11 @@
 		34C9207A29F6C903009ABB0B /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9207929F6C903009ABB0B /* ResetPassword.swift */; };
 		34C9207C29F6C932009ABB0B /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9207B29F6C932009ABB0B /* UserAuthentication.swift */; };
 		34C9207E29F6CDAA009ABB0B /* NavigationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9207D29F6CDAA009ABB0B /* NavigationStyle.swift */; };
+		34C9208029F6E292009ABB0B /* WateringPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9207F29F6E292009ABB0B /* WateringPlantCareDetails.swift */; };
+		34C9208229F6E2A8009ABB0B /* DiseasedPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208129F6E2A8009ABB0B /* DiseasedPlantCareDetails.swift */; };
+		34C9208429F6E2B5009ABB0B /* StarredPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208329F6E2B5009ABB0B /* StarredPlantCareDetails.swift */; };
+		34C9208629F6E2CC009ABB0B /* PlantCareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208529F6E2CC009ABB0B /* PlantCareItem.swift */; };
+		34C9208829F6E46A009ABB0B /* PlantAPIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208729F6E46A009ABB0B /* PlantAPIStruct.swift */; };
 		D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6029DCA13D005486C6 /* AppDelegate.swift */; };
 		D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6329DCA172005486C6 /* GreenThumbApp.swift */; };
 		D304EC6629DCA188005486C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6529DCA188005486C6 /* MainView.swift */; };
@@ -47,6 +52,11 @@
 		34C9207929F6C903009ABB0B /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
 		34C9207B29F6C932009ABB0B /* UserAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		34C9207D29F6CDAA009ABB0B /* NavigationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStyle.swift; sourceTree = "<group>"; };
+		34C9207F29F6E292009ABB0B /* WateringPlantCareDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringPlantCareDetails.swift; sourceTree = "<group>"; };
+		34C9208129F6E2A8009ABB0B /* DiseasedPlantCareDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasedPlantCareDetails.swift; sourceTree = "<group>"; };
+		34C9208329F6E2B5009ABB0B /* StarredPlantCareDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredPlantCareDetails.swift; sourceTree = "<group>"; };
+		34C9208529F6E2CC009ABB0B /* PlantCareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareItem.swift; sourceTree = "<group>"; };
+		34C9208729F6E46A009ABB0B /* PlantAPIStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantAPIStruct.swift; sourceTree = "<group>"; };
 		D304EC6029DCA13D005486C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D304EC6329DCA172005486C6 /* GreenThumbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenThumbApp.swift; sourceTree = "<group>"; };
 		D304EC6529DCA188005486C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -196,6 +206,7 @@
 		D35DE8D329E5F14A00E204E1 /* API Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				34C9208729F6E46A009ABB0B /* PlantAPIStruct.swift */,
 				D35DE8D429E5F1CF00E204E1 /* PerenualApiData.swift */,
 				D35DE8D629E5F1E100E204E1 /* GetJsonDataFromApi.swift */,
 			);
@@ -214,6 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				D36F9E0F29E5E4980085C0B2 /* PlantCareList.swift */,
+				34C9208529F6E2CC009ABB0B /* PlantCareItem.swift */,
+				34C9207F29F6E292009ABB0B /* WateringPlantCareDetails.swift */,
+				34C9208129F6E2A8009ABB0B /* DiseasedPlantCareDetails.swift */,
+				34C9208329F6E2B5009ABB0B /* StarredPlantCareDetails.swift */,
 			);
 			path = PlantCare;
 			sourceTree = "<group>";
@@ -311,6 +326,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C9208029F6E292009ABB0B /* WateringPlantCareDetails.swift in Sources */,
+				34C9208229F6E2A8009ABB0B /* DiseasedPlantCareDetails.swift in Sources */,
 				D304EC7B29DCA75D005486C6 /* PlantStruct.swift in Sources */,
 				D36F9E0E29E5E48F0085C0B2 /* MyPlants.swift in Sources */,
 				34C9207629F6C597009ABB0B /* ContentView.swift in Sources */,
@@ -332,13 +349,16 @@
 				D35DE8D529E5F1CF00E204E1 /* PerenualApiData.swift in Sources */,
 				D304EC7129DCA271005486C6 /* DatabaseChange.swift in Sources */,
 				34C9207329F5C7F4009ABB0B /* Photo.swift in Sources */,
+				34C9208629F6E2CC009ABB0B /* PlantCareItem.swift in Sources */,
 				D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */,
 				D3288F6729CCDDE600ED7EFB /* GreenThumb.xcdatamodeld in Sources */,
 				D36F9E1029E5E4980085C0B2 /* PlantCareList.swift in Sources */,
 				D304EC8029DCA90B005486C6 /* Home.swift in Sources */,
 				34C9207C29F6C932009ABB0B /* UserAuthentication.swift in Sources */,
+				34C9208829F6E46A009ABB0B /* PlantAPIStruct.swift in Sources */,
 				D304EC7829DCA6DC005486C6 /* PlantsData.swift in Sources */,
 				D36F9E2029E5E6FD0085C0B2 /* ExploreApiResultDetails.swift in Sources */,
+				34C9208429F6E2B5009ABB0B /* StarredPlantCareDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenThumb/Preview Content\"";
-				DEVELOPMENT_TEAM = 53H489DJ2F;
+				DEVELOPMENT_TEAM = L27W559GC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenThumb/Info.plist;
@@ -499,7 +519,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenThumb/Preview Content\"";
-				DEVELOPMENT_TEAM = 53H489DJ2F;
+				DEVELOPMENT_TEAM = L27W559GC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenThumb/Info.plist;
