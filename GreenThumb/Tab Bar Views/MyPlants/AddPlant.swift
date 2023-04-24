@@ -25,6 +25,7 @@ struct AddPlant: View {
     // Plant Attributes
     //-----------------
     @State private var customName = ""
+    @State private var commonName = ""
     @State private var watering = ""
     @State private var sunlight = ""
     @State private var location = ""
@@ -86,8 +87,13 @@ struct AddPlant: View {
         )
         Form {
             Group {
-                Section(header: Text("Plant Name")) {
+                Section(header: Text("Plant Nickname")) {
                     TextField("Plant Custom Name", text: $customName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                }
+                Section(header: Text("Plant Name")) {
+                    TextField("Plant Common Name", text: $commonName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                 }
@@ -271,7 +277,8 @@ struct AddPlant: View {
         }
         
         // 2️⃣ Dress it up by specifying its attributes
-        plantEntity.common_name = customName
+        plantEntity.nickname = customName
+        plantEntity.common_name = commonName
         plantEntity.sunlight = [sunlight]
         plantEntity.watering = watering
         plantEntity.id = (allPlants.count + 1) as NSNumber
