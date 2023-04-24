@@ -1,5 +1,5 @@
 //
-//  AddPlant.swift
+//  EditPlant.swift
 //  GreenThumb
 //
 //  Created by Brian Wood on 4/23/23.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AddPlant: View {
+struct EditPlant: View {
     // Enable this view to be dismissed to go back to the previous view
     @Environment(\.dismiss) private var dismiss
     
@@ -17,6 +17,9 @@ struct AddPlant: View {
     
     // ❎ Core Data FetchRequest returning all Video entities from the database
     @FetchRequest(fetchRequest: Plant.allPlantsFetchRequest()) var allPlants: FetchedResults<Plant>
+    
+    // ❎ CoreData plant entity to edit
+    var plant: Plant
     
     @State private var plantLocationList: [String] = [""]
     @State private var selectedLocationIndex = 0
@@ -30,6 +33,23 @@ struct AddPlant: View {
     @State private var sunlight = ""
     @State private var location = ""
     @State private var lastWatered = Date()
+    @State private var primaryImage = UIImage(named: "ImageUnavailable")
+    
+    init(plant: Plant) {
+        self.plant = plant
+        _customName = State(initialValue: plant.nickname ?? "")
+        _commonName = State(initialValue: plant.common_name ?? "")
+        _watering = State(initialValue: plant.watering ?? "")
+        _sunlight = State(initialValue: plant.sunlight?.joined(separator: ",") ?? "")
+        _location = State(initialValue: plant.location ?? "")
+        _lastWatered = State(initialValue: plant.lastWateringDate ?? Date())
+        
+        if let binaryData = plant.primaryImage {
+            primaryImage = UIImage(data: binaryData)
+            pickedImage = Image(uiImage: primaryImage!)
+        }
+    }
+
    
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -194,19 +214,19 @@ struct AddPlant: View {
         .onAppear {
             plantLocationList = generateLocationsList()
         }
-        .navigationBarTitle(Text("Add New Plant"), displayMode: .inline)
+        .navigationBarTitle(Text("Edit Plant"), displayMode: .inline)
         .navigationBarItems(trailing:
             Button(action: {
                 if inputDataValidated() {
-                    saveNewPlant()
+                    updatePlant(plantEntity: plant)
                     
                     showAlertMessage = true
-                    alertTitle = "New Plant Added!"
-                    alertMessage = "New plant is successfully added to your plants list."
+                    alertTitle = "Plant updated!"
+                    alertMessage = "Plant information has been successfully updated."
                 } else {
                     showAlertMessage = true
                     alertTitle = "Missing Input Data!"
-                    alertMessage = "All fields must be filled in to add new plant."
+                    alertMessage = "All fields must be filled in to edit plant."
                 }
             }) {
                 Text("Save")
@@ -283,66 +303,57 @@ struct AddPlant: View {
     }
     
     /*
-    -----------------------------
-    MARK: Save New Plant
-    -----------------------------
-    */
-    func saveNewPlant() {
-        //---------------------------------------------------------------
-        // Create a new instance of the Plant struct
-        //---------------------------------------------------------------
-        // 1️⃣ Create an instance of the Video entity in managedObjectContext
-        let plantEntity = Plant(context: managedObjectContext)
-        
-        
-        //--------------------------------------------------
-        // Store Taken or Picked photo to Document Directory
-        //--------------------------------------------------
-        if photoAdded {
-            // Convert pickedUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
-            if let photoData = pickedUIImage?.jpegData(compressionQuality: 1.0) {
-                
-                // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-                plantEntity.primaryImage = photoData
-                
-            } else {
-                // Obtain image 'ImageUnavailable' from Assets.xcassets as UIImage
-                let photoUIImage = UIImage(named: "ImageUnavailable")
-                
-                // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
-                let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
-                
-                // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-                plantEntity.primaryImage = photoData!
+        -----------------------------
+        MARK: Update Plant
+        -----------------------------
+        */
+        func updatePlant(plantEntity: Plant) {
+            //--------------------------------------------------
+            // Store Taken or Picked photo to Document Directory
+            //--------------------------------------------------
+            if photoAdded {
+                // Convert pickedUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
+                if let photoData = pickedUIImage?.jpegData(compressionQuality: 1.0) {
+                    
+                    // Assign photoData to Core Data entity attribute of type Data (Binary Data)
+                    plantEntity.primaryImage = photoData
+                    
+                } else {
+                    // Obtain image 'ImageUnavailable' from Assets.xcassets as UIImage
+                    let photoUIImage = UIImage(named: "ImageUnavailable")
+                    
+                    // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
+                    let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
+                    
+                    // Assign photoData to Core Data entity attribute of type Data (Binary Data)
+                    plantEntity.primaryImage = photoData!
+                }
             }
-        }
-        
-        // 2️⃣ Dress it up by specifying its attributes
-        plantEntity.nickname = customName
-        plantEntity.common_name = commonName
-        plantEntity.sunlight = [sunlight]
-        plantEntity.watering = String(totalDays())
-        plantEntity.id = (allPlants.count + 1) as NSNumber
-        plantEntity.lastWateringDate = lastWatered
-        
-        if plantLocationList[selectedLocationIndex] == "Add New Location" { // If new location is added use loc field as value
-            plantEntity.location = location
-        } else { // Otherwise use value from plant location list
-            plantEntity.location = plantLocationList[selectedLocationIndex]
-        }
-        
-        // 3️⃣ It has no relationship to another Entity
-        PersistenceController.shared.saveContext()
-    
-        
-        // Initialize @State variables
-        showImagePicker = false
-        pickedUIImage = nil
-    }   // End of function
+            
+            // Update its attributes
+            plantEntity.nickname = customName
+            plantEntity.common_name = commonName
+            plantEntity.sunlight = [sunlight]
+            plantEntity.watering = String(totalDays())
+            plantEntity.lastWateringDate = lastWatered
+            
+            if plantLocationList[selectedLocationIndex] == "Add New Location" { // If new location is added use loc field as value
+                plantEntity.location = location
+            } else { // Otherwise use value from plant location list
+                plantEntity.location = plantLocationList[selectedLocationIndex]
+            }
+            
+            // Save the updated entity
+            PersistenceController.shared.saveContext()
+            
+            // Initialize @State variables
+            showImagePicker = false
+            pickedUIImage = nil
+        }   // End of function
 }
 
-struct AddPlant_Previews: PreviewProvider {
-    static var previews: some View {
-        AddPlant()
-    }
-}
+//struct EditPlant_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditPlant()
+//    }
+//}

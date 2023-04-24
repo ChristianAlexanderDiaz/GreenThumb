@@ -37,6 +37,12 @@ extension Plant {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         return fetchRequest
     }
+    static func firstPlantFetchRequest() -> NSFetchRequest<Plant> {
+        let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.fetchLimit = 1
+        return fetchRequest
+    }
     static func wateringNeedsFetchRequest() -> NSFetchRequest<Plant> {
         let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
 
@@ -67,6 +73,17 @@ extension Plant {
         //check for starred needs
         //boolean check
         fetchRequest.predicate = NSPredicate(format: "starred == YES")
+
+        return fetchRequest
+    }
+    static func plantsInGivenLocFetchRequest(location: String) -> NSFetchRequest<Plant> {
+        let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+
+        //check that location matches
+        if location != "All"{
+            fetchRequest.predicate = NSPredicate(format: "location == %@", location)
+        }
 
         return fetchRequest
     }

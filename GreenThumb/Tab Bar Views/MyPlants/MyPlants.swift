@@ -23,75 +23,82 @@ struct MyPlants: View {
     @State private var showConfirmation = false
         
     @State private var selectedSortIndex = 0
-    var sortTypes = ["Bedroom", "Living Room", "Outside", "All"]
+    @State private var plantLocationList: [String] = [""]
         
     var body: some View {
-            NavigationView {
-                VStack{
-                    Picker("", selection: $selectedSortIndex) {
-                        ForEach(0 ..< sortTypes.count, id: \.self) { index in
-                            Text(sortTypes[index])
+        NavigationView {
+            VStack{
+                Picker("", selection: $selectedSortIndex) {
+                    ForEach(0 ..< plantLocationList.count, id: \.self) { index in
+                        Text(plantLocationList[index])
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
+                
+                List {
+                    ForEach(getPlantsForLocation(plantLocationList[selectedSortIndex])) { aPlant in
+                        NavigationLink(destination: PlantDetails(plant: aPlant)) {
+                            PlantItem(plant: aPlant)
+                        }
+                        .alert(isPresented: $showConfirmation) {
+                            Alert(title: Text("Delete Confirmation"),
+                                  message: Text("Are you sure to permanently delete this plant? It cannot be undone."),
+                                  primaryButton: .destructive(Text("Delete")) {
+                                    if let index = toBeDeleted?.first {
+                                        let plantToDelete = allPlants[index]
+                                        // ❎ Delete Selected Plant entity from the database
+                                        managedObjectContext.delete(plantToDelete)
+
+                                        // ❎ Save Changes to Core Data Database
+                                        do {
+                                            try managedObjectContext.save()
+                                        } catch {
+                                            print("Error saving managed object context: \(error)")
+                                        }
+                                                                
+                                        // Toggle database change indicator so that its subscribers can refresh their views
+                                        databaseChange.indicator.toggle()
+                                    }
+                                    toBeDeleted = nil
+                                }, secondaryButton: .cancel() {
+                                    toBeDeleted = nil
+                                }
+                            )
                         }
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal)
-                    
-                    List {
-                        if selectedSortIndex == 0 {
-                            ForEach(allPlants) { aPlant in
-                                NavigationLink(destination: PlantDetails(plant: aPlant)) {
-                                    PlantItem(plant: aPlant)
-                                        .alert(isPresented: $showConfirmation) {
-                                            Alert(title: Text("Delete Confirmation"),
-                                                  message: Text("Are you sure to permanently delete this plant? It cannot be undone."),
-                                                  primaryButton: .destructive(Text("Delete")) {
-                                                if let index = toBeDeleted?.first {
-                                                    let plantToDelete = allPlants[index]
-                                                    // ❎ Delete Selected Plant entity from the database
-                                                    managedObjectContext.delete(plantToDelete)
-
-                                                    // ❎ Save Changes to Core Data Database
-                                                    PersistenceController.shared.saveContext()
-                                                    
-                                                    // Toggle database change indicator so that its subscribers can refresh their views
-                                                    databaseChange.indicator.toggle()
-                                                }
-                                                toBeDeleted = nil
-                                            }, secondaryButton: .cancel() {
-                                                toBeDeleted = nil
-                                            }
-                                        )
-                                    }   // End of alert
-                                }
-                            }
-                            .onDelete(perform: delete)
-                            .onMove(perform: move)
-                        }
-                        
-                    }   // End of List
-                    .navigationBarTitle(Text("My Plants"), displayMode: .inline)
-                    // Place the Edit button on left and Add (+) button on right of the navigation bar
-                    .navigationBarItems(leading: EditButton(), trailing:
-                                            NavigationLink(destination: AddPlant()) {
-                        Image(systemName: "plus")
+                    .onDelete(perform: { indexSet in
+                        toBeDeleted = indexSet
+                        showConfirmation = true
                     })
-                    
+                    .onMove(perform: move)
+                }   // End of List
+                .onAppear {
+                    plantLocationList = generateLocationsList()
                 }
-            }   // End of NavigationView
-                .customNavigationViewStyle()  // Given in NavigationStyle.swift
-        }
+                .navigationBarTitle(Text("My Plants"), displayMode: .inline)
+                // Place the Edit button on left and Add (+) button on right of the navigation bar
+                .navigationBarItems(leading: EditButton(), trailing:
+                                        NavigationLink(destination: AddPlant()) {
+                    Image(systemName: "plus")
+                })
+                
+            }
+        }   // End of NavigationView
+            .customNavigationViewStyle()  // Given in NavigationStyle.swift
+    }
+    
+    /*
+     ---------------------------
+     MARK: Delete Selected Plant
+     ---------------------------
+     */
+    func delete(at offsets: IndexSet) {
         
-        /*
-         ---------------------------
-         MARK: Delete Selected Plant
-         ---------------------------
-         */
-        func delete(at offsets: IndexSet) {
-            
-            toBeDeleted = offsets
-            showConfirmation = true
+        toBeDeleted = offsets
+        showConfirmation = true
 
-        }
+    }
         
         /*
          -------------------------
@@ -108,7 +115,50 @@ struct MyPlants: View {
             // Set global flag defined in otesData
 //            plantDataChanged = true
         }
+    
+    /*
+     ---------------------------
+     MARK: Generate plant location list
+     ---------------------------
+     */
+    func generateLocationsList() -> [String]{
+        var locs = ["All"]
+        
+        for aPlant in allPlants {
+            let plantLoc = aPlant.location ?? ""
+            
+            if plantLoc != "" { // If plant has a location
+                var newLoc = true // Start flagged as new location until duplicate found
+                for loc in locs { // Search all saved locations to find duplicate
+                    if loc == plantLoc {
+                        newLoc = false // If plant location is duplicate than dont add
+                    }
+                }
+                
+                if newLoc && plantLoc != "" {
+                    locs.append(plantLoc)
+                }
+            }
+        }
+        
+        return locs
     }
+    
+    /*
+     ---------------------------
+     MARK: Get plants for location
+     ---------------------------
+     */
+    func getPlantsForLocation(_ location: String) -> [Plant] {
+        let fetchRequest = Plant.plantsInGivenLocFetchRequest(location: location)
+        do {
+            return try managedObjectContext.fetch(fetchRequest)
+        } catch {
+            print(error)
+            return []
+        }
+    }
+}
 struct MyPlants_Previews: PreviewProvider {
     static var previews: some View {
         MyPlants()

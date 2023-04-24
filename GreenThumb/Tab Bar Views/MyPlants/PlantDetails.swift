@@ -30,11 +30,19 @@ struct PlantDetails: View {
                 
                 // Plant Image
                 Section(header: Text("Plant Image")) {
-                    getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 80.0)
+                    if let primaryImage = plant.primaryImage {
+                        getImageFromBinaryData(binaryData: primaryImage, defaultFilename: "ImageUnavailable")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80.0)
+                    } else {
+                        Image("ImageUnavailable")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80.0)
+                    }
                 }
+
                 
                 Section(header: Text("Plant Location")) {
                     Text(plant.location ?? "Unspecified")
@@ -42,6 +50,9 @@ struct PlantDetails: View {
                 
                 Section(header: Text("Sunlight Requirements")) {
                     Text(plant.sunlight?.joined(separator: ", ") ?? "")
+                }
+                Section(header: Text("Watering Requirements")) {
+                    Text(plant.watering ?? "Unspecified")
                 }
                 
                 Section(header: Text("Last Watered")) {
@@ -51,6 +62,11 @@ struct PlantDetails: View {
 
         }   // End of Form
         .navigationBarTitle(Text("Plant Details"), displayMode: .inline)
+        .navigationBarItems(trailing: NavigationLink(destination: EditPlant(plant: plant)) {
+                    Text("Edit")
+                        .font(.system(size: 14))
+                        .foregroundColor(.blue)
+                }.buttonStyle(PlainButtonStyle()))
         .font(.system(size: 14))
         .alert(alertTitle, isPresented: $showAlertMessage, actions: {
               Button("OK") {}
@@ -75,6 +91,17 @@ struct PlantDetails: View {
 
 //struct PlantDetails_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PlantDetails()
+//        Group {
+//            let context = PersistenceController.shared.persistentContainer.viewContext
+//            let plant = try! context.fetch(Plant.allPlantsFetchRequest()).first!
+//            PlantDetails(plant: plant)
+//        }
 //    }
 //}
+
+
+
+
+
+
+
