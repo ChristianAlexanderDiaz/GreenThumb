@@ -1,21 +1,24 @@
-[
-  {
-    "id": 1,
-    "common_name": "European Silver Fir",
-    "scientific_name": [
-      "Abies alba"
-    ],
-    "other_name": [
-      "Common Silver Fir"
-    ],
-    "cycle": "Perennial",
-    "watering": "Frequent",
-    "sunlight": [
-      "full sun",
-      "part shade"
-    ],
-    "default_image": {
-      "thumbnail": "https://perenual.com/storage/species_image/1_abies_alba/thumbnail/1536px-Abies_alba_SkalitC3A9.jpg"
-    }
-  }
-]
+ {
+   "data": [
+     {
+       "id": 1,
+       "common_name": "European Silver Fir",
+       "scientific_name": [
+         "Abies alba"
+       ],
+       "other_name": [
+         "Common Silver Fir"
+       ],
+       "cycle": "Perennial",
+       "watering": "Frequent",
+       "sunlight": [
+         "full sun",
+         "part shade"
+       ],
+       "default_image": {
+         "thumbnail": "https://perenual.com/storage/species_image/1_abies_alba/thumbnail/1536px-Abies_alba_SkalitC3A9.jpg"
+       }
+     }
+   ]
+ }
+
