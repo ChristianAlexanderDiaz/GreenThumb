@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/4/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         TabView {
             Home()
@@ -20,7 +20,7 @@ struct ContentView: View {
                     Image(systemName: "leaf.fill")
                     Text("My Plants")
                 }
-            PlantCare()
+            PlantCareList()
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle")
                     Text("Plant Care")
@@ -42,9 +42,9 @@ struct ContentView: View {
     } //end of var body: some View
 } //end of struct
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
 

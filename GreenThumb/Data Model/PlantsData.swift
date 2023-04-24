@@ -43,6 +43,7 @@ public func createPlantsDatabase() {
         // 2️⃣ Dress it up by specifying its attributes
         plantEntity.id = aPlant.id as NSNumber
         plantEntity.common_name = aPlant.common_name
+        plantEntity.starred = false
         
         // 3️⃣ It has no relationship to another Entity
         PersistenceController.shared.saveContext()
