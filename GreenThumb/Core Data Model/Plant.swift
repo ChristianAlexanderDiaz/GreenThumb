@@ -20,6 +20,7 @@ public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var watering: String?
     @NSManaged public var sunlight: [String]?
     @NSManaged public var thumbnail: String?
+    @NSManaged public var diseaseNotes: String?
     @NSManaged public var starred: Bool
     @NSManaged public var lastWateringDate: Date?
     @NSManaged public var nextWateringDate: Date?
@@ -54,7 +55,7 @@ extension Plant {
         
         //check for diseased needs
         //either a boolean or check if there is an entry in a disease notes section
-        //fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", searchQuery)
+        fetchRequest.predicate = NSPredicate(format: "diseaseNotes != %@", "")
         
         return fetchRequest
     }
