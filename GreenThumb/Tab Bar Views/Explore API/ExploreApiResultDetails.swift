@@ -40,13 +40,7 @@ struct ExploreApiResultDetails: View {
             }
 
             Section(header: Text("Thumbnail")) {
-                if let url = URL(string: plant.thumbnail), let imageData = try? Data(contentsOf: url), let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    Text("Image not available")
-                }
+                Text(plant.thumbnail)
             }
 
             Section(header: Text("Scientific Names")) {

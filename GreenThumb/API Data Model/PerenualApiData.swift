@@ -21,8 +21,7 @@ let perenualApiHeaders = [
 public func getFoundPlantsFromApi(query: String) {
     foundPlantsList = [PlantStruct]()
     
-    let apiUrlStringQuery = "https://perenual.com/api/species-list?key=sk-LAYB6435bb62d3145488&q=\(query)"
-    
+    let apiUrlStringQuery = "https://perenual.com/api/species-list?key=\(perenualApiKey)&q=\(query)"
     
     var jsonDataFromApi: Data
     
