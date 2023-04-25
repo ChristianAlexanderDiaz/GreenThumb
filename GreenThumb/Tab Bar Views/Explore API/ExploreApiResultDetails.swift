@@ -23,43 +23,57 @@ struct ExploreApiResultDetails: View {
 
     var body: some View {
         Form {
-            Section(header: Text("ID")) {
-                Text("\(plant.id)")
-            }
-
-            Section(header: Text("Common Name")) {
-                Text(plant.common_name)
-            }
-
-            Section(header: Text("Cycle")) {
-                Text(plant.cycle)
-            }
-
-            Section(header: Text("Watering")) {
-                Text(plant.watering)
-            }
-
-            Section(header: Text("Thumbnail")) {
-                Text(plant.thumbnail)
-            }
-
-            Section(header: Text("Scientific Names")) {
-                ForEach(plant.scientific_name, id: \.self) { name in
-                    Text(name)
+            Group {
+                Section(header: Text("Plant Name")) {
+                    Text(plant.common_name)
                 }
+                Section(header: Text("Plant Image")) {
+                    getImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80.0)
+                }
+                Section(header: Text("Sunlight Requirements")) {
+                    Text((plant.sunlight.joined(separator: ", ")))
+                }
+                Section(header: Text("Cycle")) {
+                    Text(plant.cycle)
+                }
+                Section(header: Text("Watering")) {
+                    Text(plant.watering)
+                }
+            }
+            Section(header: Text("Scientific Names")) {
+                Text((plant.scientific_name.joined(separator: ", ")))
             }
 
             Section(header: Text("Other Names")) {
-                ForEach(plant.other_name, id: \.self) { name in
-                    Text(name)
+                Text((plant.other_name.joined(separator: ", ")))
+            }
+            
+            if !plant.attracts.isEmpty {
+                Section(header: Text("Attracts")) {
+                    Text((plant.attracts.joined(separator: ", ")))
                 }
             }
-
-            Section(header: Text("Sunlight Requirements")) {
-                ForEach(plant.sunlight, id: \.self) { sunlight in
-                    Text(sunlight)
-                }
+            
+            Section(header: Text("Type")) {
+                Text(plant.type)
+            }
+            Section(header: Text("Dimension")) {
+                Text(plant.dimension)
+            }
+            
+            Section(header: Text("Indoor")) {
+                Text(String(plant.indoor))
             }
         }
+        .navigationBarTitle(Text("Plant API Details"), displayMode: .inline)
+        .font(.system(size: 14))
+        .alert(alertTitle, isPresented: $showAlertMessage, actions: {
+              Button("OK") {}
+            }, message: {
+              Text(alertMessage)
+            })
     }
 }

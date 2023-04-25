@@ -11,6 +11,7 @@ import SwiftUI
 struct ExploreApi: View {
     @State private var searchValue = ""
     @State private var searchCompleted = false
+    @State private var isLoading = false
     
     //---------------
     // Alert Messages
@@ -57,6 +58,11 @@ struct ExploreApi: View {
                         Spacer()
                     } //end of HStack
                 } //end of Section 2
+                if isLoading {
+                Section(header: Text("Loading")) {
+                        ProgressView()
+                    }
+                }
                 if searchCompleted {
                     Section(header: Text("Plants Found")) {
                         NavigationLink(destination: showSearchResults) {
@@ -81,13 +87,13 @@ struct ExploreApi: View {
      -------------------------
      */
     var showSearchResults: some View {
-        if foundPlantsList.isEmpty {
+        if foundPlantDetails.isEmpty {
             return AnyView(
                 NotFound(message: "The Perenual API did not return any plant for the query entered.")
             )
         }
 
-        return AnyView(ExploreApiResultsList(exploreApiResultPlants: foundPlantsList))
+        return AnyView(ExploreApiResultsList(exploreApiResultPlants: foundPlantDetails))
     }
     
     /*
@@ -101,7 +107,6 @@ struct ExploreApi: View {
         // Each space in the query should be converted to +
         let termWithNoSpace = termCleaned.replacingOccurrences(of: " ", with: "+")
 
-        // This public function is given in PerenualApiData.swift
         getFoundPlantsFromApi(query: termWithNoSpace)
     }
     
