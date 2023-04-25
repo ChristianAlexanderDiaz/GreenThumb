@@ -30,6 +30,9 @@
 		D36F9E2029E5E6FD0085C0B2 /* ExploreApiResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */; };
 		D36F9E2229E5E7040085C0B2 /* ExploreApiResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */; };
 		D36F9E2629E5E7180085C0B2 /* ExploreApiResultsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */; };
+		D3C3CAB329F72C96002083AE /* PlantAPISearchResultStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3CAB229F72C96002083AE /* PlantAPISearchResultStruct.swift */; };
+		D3C3CAB529F74039002083AE /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3CAB429F74039002083AE /* AppInformation.swift */; };
+		D3C3CAB729F74437002083AE /* PlantDiseases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3CAB629F74437002083AE /* PlantDiseases.swift */; };
 		FF0177D029F70A78001C6C0A /* WateringPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CB29F70A78001C6C0A /* WateringPlantCareDetails.swift */; };
 		FF0177D129F70A78001C6C0A /* PlantCareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CC29F70A78001C6C0A /* PlantCareList.swift */; };
 		FF0177D229F70A78001C6C0A /* StarredPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CD29F70A78001C6C0A /* StarredPlantCareDetails.swift */; };
@@ -76,6 +79,9 @@
 		D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApiResultDetails.swift; sourceTree = "<group>"; };
 		D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApiResultItem.swift; sourceTree = "<group>"; };
 		D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApiResultsList.swift; sourceTree = "<group>"; };
+		D3C3CAB229F72C96002083AE /* PlantAPISearchResultStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantAPISearchResultStruct.swift; sourceTree = "<group>"; };
+		D3C3CAB429F74039002083AE /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
+		D3C3CAB629F74437002083AE /* PlantDiseases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDiseases.swift; sourceTree = "<group>"; };
 		FF0177CB29F70A78001C6C0A /* WateringPlantCareDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WateringPlantCareDetails.swift; sourceTree = "<group>"; };
 		FF0177CC29F70A78001C6C0A /* PlantCareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantCareList.swift; sourceTree = "<group>"; };
 		FF0177CD29F70A78001C6C0A /* StarredPlantCareDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarredPlantCareDetails.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 				D35DE8D429E5F1CF00E204E1 /* PerenualApiData.swift */,
 				D35DE8D629E5F1E100E204E1 /* GetJsonDataFromApi.swift */,
 				FF0177D529F70A88001C6C0A /* PlantAPIStruct.swift */,
+				D3C3CAB229F72C96002083AE /* PlantAPISearchResultStruct.swift */,
 			);
 			path = "API Data Model";
 			sourceTree = "<group>";
@@ -251,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				D36F9E1729E5E4C90085C0B2 /* More.swift */,
+				D3C3CAB629F74437002083AE /* PlantDiseases.swift */,
+				D3C3CAB429F74039002083AE /* AppInformation.swift */,
 				D36F9E1929E5E4CE0085C0B2 /* Settings.swift */,
 			);
 			path = More;
@@ -347,8 +356,10 @@
 				D304EC7E29DCA7B6005486C6 /* UtilityFunctions.swift in Sources */,
 				D35DE8D729E5F1E100E204E1 /* GetJsonDataFromApi.swift in Sources */,
 				D36F9E1A29E5E4CE0085C0B2 /* Settings.swift in Sources */,
+				D3C3CAB529F74039002083AE /* AppInformation.swift in Sources */,
 				D36F9E2229E5E7040085C0B2 /* ExploreApiResultItem.swift in Sources */,
 				D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */,
+				D3C3CAB729F74437002083AE /* PlantDiseases.swift in Sources */,
 				FF0177DE29F70A94001C6C0A /* MainView.swift in Sources */,
 				D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */,
 				D35DE8D929E60D7300E204E1 /* NotFound.swift in Sources */,
@@ -361,6 +372,7 @@
 				FF0177D029F70A78001C6C0A /* WateringPlantCareDetails.swift in Sources */,
 				FF0177D629F70A88001C6C0A /* PlantAPIStruct.swift in Sources */,
 				D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */,
+				D3C3CAB329F72C96002083AE /* PlantAPISearchResultStruct.swift in Sources */,
 				D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */,
 				D35DE8D529E5F1CF00E204E1 /* PerenualApiData.swift in Sources */,
 				FF0177D429F70A78001C6C0A /* DiseasedPlantCareDetails.swift in Sources */,

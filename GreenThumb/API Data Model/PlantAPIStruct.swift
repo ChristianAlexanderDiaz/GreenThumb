@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct PlantAPIStruct: Hashable, Codable, Identifiable {
     var id: Int32
     var common_name: String
@@ -19,4 +17,10 @@ struct PlantAPIStruct: Hashable, Codable, Identifiable {
     var watering: String
     var sunlight: [String]
     var thumbnail: String
+    
+    var attracts: [String]
+    var type: String
+    var dimension: String
+    var indoor: Bool
 }
+

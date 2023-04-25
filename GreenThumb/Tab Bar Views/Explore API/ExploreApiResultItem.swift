@@ -16,8 +16,15 @@ struct ExploreApiResultItem: View {
     
     var body: some View {
         HStack {
-            Text(plant.common_name)
+            getImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 80.0)
         }
+        VStack(alignment: .leading) {
+            Text(plant.common_name)
+            Text(plant.scientific_name[0])
+        }
+        .font(.system(size: 14))
     }
-    
 }
