@@ -27,22 +27,32 @@ struct PlantItem: View {
             
             VStack(alignment: .leading) {
                 if plant.nickname != "" {
-                    Text(plant.nickname ?? "")
+                    HStack {
+                        if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
+                            Image(systemName: "drop.fill")
+                                .foregroundColor(.blue)
+                        }
+                        Text(plant.nickname ?? "")
+                    }
                     Text(plant.common_name ?? "")
                 }
                 else {
-                    Text(plant.common_name ?? "")
+                    HStack {
+                        if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
+                            Image(systemName: "drop.fill")
+                                .foregroundColor(.blue)
+                        }
+                        Text(plant.common_name ?? "")
+                    }
                     if plant.scientific_name != nil {
                         Text(plant.scientific_name?.joined(separator: ", ") ?? "")
                     }
                 }
                 
                 HStack{
-                    if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
-                        Image(systemName: "drop.fill")
-                            .foregroundColor(.blue)
-                    }
-                    Text("Watered: " + wateredDate(date: plant.lastWateringDate!))
+                    Image(systemName: "oilcan.fill")
+                        .foregroundColor(.gray)
+                    Text(wateredDate(date: plant.lastWateringDate!))
                 }
             }
             // Set font and size for the whole VStack content

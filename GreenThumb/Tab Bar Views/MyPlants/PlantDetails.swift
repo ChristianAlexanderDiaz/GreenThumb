@@ -26,6 +26,26 @@ struct PlantDetails: View {
     var body: some View {
         Form {
             Group {
+                // If plant needs watering display warning
+                if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
+                    Section(header: Text("Needs Watering Reminder")) {
+                        HStack {
+                            Spacer()
+                            HStack {
+                                Image(systemName: "exclamationmark.triangle")
+                                    .foregroundColor(.yellow)
+                                Image(systemName: "drop.fill")
+                                    .foregroundColor(.blue)
+                                Text("Watering Needed")
+                                Image(systemName: "drop.fill")
+                                    .foregroundColor(.blue)
+                                Image(systemName: "exclamationmark.triangle")
+                                    .foregroundColor(.yellow)
+                            }
+                            Spacer()
+                        }
+                    }
+                }
                 // Plant Names
                 if plant.nickname != "" {
                     Section(header: Text("Plant Nickname")) {
