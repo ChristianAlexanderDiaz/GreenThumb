@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34C9208A29F70F44009ABB0B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208929F70F44009ABB0B /* Photo.swift */; };
+		34C9208C29F800E6009ABB0B /* PlantCareFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */; };
 		D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6029DCA13D005486C6 /* AppDelegate.swift */; };
 		D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6329DCA172005486C6 /* GreenThumbApp.swift */; };
 		D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6B29DCA1D7005486C6 /* Persistence.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		34C9208929F70F44009ABB0B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareFunctions.swift; sourceTree = "<group>"; };
 		D304EC6029DCA13D005486C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D304EC6329DCA172005486C6 /* GreenThumbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenThumbApp.swift; sourceTree = "<group>"; };
 		D304EC6B29DCA1D7005486C6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D35DE8D829E60D7300E204E1 /* NotFound.swift */,
 				FFBF386029F5B7B200926291 /* NavigationStyle.swift */,
 				FFBF386229F5BE9700926291 /* ImagePicker.swift */,
+				34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -227,9 +230,9 @@
 		D36F9E0A29E5E4020085C0B2 /* PlantCare */ = {
 			isa = PBXGroup;
 			children = (
-				FF0177CF29F70A78001C6C0A /* DiseasedPlantCareDetails.swift */,
-				FF0177CE29F70A78001C6C0A /* PlantCareItem.swift */,
 				FF0177CC29F70A78001C6C0A /* PlantCareList.swift */,
+				FF0177CE29F70A78001C6C0A /* PlantCareItem.swift */,
+				FF0177CF29F70A78001C6C0A /* DiseasedPlantCareDetails.swift */,
 				FF0177CD29F70A78001C6C0A /* StarredPlantCareDetails.swift */,
 				FF0177CB29F70A78001C6C0A /* WateringPlantCareDetails.swift */,
 			);
@@ -355,6 +358,7 @@
 				D36F9E2629E5E7180085C0B2 /* ExploreApiResultsList.swift in Sources */,
 				34C9208A29F70F44009ABB0B /* Photo.swift in Sources */,
 				FF0177E529F70BE7001C6C0A /* GreenThumb.xcdatamodeld in Sources */,
+				34C9208C29F800E6009ABB0B /* PlantCareFunctions.swift in Sources */,
 				D36F9E1429E5E4AA0085C0B2 /* ExploreApi.swift in Sources */,
 				FFBF385929F5B27300926291 /* UserData.swift in Sources */,
 				FF0177DF29F70A94001C6C0A /* ContentView.swift in Sources */,

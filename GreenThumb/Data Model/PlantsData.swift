@@ -46,7 +46,7 @@ public func createPlantsDatabase() {
         plantEntity.id = aPlant.id as NSNumber
         plantEntity.common_name = aPlant.common_name
         plantEntity.starred = true
-        plantEntity.diseaseNotes = ""
+        plantEntity.diseaseNotes = "yup"
         plantEntity.sunlight = aPlant.sunlight
         plantEntity.scientific_name = aPlant.scientific_name
         plantEntity.other_name = aPlant.other_name
