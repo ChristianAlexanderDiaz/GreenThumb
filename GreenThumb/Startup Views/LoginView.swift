@@ -21,8 +21,14 @@ struct LoginView : View {
     // Binding input parameter, we can change this value (read/write ability)
     @Binding var canLogin: Bool
     
-//    // Subscribe to changes in UserData
-//    @EnvironmentObject var userData: UserData
+    // ❎ Core Data managedObjectContext reference
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    // ❎ Core Data FetchRequest returning all Recipe entities from the database
+    //to get images from database recipes
+    @FetchRequest(fetchRequest: Plant.allPlantsFetchRequest()) var allPlants: FetchedResults<Plant>
+    
+    @State private var index = 0
     
     // State variables
     @State private var enteredUsername = ""
@@ -48,27 +54,27 @@ struct LoginView : View {
                         .font(.headline)
                         .padding()
                     
-                    // TODO - timer roatating plant pics
-//                    getImageFromDocumentDirectory(filename: userData.photosList[index].fullFilename.components(separatedBy: ".")[0],
-//                                                  fileExtension: userData.photosList[index].fullFilename.components(separatedBy: ".")[1],
-//                                                  defaultFilename: "ImageUnavailable")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(minWidth: 300, maxWidth: 500, alignment: .center)
-//                        .padding(.horizontal)
+                    getImageFromBinaryData(binaryData: allPlants[index].primaryImage!, defaultFilename: "ImageUnavailable")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minWidth: 300, maxWidth: 500, alignment: .center)
+                        .padding(.horizontal)
+                        .onReceive(timer) { _ in
+                            index += 1
+                            if index > allPlants.count - 1 {
+                                index = 0
+                            }
+                        }
                     
-                        // Subscribe to the timer publisher
-//                        .onReceive(timer) { _ in
-//                            index += 1
-//                            if index > userData.photosList.count - 1 {
-//                                index = 0
-//                            }
-//                        }
-                    
-                    // TODO - rotating plant pic titles
-//                    Text(userData.photosList[index].title)
-//                        .font(.system(size: 14, weight: .light, design: .serif))
-//                        .padding(.bottom)
+                    if allPlants[index].nickname != "" {
+                        Text(allPlants[index].nickname ?? "")
+                            .font(.system(size: 14, weight: .light, design: .serif))
+                            .padding(.bottom)
+                    } else {
+                        Text(allPlants[index].common_name ?? "")
+                            .font(.system(size: 14, weight: .light, design: .serif))
+                            .padding(.bottom)
+                    }
                     
                     TextField("Username", text: $enteredUsername)
                         .textFieldStyle(RoundedBorderTextFieldStyle()) //style chosen for this textbox
@@ -157,24 +163,24 @@ struct LoginView : View {
                                 .padding()
                         }
                     }
-                }   // End of VStack
-                
-                Text("Powered By")
-                    .font(.system(size: 18, weight: .light, design: .serif))
-                    .italic()
-                    .padding()
-                
-                // Show iTunes Search API website in default web browser
-                Link(destination: URL(string: "https://perenual.com/docs/api")!) {
-                    HStack {
-                        Image("PrenualApiLogo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30)
-                        Text("Pernual Plant API")
+                    
+                    Text("Powered By")
+                        .font(.system(size: 18, weight: .light, design: .serif))
+                        .italic()
+                        .padding()
+                    
+                    // Show iTunes Search API website in default web browser
+                    Link(destination: URL(string: "https://perenual.com/docs/api")!) {
+                        HStack {
+                            Image("PrenualApiLogo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30)
+                            Text("Pernual Plant API")
+                        }
                     }
-                }
-                .padding(.bottom, 50)
+                    .padding(.bottom, 50)
+                }   // End of VStack
                 
             }   // End of ScrollView
             //similar to other tutorials to start/stop the timer controlling the slideshow
