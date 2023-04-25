@@ -14,6 +14,8 @@ struct EditPlant: View {
     
     // ❎ Core Data managedObjectContext reference
     @Environment(\.managedObjectContext) var managedObjectContext
+    // Subscribe to changes in Core Data database
+    @EnvironmentObject var databaseChange: DatabaseChange
     
     // ❎ Core Data FetchRequest returning all Video entities from the database
     @FetchRequest(fetchRequest: Plant.allPlantsFetchRequest()) var allPlants: FetchedResults<Plant>
@@ -33,20 +35,14 @@ struct EditPlant: View {
     @State private var sunlight = ""
     @State private var location = ""
     @State private var lastWatered = Date()
-    @State private var primaryImage = UIImage(named: "ImageUnavailable")
+    @State private var primaryImage: UIImage?
     
-    init(plant: Plant) {
-        self.plant = plant
-        _customName = State(initialValue: plant.nickname ?? "")
-        _commonName = State(initialValue: plant.common_name ?? "")
-        _watering = State(initialValue: plant.watering ?? "")
-        _sunlight = State(initialValue: plant.sunlight?.joined(separator: ",") ?? "")
-        _location = State(initialValue: plant.location ?? "")
-        _lastWatered = State(initialValue: plant.lastWateringDate ?? Date())
-        
-        if let binaryData = plant.primaryImage {
-            primaryImage = UIImage(data: binaryData)
-            pickedImage = Image(uiImage: primaryImage!)
+    // Computed property to convert `UIImage` to `Image`
+    var plantImage: Image {
+        if let uiImage = primaryImage {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image("ImageUnavailable")
         }
     }
 
@@ -103,6 +99,31 @@ struct EditPlant: View {
     @State private var showAlertMessage = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
+    
+    //---------------
+    // Init Values
+    //---------------
+    init(plant: Plant) {
+        self.plant = plant
+        _customName = State(initialValue: plant.nickname ?? "")
+        _commonName = State(initialValue: plant.common_name ?? "")
+        _watering = State(initialValue: plant.watering ?? "")
+        _sunlight = State(initialValue: plant.sunlight?.joined(separator: ",") ?? "")
+        _location = State(initialValue: plant.location ?? "")
+        _lastWatered = State(initialValue: plant.lastWateringDate ?? Date())
+        
+        if let binaryData = plant.primaryImage {
+            _primaryImage = State(initialValue:UIImage(data: binaryData))
+            // Update `pickedImage` with `primaryImage`
+            _pickedImage = State(initialValue:Image(uiImage: primaryImage!))
+        }
+        
+        var (number, timeUnit) = convertDaysToPickerValues(totalDays: plant.watering ?? "1")
+        
+        _selectedNumber = State(initialValue: number)
+        _selectedTimeUnit = State(initialValue: timeUnit)
+        
+    }
     
     
     var body: some View {
@@ -213,6 +234,11 @@ struct EditPlant: View {
         }   // End of Form
         .onAppear {
             plantLocationList = generateLocationsList()
+            
+            // Make picker selected on correct location
+            if plant.location != nil {
+                selectedLocationIndex = plantLocationList.firstIndex(of: plant.location!) ?? 0
+            }
         }
         .navigationBarTitle(Text("Edit Plant"), displayMode: .inline)
         .navigationBarItems(trailing:
@@ -247,7 +273,7 @@ struct EditPlant: View {
         .font(.system(size: 14))
         .alert(alertTitle, isPresented: $showAlertMessage, actions: {
             Button("OK") {
-                if alertTitle == "New Plant Added!" {
+                if alertTitle == "Plant Updated!" {
                     // Dismiss this view and go back to the previous view
                     dismiss()
                 }
@@ -285,9 +311,54 @@ struct EditPlant: View {
         return locs
     }
     
+    // Calculate total number of days for watering
     func totalDays() -> Int {
         return selectedNumber * selectedTimeUnit.days
     }
+    
+    // Convert total days back into split number and time unit values to set picker on load
+    func convertDaysToPickerValues(totalDays: String) -> (selectedNumber: Int, selectedTimeUnit: TimeUnit) {
+        guard let totalDaysInt = Int(totalDays) else {
+            return (selectedNumber: 1, selectedTimeUnit: .day)
+        }
+        
+        var number = 1
+        var unit = TimeUnit.day
+        
+        if totalDaysInt >= TimeUnit.month.days {
+            number = totalDaysInt / TimeUnit.month.days
+            unit = .month
+        } else if totalDaysInt >= TimeUnit.week.days {
+            if totalDaysInt % TimeUnit.week.days == 0 {
+                number = totalDaysInt / TimeUnit.week.days
+                unit = .week
+            } else {
+                number = totalDaysInt
+                unit = .day
+            }
+        } else {
+            number = totalDaysInt
+            unit = .day
+        }
+        
+        // Adjust the number of days to account for months and weeks
+        let daysInUnit = unit.days
+        let remainderDays = totalDaysInt % daysInUnit
+        if remainderDays == 0 {
+            number = totalDaysInt / daysInUnit
+        } else if remainderDays <= TimeUnit.week.days {
+            number = (totalDaysInt / daysInUnit) * daysInUnit / TimeUnit.week.days
+            unit = .week
+        } else {
+            number = (totalDaysInt / daysInUnit) * daysInUnit / TimeUnit.month.days
+            unit = .month
+        }
+        
+        return (selectedNumber: number, selectedTimeUnit: unit)
+    }
+
+
+
     
     /*
      ---------------------------
@@ -303,53 +374,56 @@ struct EditPlant: View {
     }
     
     /*
-        -----------------------------
-        MARK: Update Plant
-        -----------------------------
-        */
-        func updatePlant(plantEntity: Plant) {
-            //--------------------------------------------------
-            // Store Taken or Picked photo to Document Directory
-            //--------------------------------------------------
-            if photoAdded {
-                // Convert pickedUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
-                if let photoData = pickedUIImage?.jpegData(compressionQuality: 1.0) {
-                    
-                    // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-                    plantEntity.primaryImage = photoData
-                    
-                } else {
-                    // Obtain image 'ImageUnavailable' from Assets.xcassets as UIImage
-                    let photoUIImage = UIImage(named: "ImageUnavailable")
-                    
-                    // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
-                    let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
-                    
-                    // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-                    plantEntity.primaryImage = photoData!
-                }
-            }
-            
-            // Update its attributes
-            plantEntity.nickname = customName
-            plantEntity.common_name = commonName
-            plantEntity.sunlight = [sunlight]
-            plantEntity.watering = String(totalDays())
-            plantEntity.lastWateringDate = lastWatered
-            
-            if plantLocationList[selectedLocationIndex] == "Add New Location" { // If new location is added use loc field as value
-                plantEntity.location = location
-            } else { // Otherwise use value from plant location list
-                plantEntity.location = plantLocationList[selectedLocationIndex]
-            }
-            
-            // Save the updated entity
-            PersistenceController.shared.saveContext()
-            
-            // Initialize @State variables
-            showImagePicker = false
-            pickedUIImage = nil
-        }   // End of function
+     -----------------------------
+     MARK: Update Plant
+     -----------------------------
+     */
+     func updatePlant(plantEntity: Plant) {
+         //--------------------------------------------------
+         // Store Taken or Picked photo to Document Directory
+         //--------------------------------------------------
+         if photoAdded {
+             // Convert pickedUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
+             if let photoData = pickedUIImage?.jpegData(compressionQuality: 1.0) {
+                 
+                 // Assign photoData to Core Data entity attribute of type Data (Binary Data)
+                 plantEntity.primaryImage = photoData
+                 
+             } else {
+                 // Obtain image 'ImageUnavailable' from Assets.xcassets as UIImage
+                 let photoUIImage = UIImage(named: "ImageUnavailable")
+                 
+                 // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
+                 let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
+                 
+                 // Assign photoData to Core Data entity attribute of type Data (Binary Data)
+                 plantEntity.primaryImage = photoData!
+             }
+         }
+         
+         // Update its attributes
+         plantEntity.nickname = customName
+         plantEntity.common_name = commonName
+         plantEntity.sunlight = [sunlight]
+         plantEntity.watering = String(totalDays())
+         plantEntity.lastWateringDate = lastWatered
+         
+         if plantLocationList[selectedLocationIndex] == "Add New Location" { // If new location is added use loc field as value
+             plantEntity.location = location
+         } else { // Otherwise use value from plant location list
+             plantEntity.location = plantLocationList[selectedLocationIndex]
+         }
+         
+         // Save the updated entity
+         PersistenceController.shared.saveContext()
+         
+         // Initialize @State variables
+         showImagePicker = false
+         pickedUIImage = nil
+         
+         // Toggle database change indicator so that its subscribers can refresh their views
+         databaseChange.indicator.toggle()
+     }   // End of function
 }
 
 //struct EditPlant_Previews: PreviewProvider {

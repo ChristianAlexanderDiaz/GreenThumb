@@ -18,20 +18,7 @@ struct PlantItem: View {
     
     var body: some View {
         HStack {
-//            if plant.thumbnail != "" {
-//                getImageFromUrl(url: "\(plant.thumbnail ?? "")", defaultFilename: "ImageUnavailable")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 80.0)
-//            }
-//            else{
-//                getImageFromDocumentDirectory(filename: plant.user_photo_name ?? "",
-//                                              fileExtension: "jpg",
-//                                              defaultFilename: "ImageUnavailable")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(maxWidth: 100, alignment: .center)
-//            }
+
             getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -39,14 +26,24 @@ struct PlantItem: View {
             
             
             VStack(alignment: .leading) {
-                Text(plant.common_name ?? "")
-
-                Text(plant.scientific_name?[0] ?? "")
+                if plant.nickname != "" {
+                    Text(plant.nickname ?? "")
+                    Text(plant.common_name ?? "")
+                }
+                else {
+                    Text(plant.common_name ?? "")
+                    if plant.scientific_name != nil {
+                        Text(plant.scientific_name?.joined(separator: ", ") ?? "")
+                    }
+                }
                 
-//                Text(plant.sunlight?[0] ?? "")
-//                Text(plant.watering ?? "")
-                
-                Text("Watered: " + wateredDate(date: plant.lastWateringDate!))
+                HStack{
+                    if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
+                        Image(systemName: "drop.fill")
+                            .foregroundColor(.blue)
+                    }
+                    Text("Watered: " + wateredDate(date: plant.lastWateringDate!))
+                }
             }
             // Set font and size for the whole VStack content
             .font(.system(size: 14))
@@ -54,14 +51,35 @@ struct PlantItem: View {
         }   // End of HStack
     }
     
-    func wateredDate(date: Date) -> String {
-        // Instantiate a DateFormatter object
-        let dateFormatter = DateFormatter()
-        // Set the date format to yyyy-MM-dd at HH:mm:ss
-        dateFormatter.dateFormat = "MM/dd/yy"
-        // Format current date and time as above and convert it to String
-        let currentDate = dateFormatter.string(from: date)
+    // Calculate the last watered date and return as string
+    func wateredDate(date: Date?) -> String {
+        guard let date = date else {
+            return "Unknown"
+        }
+
+        let calendar = Calendar.current
+        let now = Date()
         
-        return currentDate
+        if calendar.isDateInYesterday(date) {
+            return "Yesterday"
+        } else if calendar.isDate(date, equalTo: now, toGranularity: .day) {
+            return "Today"
+        } else {
+            let components = calendar.dateComponents([.day], from: date, to: now)
+            let days = components.day ?? 0
+            if days >= 30 {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM/dd"
+                if calendar.component(.year, from: date) < calendar.component(.year, from: now) {
+                    formatter.dateFormat = "MM/dd/yy"
+                }
+                return formatter.string(from: date)
+            } else {
+                return "\(days) Days Ago"
+            }
+        }
     }
+
+
+
 }
