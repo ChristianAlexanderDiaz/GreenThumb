@@ -45,6 +45,7 @@
 		FF0177DF29F70A94001C6C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177DB29F70A94001C6C0A /* ContentView.swift */; };
 		FF0177E529F70BE7001C6C0A /* GreenThumb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF0177E329F70BE7001C6C0A /* GreenThumb.xcdatamodeld */; };
 		FF0177E729F70C0F001C6C0A /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177E629F70C0F001C6C0A /* UserAuthentication.swift */; };
+		FFBB1B1529F72B9A00C260DC /* EditPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBB1B1429F72B9A00C260DC /* EditPlant.swift */; };
 		FFBF385929F5B27300926291 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385829F5B27300926291 /* UserData.swift */; };
 		FFBF385B29F5B37500926291 /* PlantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385A29F5B37500926291 /* PlantItem.swift */; };
 		FFBF385D29F5B37D00926291 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385C29F5B37D00926291 /* PlantDetails.swift */; };
@@ -94,6 +95,7 @@
 		FF0177DB29F70A94001C6C0A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FF0177E429F70BE7001C6C0A /* GreenThumb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreenThumb.xcdatamodel; sourceTree = "<group>"; };
 		FF0177E629F70C0F001C6C0A /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAuthentication.swift; path = "GreenThumb/Supporting Files/UserAuthentication.swift"; sourceTree = SOURCE_ROOT; };
+		FFBB1B1429F72B9A00C260DC /* EditPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlant.swift; sourceTree = "<group>"; };
 		FFBF385829F5B27300926291 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FFBF385A29F5B37500926291 /* PlantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantItem.swift; sourceTree = "<group>"; };
 		FFBF385C29F5B37D00926291 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				FFBF385A29F5B37500926291 /* PlantItem.swift */,
 				FFBF385C29F5B37D00926291 /* PlantDetails.swift */,
 				FFBF385E29F5B38200926291 /* AddPlant.swift */,
+				FFBB1B1429F72B9A00C260DC /* EditPlant.swift */,
 			);
 			path = MyPlants;
 			sourceTree = "<group>";
@@ -372,7 +375,7 @@
 				FF0177D029F70A78001C6C0A /* WateringPlantCareDetails.swift in Sources */,
 				FF0177D629F70A88001C6C0A /* PlantAPIStruct.swift in Sources */,
 				D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */,
-				D3C3CAB329F72C96002083AE /* PlantAPISearchResultStruct.swift in Sources */,
+				FFBB1B1529F72B9A00C260DC /* EditPlant.swift in Sources */,
 				D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */,
 				D35DE8D529E5F1CF00E204E1 /* PerenualApiData.swift in Sources */,
 				FF0177D429F70A78001C6C0A /* DiseasedPlantCareDetails.swift in Sources */,
