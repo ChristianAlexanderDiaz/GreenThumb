@@ -324,6 +324,8 @@ struct AddPlant: View {
         plantEntity.watering = String(totalDays())
         plantEntity.id = (allPlants.count + 1) as NSNumber
         plantEntity.lastWateringDate = lastWatered
+        plantEntity.diseased = false
+        plantEntity.starred = false
         
         if plantLocationList[selectedLocationIndex] == "Add New Location" { // If new location is added use loc field as value
             plantEntity.location = location

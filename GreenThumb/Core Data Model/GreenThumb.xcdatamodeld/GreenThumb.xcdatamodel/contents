@@ -9,6 +9,8 @@
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
         <attribute name="common_name" optional="YES" attributeType="String"/>
         <attribute name="cycle" optional="YES" attributeType="String"/>
+        <attribute name="diseased" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="diseasedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="diseaseNotes" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lastWateringDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -19,6 +21,7 @@
         <attribute name="primaryImage" optional="YES" attributeType="Binary"/>
         <attribute name="scientific_name" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
         <attribute name="starred" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="starredDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="sunlight" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
         <attribute name="watering" optional="YES" attributeType="String"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="plant" inverseEntity="Photo"/>

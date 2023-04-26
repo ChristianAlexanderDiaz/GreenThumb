@@ -21,8 +21,11 @@ public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var sunlight: [String]?
     @NSManaged public var diseaseNotes: String?
     @NSManaged public var starred: Bool
+    @NSManaged public var diseased: Bool
     @NSManaged public var lastWateringDate: Date?
     @NSManaged public var nextWateringDate: Date?
+    @NSManaged public var diseasedDate: Date?
+    @NSManaged public var starredDate: Date?
     @NSManaged public var primaryImage: Data?
     @NSManaged public var location: String?
     @NSManaged public var nickname: String?
