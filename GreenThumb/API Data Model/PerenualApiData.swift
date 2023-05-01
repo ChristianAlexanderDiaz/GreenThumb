@@ -21,7 +21,7 @@ let perenualApiHeaders = [
     "connection": "keep-alive"
 ]
 
-public func getFoundPlantsFromApi(query: String) {
+public func getFoundPlantsFromApi(query: String, maxResults: Int) {
     foundPlantsSearchResultList = [PlantAPISearchResultStruct]()
     foundPlantDetails = [PlantAPIStruct]()
 
@@ -42,8 +42,14 @@ public func getFoundPlantsFromApi(query: String) {
 
         if let jsonObject = jsonResponse as? [String: Any] {
             if let arrayOfPlants = jsonObject["data"] as? [Any] {
+                
+                var resultCount = 0
 
                 for plantObject in arrayOfPlants {
+                    if resultCount >= maxResults {
+                        break
+                    }
+                    
                     var id = 0
                     var common_name = ""
 
@@ -103,6 +109,7 @@ public func getFoundPlantsFromApi(query: String) {
 
                             let newPlant = PlantAPIStruct(id: Int32(id), common_name: common_name, scientific_name: scientific_name, other_name: other_name, cycle: cycle, watering: watering, sunlight: sunlight, thumbnail: thumbnail, attracts: attracts, type: type, dimension: dimension, indoor: indoor)
                             foundPlantDetails.append(newPlant)
+                            resultCount += 1
                         } else { return }
                     } catch { return }
                 }
