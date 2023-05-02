@@ -27,4 +27,5 @@ struct PlantStruct: Decodable {
     var thumbnail: String
     var location: String
     var nickname: String
+    var watering_history: [String]
 }
