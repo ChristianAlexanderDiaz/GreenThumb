@@ -62,6 +62,11 @@ struct PlantDetails: View {
                         Text(plant.scientific_name?.joined(separator: ", ") ?? "")
                     }
                 }
+                if plant.other_name != nil {
+                    Section(header: Text("Plant Other Name")) {
+                        Text(plant.other_name?.joined(separator: ", ") ?? "")
+                    }
+                }
             }
 
                 // Plant Image
@@ -83,14 +88,14 @@ struct PlantDetails: View {
                 Section(header: Text("Plant Location")) {
                     Text(plant.location ?? "Unspecified")
                 }
-
+                
                 Section(header: Text("Sunlight Requirements")) {
                     Text(plant.sunlight?.joined(separator: ", ") ?? "")
                 }
                 Section(header: Text("Watering Requirements")) {
                     Text(convertDaysToString(totalDays: plant.watering!))
                 }
-
+                
                 Section(header: Text("Last Watered")) {
                     if plant.lastWateringDate != nil {
                         Text(wateredDate(date: plant.lastWateringDate!))
@@ -99,6 +104,14 @@ struct PlantDetails: View {
                     }
                 }
             }
+            Group {
+                if plant.diseaseNotes != nil  && plant.diseaseNotes != ""{
+                    Section(header: Text("Plant Notes")) {
+                        Text(plant.diseaseNotes!)
+                    }
+                }
+            }
+            
 
         }   // End of Form
         .navigationBarTitle(Text("Plant Details"), displayMode: .inline)

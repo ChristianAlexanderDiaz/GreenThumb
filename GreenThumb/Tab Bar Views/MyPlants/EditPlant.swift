@@ -34,6 +34,7 @@ struct EditPlant: View {
     @State private var watering = ""
     @State private var sunlight = ""
     @State private var location = ""
+    @State private var diseaseNotes = ""
     @State private var lastWatered = Date()
     @State private var primaryImage: UIImage?
     
@@ -207,6 +208,13 @@ struct EditPlant: View {
                         Text("")
                     }
                 }
+                
+                Section(header: Text("Plant Notes")) {
+                    TextField("Plant Notes", text: $diseaseNotes)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                }
+                
                 Section(header: Text("Take or Pick Plant Photo")) {
                     VStack {
                         Toggle("Use Camera", isOn: camera)
