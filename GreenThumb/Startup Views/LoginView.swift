@@ -70,10 +70,12 @@ struct LoginView : View {
                         Text(allPlants[index].nickname ?? "")
                             .font(.system(size: 14, weight: .light, design: .serif))
                             .padding(.bottom)
+                        
                     } else {
                         Text(allPlants[index].common_name ?? "")
                             .font(.system(size: 14, weight: .light, design: .serif))
                             .padding(.bottom)
+                        
                     }
                     
                     TextField("Username", text: $enteredUsername)
