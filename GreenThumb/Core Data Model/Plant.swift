@@ -49,7 +49,8 @@ extension Plant {
     static func wateringNeedsFetchRequest() -> NSFetchRequest<Plant> {
         let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
 
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        //todo - check this works!
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nextWateringDate", ascending: true)]
 
         //check for watering needs
         //check if watering date is less than or equal to current date and time - consider storing as date rather than string
@@ -61,20 +62,18 @@ extension Plant {
     }
     static func diseasedNeedsFetchRequest() -> NSFetchRequest<Plant> {
         let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "diseasedDate", ascending: true)]
 
         //check for diseased needs
-        //either a boolean or check if there is an entry in a disease notes section
-        fetchRequest.predicate = NSPredicate(format: "diseaseNotes != %@", "")
+        fetchRequest.predicate = NSPredicate(format: "diseased == YES", "")
 
         return fetchRequest
     }
     static func starredNeedsFetchRequest() -> NSFetchRequest<Plant> {
         let fetchRequest = NSFetchRequest<Plant>(entityName: "Plant")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "starredDate", ascending: true)]
 
         //check for starred needs
-        //boolean check
         fetchRequest.predicate = NSPredicate(format: "starred == YES")
 
         return fetchRequest

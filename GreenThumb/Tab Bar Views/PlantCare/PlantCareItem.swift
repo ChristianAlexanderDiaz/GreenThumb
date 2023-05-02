@@ -74,9 +74,8 @@ struct DiseasedPlantCareItem: View {
             }
             
             HStack {
-                //TODO
-                //Text("Diseased since \(formatDate(date: plant.diseasedDate ?? tempDate))")
-                    //.font(.system(size: 14))
+                Text("Diseased since \(formatDate(date: plant.diseasedDate ?? tempDate))")
+                    .font(.system(size: 14))
                     
                 Spacer()
                 
@@ -116,8 +115,8 @@ struct StarredPlantCareItem: View {
                 .font(.system(size: 14))
             }
             HStack {
-                //Text("Starred since \(formatDate(date: plant.starredDate ?? tempDate))")
-                    //.font(.system(size: 14))
+                Text("Starred since \(formatDate(date: plant.starredDate ?? tempDate))")
+                    .font(.system(size: 14))
                     
                 Spacer()
                 
@@ -135,13 +134,4 @@ struct StarredPlantCareItem: View {
     
 }
 
-func formatDate(date: Date) -> String {
-    // Instantiate a DateFormatter object
-    let dateFormatter = DateFormatter()
-    
-    // Set the date format to dd/MM/yyy
-    dateFormatter.dateFormat = "dd/MM/yyy"
-    
-    // Obtain DatePicker's selected date, format it as dd/MM/yyy, and return it as a String
-    return dateFormatter.string(from: date)
-}
+

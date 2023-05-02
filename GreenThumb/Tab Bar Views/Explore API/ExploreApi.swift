@@ -11,7 +11,6 @@ import SwiftUI
 struct ExploreApi: View {
     @State private var searchValue = ""
     @State private var searchCompleted = false
-    @State private var isLoading = false
     
     //---------------
     // Alert Messages
@@ -58,11 +57,6 @@ struct ExploreApi: View {
                         Spacer()
                     } //end of HStack
                 } //end of Section 2
-                if isLoading {
-                Section(header: Text("Loading")) {
-                        ProgressView()
-                    }
-                }
                 if searchCompleted {
                     Section(header: Text("Plants Found")) {
                         NavigationLink(destination: showSearchResults) {
@@ -107,7 +101,8 @@ struct ExploreApi: View {
         // Each space in the query should be converted to +
         let termWithNoSpace = termCleaned.replacingOccurrences(of: " ", with: "+")
 
-        getFoundPlantsFromApi(query: termWithNoSpace)
+        getFoundPlantsFromApi(query: termWithNoSpace, maxResults: 5)
+        
     }
     
     /*
