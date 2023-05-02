@@ -16,7 +16,8 @@
 		"starredDate": "03/10/2023",
 		"thumbnail": "https://perenual.com/storage/species_image/5257_monstera_deliciosa/thumbnail/4630938853_623dc33137_b.jpg",
 		"location": "Living Room",
-		"nickname": "Mrs. Monster"
+		"nickname": "Mrs. Monster",
+        "watering_history": ["04/15/2023", "04/22/2023", "04/27/2023"]
 	},
 	{
 		"id": 2,
@@ -35,7 +36,8 @@
 		"starredDate": "05/02/2023",
 		"thumbnail": "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_snake-plant-laurentii_small_hyde_olive.jpg?v=1660855943",
 		"location": "Bedroom",
-		"nickname": "Drake the Snake"
+		"nickname": "Drake the Snake",
+        "watering_history": ["04/01/2023", "04/16/2023", "05/01/2023"]
 	},
 	{
 		"id": 3,
@@ -54,7 +56,8 @@
 		"starredDate": "",
 		"thumbnail": "https://cdn.shopify.com/s/files/1/0150/6262/products/the_sill-variant-white_gloss-zz_plant.jpg?v=1680548849",
 		"location": "Bedroom",
-		"nickname": ""
+		"nickname": "",
+        "watering_history": ["03/28/2023", "04/16/2023"]
 	},
 	{
 		"id": 4,
@@ -73,7 +76,8 @@
 		"starredDate": "",
 		"thumbnail": "https://gardenerspath.com/wp-content/uploads/2021/02/Pothos-Growing-Outdoors-Climbing-a-Tree.jpg",
 		"location": "Outdoors",
-		"nickname": ""
+		"nickname": "",
+        "watering_history": ["04/16/2023"]
 	},
 	{
 		"id": 5,
@@ -92,6 +96,7 @@
 		"starredDate": "",
 		"thumbnail": "https://images.thdstatic.com/productImages/6c558422-b89e-40b6-b0af-5a03bcf101ae/svn/altman-plants-annuals-0881219-64_600.jpg",
 		"location": "Outdoors",
-		"nickname": ""
+		"nickname": "",
+        "watering_history": ["05/01/2023"]
 	}
 ]

@@ -24,7 +24,7 @@
         <attribute name="starredDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="sunlight" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
         <attribute name="watering" optional="YES" attributeType="String"/>
-        <attribute name="watering_history" optional="YES" attributeType="String"/>
+        <attribute name="watering_history" optional="YES" attributeType="Transformable"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="plant" inverseEntity="Photo"/>
     </entity>
 </model>

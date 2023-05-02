@@ -63,6 +63,14 @@ public func createPlantsDatabase() {
 
         plantEntity.location = aPlant.location
         plantEntity.nickname = aPlant.nickname
+        
+        var arrayOfWatering = [Date]()
+        
+        for waterDate in aPlant.watering_history {
+            let tempDate = dateFormatter.date(from: waterDate) ?? tempDate
+            arrayOfWatering.append(tempDate)
+        }
+        plantEntity.watering_history = arrayOfWatering
 
         // Fetch Image Data
         plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
