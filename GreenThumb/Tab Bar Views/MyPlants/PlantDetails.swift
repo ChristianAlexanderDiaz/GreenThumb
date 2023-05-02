@@ -93,8 +93,11 @@ struct PlantDetails: View {
                 }
 
                 Section(header: Text("Last Watered")) {
-                    Text("\(formatDate(date: plant.nextWateringDate ?? tempDate))")
-
+                    if plant.lastWateringDate != nil {
+                        Text(wateredDate(date: plant.lastWateringDate!))
+                    } else {
+                        Text("Unknown")
+                    }
                 }
             }
 
@@ -113,14 +116,14 @@ struct PlantDetails: View {
             })
 
     }   // End of body var
+    
 
     // Convert the watered date to a string
     func wateredDate(date: Date) -> String {
         // Instantiate a DateFormatter object
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full     // Thursday, November 7, 2019
-        // Set the date format to yyyy-MM-dd at HH:mm:ss
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
+
         // Format current date and time as above and convert it to String
         let currentDate = dateFormatter.string(from: date)
 
