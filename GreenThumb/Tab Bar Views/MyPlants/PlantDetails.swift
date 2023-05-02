@@ -9,20 +9,20 @@
 import SwiftUI
 
 struct PlantDetails: View {
-    
+
     // Input Parameter
     var plant: Plant
-    
+
     // Subscribe to changes in Core Data database
     @EnvironmentObject var databaseChange: DatabaseChange
-    
+
     //---------------
     // Alert Messages
     //---------------
     @State private var showAlertMessage = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
-    
+
     var body: some View {
         Form {
             Group {
@@ -47,12 +47,12 @@ struct PlantDetails: View {
                     }
                 }
                 // Plant Names
-                if plant.nickname != "" {
+                if plant.nickname != nil && plant.nickname != "" {
                     Section(header: Text("Plant Nickname")) {
                         Text(plant.nickname ?? "")
                     }
                 }
-                if plant.common_name != "" {
+                if plant.common_name != nil && plant.common_name != "" {
                     Section(header: Text("Plant Common Name")) {
                         Text(plant.common_name ?? "")
                     }
@@ -63,7 +63,7 @@ struct PlantDetails: View {
                     }
                 }
             }
-                
+
                 // Plant Image
                 Section(header: Text("Plant Image")) {
                     if let primaryImage = plant.primaryImage {
@@ -78,21 +78,25 @@ struct PlantDetails: View {
                             .frame(maxWidth: 300)
                     }
                 }
-        
+
             Group {
                 Section(header: Text("Plant Location")) {
                     Text(plant.location ?? "Unspecified")
                 }
-                
+
                 Section(header: Text("Sunlight Requirements")) {
                     Text(plant.sunlight?.joined(separator: ", ") ?? "")
                 }
                 Section(header: Text("Watering Requirements")) {
                     Text(convertDaysToString(totalDays: plant.watering!))
                 }
-                
+
                 Section(header: Text("Last Watered")) {
-                    Text(wateredDate(date: plant.lastWateringDate!))
+                    if plant.lastWateringDate != nil {
+                        Text(wateredDate(date: plant.lastWateringDate!))
+                    } else {
+                        Text("Unknown")
+                    }
                 }
             }
 
@@ -109,27 +113,27 @@ struct PlantDetails: View {
             }, message: {
               Text(alertMessage)
             })
-        
+
     }   // End of body var
-    
+
+
     // Convert the watered date to a string
     func wateredDate(date: Date) -> String {
         // Instantiate a DateFormatter object
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full     // Thursday, November 7, 2019
-        // Set the date format to yyyy-MM-dd at HH:mm:ss
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
+
         // Format current date and time as above and convert it to String
         let currentDate = dateFormatter.string(from: date)
-        
+
         return currentDate
     }
-    
+
     enum TimeUnit: String, CaseIterable {
         case day = "Days"
         case week = "Weeks"
         case month = "Months"
-        
+
         var days: Int {
             switch self {
             case .day:
@@ -141,15 +145,15 @@ struct PlantDetails: View {
             }
         }
     }
-    
+
     func convertDaysToString(totalDays: String) -> String {
         guard let totalDaysInt = Int(totalDays) else {
             return "Unspecified"
         }
-        
+
         var number = 1
         var unit = TimeUnit.day
-        
+
         if totalDaysInt >= TimeUnit.month.days {
             number = totalDaysInt / TimeUnit.month.days
             unit = .month
@@ -165,7 +169,7 @@ struct PlantDetails: View {
             number = totalDaysInt
             unit = .day
         }
-        
+
         // Adjust the number of days to account for months and weeks
         let daysInUnit = unit.days
         let remainderDays = totalDaysInt % daysInUnit
@@ -178,10 +182,10 @@ struct PlantDetails: View {
             number = (totalDaysInt / daysInUnit) * daysInUnit / TimeUnit.month.days
             unit = .month
         }
-        
+
         let numberString = number == 1 ? "" : "\(number) "
         let unitString = number == 1 ? String(unit.rawValue.dropLast()) : unit.rawValue
-        
+
         return "Every \(numberString)\(unitString)"
     }
 
@@ -196,10 +200,3 @@ struct PlantDetails: View {
 //        }
 //    }
 //}
-
-
-
-
-
-
-

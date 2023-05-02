@@ -247,7 +247,7 @@ struct EditPlant: View {
                     updatePlant(plantEntity: plant)
                     
                     showAlertMessage = true
-                    alertTitle = "Plant updated!"
+                    alertTitle = "Plant Updated!"
                     alertMessage = "Plant information has been successfully updated."
                 } else {
                     showAlertMessage = true
@@ -367,7 +367,7 @@ struct EditPlant: View {
      */
     func inputDataValidated() -> Bool {
         // If Plant name is not filled in
-        if customName.isEmpty {
+        if commonName.isEmpty {
             return false
         }
         return true

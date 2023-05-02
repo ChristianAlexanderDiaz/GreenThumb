@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct PlantItem: View {
-    
+
     // ✳️ Input parameter: Core Data Plant Entity instance reference
     let plant: Plant
-    
+
     // Subscribe to changes in Core Data database
     @EnvironmentObject var databaseChange: DatabaseChange
-    
+
     var body: some View {
         HStack {
 
@@ -23,10 +23,10 @@ struct PlantItem: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 80.0)
-            
-            
+
+
             VStack(alignment: .leading) {
-                if plant.nickname != "" {
+                if plant.nickname != nil && plant.nickname != "" {
                     HStack {
                         if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
                             Image(systemName: "drop.fill")
@@ -48,19 +48,23 @@ struct PlantItem: View {
                         Text(plant.scientific_name?.joined(separator: ", ") ?? "")
                     }
                 }
-                
+
                 HStack{
                     Image(systemName: "oilcan.fill")
                         .foregroundColor(.gray)
-                    Text(wateredDate(date: plant.lastWateringDate!))
+                    if plant.lastWateringDate != nil {
+                        Text(wateredDate(date: plant.lastWateringDate!))
+                    } else {
+                        Text("Unknown")
+                    }
                 }
             }
             // Set font and size for the whole VStack content
             .font(.system(size: 14))
-            
+
         }   // End of HStack
     }
-    
+
     // Calculate the last watered date and return as string
     func wateredDate(date: Date?) -> String {
         guard let date = date else {
@@ -69,7 +73,7 @@ struct PlantItem: View {
 
         let calendar = Calendar.current
         let now = Date()
-        
+
         if calendar.isDateInYesterday(date) {
             return "Yesterday"
         } else if calendar.isDate(date, equalTo: now, toGranularity: .day) {
