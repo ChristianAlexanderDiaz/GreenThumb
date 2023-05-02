@@ -54,6 +54,10 @@
 		FFBF385F29F5B38200926291 /* AddPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385E29F5B38200926291 /* AddPlant.swift */; };
 		FFBF386129F5B7B200926291 /* NavigationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF386029F5B7B200926291 /* NavigationStyle.swift */; };
 		FFBF386329F5BE9700926291 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF386229F5BE9700926291 /* ImagePicker.swift */; };
+		FFC9DE032A01972D000E724C /* WateringHistoryChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9DE022A01972D000E724C /* WateringHistoryChart.swift */; };
+		FFC9DE052A019E88000E724C /* WateringHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9DE042A019E88000E724C /* WateringHistory.swift */; };
+		FFC9DE072A01A36D000E724C /* PlantGrowthImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9DE062A01A36D000E724C /* PlantGrowthImages.swift */; };
+		FFC9DE092A01AC34000E724C /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9DE082A01AC34000E724C /* AddPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +110,10 @@
 		FFBF385E29F5B38200926291 /* AddPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlant.swift; sourceTree = "<group>"; };
 		FFBF386029F5B7B200926291 /* NavigationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStyle.swift; sourceTree = "<group>"; };
 		FFBF386229F5BE9700926291 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		FFC9DE022A01972D000E724C /* WateringHistoryChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringHistoryChart.swift; sourceTree = "<group>"; };
+		FFC9DE042A019E88000E724C /* WateringHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringHistory.swift; sourceTree = "<group>"; };
+		FFC9DE062A01A36D000E724C /* PlantGrowthImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantGrowthImages.swift; sourceTree = "<group>"; };
+		FFC9DE082A01AC34000E724C /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +244,10 @@
 				FFBF385C29F5B37D00926291 /* PlantDetails.swift */,
 				FFBF385E29F5B38200926291 /* AddPlant.swift */,
 				FFBB1B1429F72B9A00C260DC /* EditPlant.swift */,
+				FFC9DE022A01972D000E724C /* WateringHistoryChart.swift */,
+				FFC9DE042A019E88000E724C /* WateringHistory.swift */,
+				FFC9DE062A01A36D000E724C /* PlantGrowthImages.swift */,
+				FFC9DE082A01AC34000E724C /* AddPhotoView.swift */,
 			);
 			path = MyPlants;
 			sourceTree = "<group>";
@@ -384,7 +396,9 @@
 				FF0177D629F70A88001C6C0A /* PlantAPIStruct.swift in Sources */,
 				D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */,
 				FFBB1B1529F72B9A00C260DC /* EditPlant.swift in Sources */,
+				FFC9DE032A01972D000E724C /* WateringHistoryChart.swift in Sources */,
 				D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */,
+				FFC9DE052A019E88000E724C /* WateringHistory.swift in Sources */,
 				D35DE8D529E5F1CF00E204E1 /* PerenualApiData.swift in Sources */,
 				FF0177D429F70A78001C6C0A /* DiseasedPlantCareDetails.swift in Sources */,
 				FF1218AE29F840C000FB976B /* PlantAPISearchResultStruct.swift in Sources */,
@@ -395,10 +409,12 @@
 				D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */,
 				FF0177D329F70A78001C6C0A /* PlantCareItem.swift in Sources */,
 				FFBF385F29F5B38200926291 /* AddPlant.swift in Sources */,
+				FFC9DE072A01A36D000E724C /* PlantGrowthImages.swift in Sources */,
 				D304EC8029DCA90B005486C6 /* Home.swift in Sources */,
 				D304EC7829DCA6DC005486C6 /* PlantsData.swift in Sources */,
 				FF0177D129F70A78001C6C0A /* PlantCareList.swift in Sources */,
 				FF0177E729F70C0F001C6C0A /* UserAuthentication.swift in Sources */,
+				FFC9DE092A01AC34000E724C /* AddPhotoView.swift in Sources */,
 				D36F9E2029E5E6FD0085C0B2 /* ExploreApiResultDetails.swift in Sources */,
 				FF0177DC29F70A94001C6C0A /* LoginView.swift in Sources */,
 				FFBF386129F5B7B200926291 /* NavigationStyle.swift in Sources */,

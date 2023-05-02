@@ -32,7 +32,7 @@ public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var watering_history: [Date]?
 
     // Relationship
-    @NSManaged public var photos: NSSet?
+    @NSManaged public var photos: Set<Photo>
 }
 
 extension Plant {

@@ -15,9 +15,11 @@ public func waterPlant(plant: Plant) {
     plant.lastWateringDate = currentDateAndTime
     
     var daysToNextWater = DateComponents()
-    daysToNextWater.day = 5 //TODO change to plant.----
+    daysToNextWater.day = Int(plant.watering!) 
 
     plant.nextWateringDate = Calendar.current.date(byAdding: daysToNextWater, to: currentDateAndTime)
+    
+    plant.watering_history?.append(currentDateAndTime)
     
     PersistenceController.shared.saveContext()
 }

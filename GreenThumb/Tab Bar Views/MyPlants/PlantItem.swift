@@ -12,7 +12,7 @@ struct PlantItem: View {
 
     // ✳️ Input parameter: Core Data Plant Entity instance reference
     let plant: Plant
-
+    
     // Subscribe to changes in Core Data database
     @EnvironmentObject var databaseChange: DatabaseChange
 
