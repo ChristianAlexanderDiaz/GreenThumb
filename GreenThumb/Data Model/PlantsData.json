@@ -1,62 +1,63 @@
 [
-  {
-    "id": 1,
-    "common_name": "European Silver Fir",
-    "scientific_name": ["Abies alba"],
-    "other_name": ["Common Silver Fir"],
-    "cycle": "Perennial",
-    "watering": "5",
-    "sunlight": ["full sun", "part shade"],
-    "thumbnail": "https://perenual.com/storage/species_image/1_abies_alba/thumbnail/1536px-Abies_alba_SkalitC3A9.jpg",
-    "lastWateringDate": "01/02/2016",
-    "nextWateringDate": "01/09/2016"
-  },
-  {
-    "id": 2,
-    "common_name": "Pyramidalis Silver Fir",
-    "scientific_name": ["Abies alba 'Pyramidalis'"],
-    "other_name": [],
-    "cycle": "Perennial",
-    "watering": "5",
-    "sunlight": ["full sun", "part shade"],
-    "thumbnail": "https://perenual.com/storage/species_image/2_abies_alba_pyramidalis/thumbnail/49255769768_df55596553_b.jpg",
-    "lastWateringDate": "01/02/2016",
-    "nextWateringDate": "01/09/2016"
-  },
-  {
-    "id": 3,
-    "common_name": "White Fir",
-    "scientific_name": ["Abies concolor"],
-    "other_name": ["Silver Fir", "Concolor Fir", "Colorado Fir"],
-    "cycle": "Perennial",
-    "watering": "7",
-    "sunlight": ["Full sun", "part shade"],
-    "thumbnail": "https://perenual.com/storage/species_image/3_abies_concolor/thumbnail/52292935430_f4f3b22614_b.jpg",
-    "lastWateringDate": "01/02/2016",
-    "nextWateringDate": "01/09/2016"
-  },
-  {
-    "id": 4,
-    "common_name": "Candicans White Fir",
-    "scientific_name": ["Abies concolor 'Candicans'"],
-    "other_name": ["Silver Fir", "Concolor Fir", "Colorado Fir"],
-    "cycle": "Perennial",
-    "watering": "5",
-    "sunlight": ["full sun", "part shade"],
-    "thumbnail": "https://perenual.com/storage/species_image/4_abies_concolor_candicans/thumbnail/49283844888_332c9e46f2_b.jpg",
-    "lastWateringDate": "01/02/2016",
-    "nextWateringDate": "01/09/2016"
-  },
-  {
-    "id": 5,
-    "common_name": "Fraser Fir",
-    "scientific_name": ["Abies fraseri"],
-    "other_name": ["Southern Fir"],
-    "cycle": "Perennial",
-    "watering": "7",
-    "sunlight": ["Full sun", "part shade"],
-    "thumbnail": "https://perenual.com/storage/species_image/5_abies_fraseri/thumbnail/36843539702_e80fc436e0_b.jpg",
-    "lastWateringDate": "01/02/2016",
-    "nextWateringDate": "01/09/2016"
-  },
+    {
+        "id": 1,
+        "common_name": "Swiss cheese plant",
+        "scientific_name": ["Monstera deliciosa"],
+        "other_name": [],
+        "cycle": "Perennial",
+        "watering": "7",
+        "sunlight": ["Full sun only if soil kept moist", " Part sun/part shade"],
+        "thumbnail": "https://perenual.com/storage/species_image/5257_monstera_deliciosa/thumbnail/4630938853_623dc33137_b.jpg",
+        "lastWateringDate": "04/22/2023",
+        "nextWateringDate": "04/29/2023"
+    },
+    {
+        "id": 2,
+        "common_name": "Pyramidalis Silver Fir",
+        "scientific_name": ["Abies alba 'Pyramidalis'"],
+        "other_name": [],
+        "cycle": "Perennial",
+        "watering": "5",
+        "sunlight": ["full sun", "part shade"],
+        "thumbnail": "https://perenual.com/storage/species_image/2_abies_alba_pyramidalis/thumbnail/49255769768_df55596553_b.jpg",
+        "lastWateringDate": "01/02/2016",
+        "nextWateringDate": "01/09/2016"
+    },
+    {
+        "id": 3,
+        "common_name": "White Fir",
+        "scientific_name": ["Abies concolor"],
+        "other_name": ["Silver Fir", "Concolor Fir", "Colorado Fir"],
+        "cycle": "Perennial",
+        "watering": "7",
+        "sunlight": ["Full sun", "part shade"],
+        "thumbnail": "https://perenual.com/storage/species_image/3_abies_concolor/thumbnail/52292935430_f4f3b22614_b.jpg",
+        "lastWateringDate": "01/02/2016",
+        "nextWateringDate": "01/09/2016"
+    },
+    {
+        "id": 4,
+        "common_name": "Candicans White Fir",
+        "scientific_name": ["Abies concolor 'Candicans'"],
+        "other_name": ["Silver Fir", "Concolor Fir", "Colorado Fir"],
+        "cycle": "Perennial",
+        "watering": "5",
+        "sunlight": ["full sun", "part shade"],
+        "thumbnail": "https://perenual.com/storage/species_image/4_abies_concolor_candicans/thumbnail/49283844888_332c9e46f2_b.jpg",
+        "lastWateringDate": "01/02/2016",
+        "nextWateringDate": "01/09/2016"
+    },
+    {
+        "id": 5,
+        "common_name": "Fraser Fir",
+        "scientific_name": ["Abies fraseri"],
+        "other_name": ["Southern Fir"],
+        "cycle": "Perennial",
+        "watering": "7",
+        "sunlight": ["Full sun", "part shade"],
+        "thumbnail": "https://perenual.com/storage/species_image/5_abies_fraseri/thumbnail/36843539702_e80fc436e0_b.jpg",
+        "lastWateringDate": "01/02/2016",
+        "nextWateringDate": "01/09/2016"
+    }
 ]
+

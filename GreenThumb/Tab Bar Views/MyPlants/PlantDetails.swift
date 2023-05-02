@@ -47,12 +47,12 @@ struct PlantDetails: View {
                     }
                 }
                 // Plant Names
-                if plant.nickname != "" {
+                if plant.nickname != nil && plant.nickname != "" {
                     Section(header: Text("Plant Nickname")) {
                         Text(plant.nickname ?? "")
                     }
                 }
-                if plant.common_name != "" {
+                if plant.common_name != nil && plant.common_name != "" {
                     Section(header: Text("Plant Common Name")) {
                         Text(plant.common_name ?? "")
                     }
@@ -92,7 +92,11 @@ struct PlantDetails: View {
                 }
                 
                 Section(header: Text("Last Watered")) {
-                    Text(wateredDate(date: plant.lastWateringDate!))
+                    if plant.lastWateringDate != nil {
+                        Text(wateredDate(date: plant.lastWateringDate!))
+                    } else {
+                        Text("Unknown")
+                    }
                 }
             }
 

@@ -26,7 +26,7 @@ struct PlantItem: View {
             
             
             VStack(alignment: .leading) {
-                if plant.nickname != "" {
+                if plant.nickname != nil && plant.nickname != "" {
                     HStack {
                         if let nextWatering = plant.nextWateringDate, nextWatering <= Date() {
                             Image(systemName: "drop.fill")
@@ -52,7 +52,11 @@ struct PlantItem: View {
                 HStack{
                     Image(systemName: "oilcan.fill")
                         .foregroundColor(.gray)
-                    Text(wateredDate(date: plant.lastWateringDate!))
+                    if plant.lastWateringDate != nil {
+                        Text(wateredDate(date: plant.lastWateringDate!))
+                    } else {
+                        Text("Unknown")
+                    }
                 }
             }
             // Set font and size for the whole VStack content
