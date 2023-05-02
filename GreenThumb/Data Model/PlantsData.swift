@@ -37,6 +37,9 @@ public func createPlantsDatabase() {
     var arrayOfPlantStructs = [PlantStruct]()
     arrayOfPlantStructs = decodeJsonFileIntoArrayOfStructs(fullFilename: "PlantsData.json", fileLocation: "Main Bundle")
     
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM/yy"
+    
     for aPlant in arrayOfPlantStructs {
         
         // 1️⃣ Create an instance of the Video entity in managedObjectContext
@@ -45,27 +48,27 @@ public func createPlantsDatabase() {
         // 2️⃣ Dress it up by specifying its attributes
         plantEntity.id = aPlant.id as NSNumber
         plantEntity.common_name = aPlant.common_name
-        plantEntity.starred = true
-        plantEntity.diseaseNotes = "yup"
-        plantEntity.sunlight = aPlant.sunlight
         plantEntity.scientific_name = aPlant.scientific_name
         plantEntity.other_name = aPlant.other_name
+        plantEntity.cycle = aPlant.cycle
         plantEntity.watering = aPlant.watering
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yy"
-        
-        
-        let lastWater = dateFormatter.date(from: aPlant.lastWateringDate)
-        let nextWater = dateFormatter.date(from: aPlant.nextWateringDate)
-        
-        plantEntity.lastWateringDate = lastWater
-        plantEntity.nextWateringDate = nextWater
-        
+        plantEntity.sunlight = aPlant.sunlight
+        plantEntity.diseaseNotes = aPlant.diseasedNotes
+        plantEntity.starred = aPlant.starred
+        plantEntity.diseased = aPlant.diseased
+        plantEntity.lastWateringDate = dateFormatter.date(from: aPlant.lastWateringDate)
+        plantEntity.nextWateringDate = dateFormatter.date(from: aPlant.nextWateringDate)
+        plantEntity.diseasedDate = dateFormatter.date(from: aPlant.diseasedDate)
+        plantEntity.starredDate = dateFormatter.date(from: aPlant.starredDate)
+
+        plantEntity.location = aPlant.location
+        plantEntity.nickname = aPlant.nickname
+
         // Fetch Image Data
         plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
         
         // 3️⃣ It has no relationship to another Entity
+        //todo - make!
         PersistenceController.shared.saveContext()
     }   // End of for loop
 }

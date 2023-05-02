@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct PlantDetails: View {
     
     // Input Parameter
@@ -92,7 +93,8 @@ struct PlantDetails: View {
                 }
                 
                 Section(header: Text("Last Watered")) {
-                    Text(wateredDate(date: plant.lastWateringDate!))
+                    Text("\(formatDate(date: plant.nextWateringDate ?? tempDate))")
+                    
                 }
             }
 
