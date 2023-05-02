@@ -9,16 +9,28 @@
 import SwiftUI
 
 struct ExploreApi: View {
+    //values for searching
     @State private var searchValue = ""
     @State private var searchCompleted = false
     
-    //---------------
-    // Alert Messages
-    //---------------
+    //alert messages
     @State private var showAlertMessage = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     
+    //api status
+    @State private var apiStatus: APIStatus = .unknown
+    
+    /**
+        An enumation called `APIStatus` that gives the cases for what the status of the website is.
+     */
+    enum APIStatus {
+        case unknown, online, offline
+    }
+    
+    /**
+        A body that pertains the `some View` which contains all the `Form` items in there.
+     */
     var body: some View {
         NavigationView {
             Form {
@@ -71,9 +83,62 @@ struct ExploreApi: View {
                         }
                     }
                 }
+                Section(header: Text("API Status")) {
+                    HStack {
+                        if apiStatus == .online {
+                            Text("API is online")
+                                .foregroundColor(.green)
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        } else if apiStatus == .offline {
+                            Text("API is offline, Service Unavailable")
+                                .foregroundColor(.red)
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.red)
+                        } else {
+                            Text("Checking API...")
+                                .foregroundColor(Color(red: 0.8, green: 0.6, blue: 0))
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(Color(red: 0.8, green: 0.6, blue: 0))
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                }
             } //end of Form
+            .onAppear(perform: {
+                checkApiStatus()
+            })
         } //end of NavigationView
     } //end of some view
+    
+    /**
+        A function called `checkApiStatus` that gives me the correct enumeration for the status of the API search.
+     */
+    func checkApiStatus() {
+        let urlString = "https://perenual.com/docs/api"
+        guard let url = URL(string: urlString) else {
+            self.apiStatus = .offline
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { _, response, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    self.apiStatus = .offline
+                } else if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        self.apiStatus = .online
+                    } else {
+                        self.apiStatus = .offline
+                    }
+                } else {
+                    self.apiStatus = .offline
+                }
+            }
+        }
+        task.resume()
+    }
     
     /*
      -------------------------
