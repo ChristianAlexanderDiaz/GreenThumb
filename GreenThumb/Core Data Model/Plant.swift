@@ -29,6 +29,7 @@ public class Plant: NSManagedObject, Identifiable {
     @NSManaged public var primaryImage: Data?
     @NSManaged public var location: String?
     @NSManaged public var nickname: String?
+    @NSManaged public var watering_history: String?
 
     // Relationship
     @NSManaged public var photos: NSSet?
