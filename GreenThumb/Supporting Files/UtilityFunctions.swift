@@ -262,11 +262,14 @@ public func getImageFromDocumentDirectory(filename: String, fileExtension: Strin
 
 //from code snippits
 public func formatDate(date: Date) -> String {
+    if date == tempDate {
+        return ""
+    }
     // Instantiate a DateFormatter object
     let dateFormatter = DateFormatter()
     
     // Set the date format to dd/MM/yyy
-    dateFormatter.dateFormat = "dd/MM/yyy"
+    dateFormatter.dateFormat = "MM/dd/yyy"
     
     // Obtain DatePicker's selected date, format it as dd/MM/yyy, and return it as a String
     return dateFormatter.string(from: date)

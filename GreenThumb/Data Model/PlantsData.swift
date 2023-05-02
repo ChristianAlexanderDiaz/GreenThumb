@@ -38,7 +38,7 @@ public func createPlantsDatabase() {
     arrayOfPlantStructs = decodeJsonFileIntoArrayOfStructs(fullFilename: "PlantsData.json", fileLocation: "Main Bundle")
     
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd/MM/yy"
+    dateFormatter.dateFormat = "MM/dd/yy"
     
     for aPlant in arrayOfPlantStructs {
         

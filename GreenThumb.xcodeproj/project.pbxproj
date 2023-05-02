@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		349594A02A01762500875711 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495949F2A01762500875711 /* CurrentLocation.swift */; };
 		34C9208A29F70F44009ABB0B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208929F70F44009ABB0B /* Photo.swift */; };
 		34C9208C29F800E6009ABB0B /* PlantCareFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */; };
 		D304EC6129DCA13D005486C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304EC6029DCA13D005486C6 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3495949F2A01762500875711 /* CurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		34C9208929F70F44009ABB0B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareFunctions.swift; sourceTree = "<group>"; };
 		D304EC6029DCA13D005486C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				FFBF386029F5B7B200926291 /* NavigationStyle.swift */,
 				FFBF386229F5BE9700926291 /* ImagePicker.swift */,
 				34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */,
+				3495949F2A01762500875711 /* CurrentLocation.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				D36F9E0E29E5E48F0085C0B2 /* MyPlants.swift in Sources */,
 				FF0177DD29F70A94001C6C0A /* ResetPassword.swift in Sources */,
 				D304EC7E29DCA7B6005486C6 /* UtilityFunctions.swift in Sources */,
+				349594A02A01762500875711 /* CurrentLocation.swift in Sources */,
 				D35DE8D729E5F1E100E204E1 /* GetJsonDataFromApi.swift in Sources */,
 				D36F9E1A29E5E4CE0085C0B2 /* Settings.swift in Sources */,
 				D3C3CAB529F74039002083AE /* AppInformation.swift in Sources */,

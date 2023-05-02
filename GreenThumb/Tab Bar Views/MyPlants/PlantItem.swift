@@ -52,7 +52,7 @@ struct PlantItem: View {
                 HStack{
                     Image(systemName: "oilcan.fill")
                         .foregroundColor(.gray)
-                    Text("\(formatDate(date: plant.nextWateringDate ?? tempDate))")
+                    Text(wateredDate(date: plant.lastWateringDate!))
                 }
             }
             // Set font and size for the whole VStack content
