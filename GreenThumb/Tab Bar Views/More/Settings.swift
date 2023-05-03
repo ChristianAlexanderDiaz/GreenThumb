@@ -8,22 +8,26 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct Settings: View {
-    //dark mode
     @AppStorage("darkMode") private var darkMode = false
     
+    @State private var perenualApiKeyValue = ""
+
     var body: some View {
         Form {
             Section(header: Text("Dark Mode Setting")) {
                 Toggle("Dark Mode", isOn: $darkMode)
+            }
+            Section(header: Text("Perenual API Key")) {
+                TextField("Enter API Key", text: $perenualApiKeyValue)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
             }
         }
         .navigationBarTitle(Text("Settings"), displayMode: .inline)
     }
 }
 
-struct Settings_Previews: PreviewProvider {
-    static var previews: some View {
-        Settings()
-    }
-}

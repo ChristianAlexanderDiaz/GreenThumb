@@ -10,9 +10,11 @@ import Foundation
 var foundPlantsSearchResultList = [PlantAPISearchResultStruct]()
 var foundPlantDetails = [PlantAPIStruct]()
 
-//let perenualApiKey = "sk-LAYB6435bb62d3145488"
+var foundDiseaseDetails = [DiseaseAPIStruct]()
 
-let perenualApiKey = "sk-gAna6447010cd6b5f621"
+let perenualApiKey = "sk-LAYB6435bb62d3145488"
+
+//let perenualApiKey = "sk-gAna6447010cd6b5f621"
 
 let perenualApiHeaders = [
     "accept": "application/json",
@@ -114,6 +116,49 @@ public func getFoundPlantsFromApi(query: String, maxResults: Int) {
                     } catch { return }
                 }
             } else { return } // end of arrayOfPlants
+        } else { return }
+    } catch { return } // end of do block
+} // end of function
+
+public func getFoundDiseasesFromApi(query: String, maxResults: Int) {
+    foundDiseaseDetails = [DiseaseAPIStruct]()
+
+    let apiUrlStringQuery = "https://perenual.com/api/pest-disease-list?key=\(perenualApiKey)&q=\(query)"
+
+    guard let jsonDataFetchedFromApi = getJsonDataFromApi(apiHeaders: perenualApiHeaders, apiUrl: apiUrlStringQuery, timeout: 20.0) else {
+        return
+    }
+
+    do {
+        let jsonResponse = try JSONSerialization.jsonObject(with: jsonDataFetchedFromApi, options: JSONSerialization.ReadingOptions.mutableContainers)
+
+        if let jsonObject = jsonResponse as? [String: Any] {
+            if let arrayOfDiseases = jsonObject["data"] as? [[String: Any]] {
+                
+                var resultCount = 0
+
+                for disease in arrayOfDiseases {
+                    if resultCount >= maxResults {
+                        break
+                    }
+
+                    let id = disease["id"] as? Int ?? 0
+                    let common_name = disease["common_name"] as? String ?? ""
+                    let scientific_name = disease["scientific_name"] as? String ?? ""
+                    let other_name = disease["other_name"] as? [String] ?? []
+                    let description = disease["description"] as? String
+
+                    var thumbnail = ""
+
+                    if let images = disease["images"] as? [[String: Any]], let image = images.first, let thumbnailURL = image["thumbnail"] as? String {
+                        thumbnail = thumbnailURL
+                    }
+
+                    let newDisease = DiseaseAPIStruct(id: Int32(id), common_name: common_name, scientific_name: scientific_name, other_name: other_name, descriptionValue: description, thumbnail: thumbnail)
+                    foundDiseaseDetails.append(newDisease)
+                    resultCount += 1
+                }
+            } else { return } // end of arrayOfDiseases
         } else { return }
     } catch { return } // end of do block
 } // end of function

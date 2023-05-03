@@ -18,7 +18,7 @@ struct More: View {
                             .imageScale(.large)
                             .font(Font.title.weight(.regular))
                             .frame(width: 60)
-                        Text("Plant Diseases")
+                        Text("Plant Diseases API")
                             .font(.system(size: 16))
                     }
                     .foregroundColor(.blue)

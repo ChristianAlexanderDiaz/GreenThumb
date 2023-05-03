@@ -18,11 +18,21 @@ struct PlantItem: View {
 
     var body: some View {
         HStack {
-
-            getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 80.0)
+//            getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width: 80.0)
+            if let primaryImage = plant.primaryImage {
+                getImageFromBinaryData(binaryData: primaryImage, defaultFilename: "ImageUnavailable")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 80.0)
+            } else {
+                Image("ImageUnavailable")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 80.0)
+            }
 
 
             VStack(alignment: .leading) {
