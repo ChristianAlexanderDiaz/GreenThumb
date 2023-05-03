@@ -41,227 +41,225 @@ struct Settings: View {
     @State private var answerToSelectedSecurityQuestion = ""
     
     var body: some View {
-        NavigationView {
-            //setting for dark mode toggle - which we have seen before
-            Form {
-                Section(header: Text("Dark Mode Setting")) {
-                    Toggle("Dark Mode", isOn: $darkMode)
-                }
-                //toggle for showing entered values, which we saw in the reset password view in this tutorial
-                Section(header: Text("Show / Hide Entered Values")) {
-                    Toggle("Show Entered Values", isOn: $showEnteredValues)
-                }
-                //section for to edit the perenual key
-                Section(header: Text("Enter a custom Perenual API Key")) {
-                    HStack {
-                        if showEnteredValues {
-                            TextField("Enter Perenual API Key", text: $perenualApiKeyValue)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        } else {
-                            SecureField("Enter Perenual API Key", text: $perenualApiKeyValue)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        }
-                        // Button to clear the text field
-                        //seen before here and in other tutorials
-                        Button(action: {
-                            perenualApiKeyValue = ""
-                        }) {
-                            Image(systemName: "clear")
-                                .imageScale(.medium)
-                                .font(Font.title.weight(.regular))
-                        }
-                        .padding()
+        //setting for dark mode toggle - which we have seen before
+        Form {
+            Section(header: Text("Dark Mode Setting")) {
+                Toggle("Dark Mode", isOn: $darkMode)
+            }
+            //toggle for showing entered values, which we saw in the reset password view in this tutorial
+            Section(header: Text("Show / Hide Entered Values")) {
+                Toggle("Show Entered Values", isOn: $showEnteredValues)
+            }
+            //section for to edit the perenual key
+            Section(header: Text("Enter a custom Perenual API Key")) {
+                HStack {
+                    if showEnteredValues {
+                        TextField("Enter Perenual API Key", text: $perenualApiKeyValue)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    } else {
+                        SecureField("Enter Perenual API Key", text: $perenualApiKeyValue)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
                     }
-                }
-                Section(header: Text("Set Perenual API Key")) {
-                    HStack {
-                        Spacer()
-                        Button("Set API Key") {
-                            if !perenualApiKeyValue.isEmpty {
-                                ApiKeyManager.shared.perenualApiKey = perenualApiKeyValue
-                                showAlertMessage = true
-                                alertTitle = "API Key Set!"
-                                alertMessage = "The API you entered is set to start searching plants."
-                            } else {
-                                showAlertMessage = true
-                                alertTitle = "Missing API Key"
-                                alertMessage = "Please enter an API Key!"
-                            }
-                        } //end of button
-                        .tint(.blue)
-                        .buttonStyle(.bordered)
-                        .buttonBorderShape(.capsule)
-                        
-                        Spacer()
-                    } //end of hstack
-                }
-                //section with picker to choose a security question, which is saved as the selectedSecurityQuestionIndex state variable
-                Section(header: Text("Select a Security Question")) {
-                    Picker("Selected:", selection: $selectedSecurityQuestionIndex) {
-                        ForEach(0 ..< securityQuestions.count, id: \.self) {
-                            Text(securityQuestions[$0])
-                        }
+                    // Button to clear the text field
+                    //seen before here and in other tutorials
+                    Button(action: {
+                        perenualApiKeyValue = ""
+                    }) {
+                        Image(systemName: "clear")
+                            .imageScale(.medium)
+                            .font(Font.title.weight(.regular))
                     }
+                    .padding()
                 }
-                //section to answer selected security question, which is either a text or a secured field depending on whether the user selected to show or hide the endered values.
-                //similar to the reset password view, answerToSelectedSecurityQuestion being a state variable allows it to keep itself between switches of the hide/show toggle
-                Section(header: Text("Enter Answer to Selected Security Question")) {
-                    HStack {
-                        if showEnteredValues {
-                            TextField("Enter Answer", text: $answerToSelectedSecurityQuestion)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        } else {
-                            SecureField("Enter Answer", text: $answerToSelectedSecurityQuestion)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        }
-                        // Button to clear the text field
-                        //seen before here and in other tutorials
-                        Button(action: {
-                            answerToSelectedSecurityQuestion = ""
-                        }) {
-                            Image(systemName: "clear")
-                                .imageScale(.medium)
-                                .font(Font.title.weight(.regular))
-                        }
-                        .padding()
-                    }
-                }
-                //similar to above
-                Section(header: Text("Enter Password")) {
-                    HStack {
-                        if showEnteredValues {
-                            TextField("Enter Password", text: $passwordEntered)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        } else {
-                            SecureField("Enter Password", text: $passwordEntered)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        }
-                        // Button to clear the text field
-                        Button(action: {
-                            passwordEntered = ""
-                        }) {
-                            Image(systemName: "clear")
-                                .imageScale(.medium)
-                                .font(Font.title.weight(.regular))
-                        }
-                        .padding()
-                    }   // End of HStack
-                }
-                //similar to above
-                Section(header: Text("Verify Password")) {
-                    HStack {
-                        if showEnteredValues {
-                            TextField("Verify Password", text: $passwordVerified)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        } else {
-                            SecureField("Verify Password", text: $passwordVerified)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .disableAutocorrection(true)
-                        }
-                        // Button to clear the text field
-                        Button(action: {
-                            passwordVerified = ""
-                        }) {
-                            Image(systemName: "clear")
-                                .imageScale(.medium)
-                                .font(Font.title.weight(.regular))
-                        }
-                        .padding()
-                    }   // End of HStack
-                }
-                //section for the set password button, which preforms actions to alert or save the password as needed
-                Section(header: Text("Set Password")) {
-                    HStack {
-                        Spacer()
-                        Button("Set Password") {
-                            //first checks that the password is not empty and the security answer is not empty
-                            if !passwordEntered.isEmpty && !answerToSelectedSecurityQuestion.isEmpty {
-                                //if they were both present, will verify that the two passwords match
-                                //if they do match, will store the password and question/answer to the UserDefaults and clear all the fields. then will send alert message letting the user know
-                                if passwordEntered == passwordVerified {
-                                    /*
-                                     UserDefaults provides an interface to the user’s defaults database,
-                                     where you store key-value pairs persistently across launches of your app.
-                                     */
-                                    // Store the password in the user’s defaults database
-                                    UserDefaults.standard.set(passwordEntered, forKey: "Password")
-                                    
-                                    // Store the selected security question index in the user’s defaults database
-                                    UserDefaults.standard.set(securityQuestions[selectedSecurityQuestionIndex], forKey: "SecurityQuestion")
-                                    
-                                    // Store the answer to the selected security question in the user’s defaults database
-                                    UserDefaults.standard.set(answerToSelectedSecurityQuestion, forKey: "SecurityAnswer")
-                                    
-                                    passwordEntered = ""
-                                    passwordVerified = ""
-                                    answerToSelectedSecurityQuestion = ""
-                                    
-                                    showAlertMessage = true
-                                    alertTitle = "Password Set!"
-                                    alertMessage = "Password you entered is set to unlock the app!"
-                                    //if passwords do not match, will send alert message letting the user know
-                                } else {
-                                    showAlertMessage = true
-                                    alertTitle = "Unmatched Password!"
-                                    alertMessage = "Two entries of the password must match!"
-                                }
-                                //if one or both were empty, it will send alert to show letting the user know what is required
-                            } else {
-                                showAlertMessage = true
-                                alertTitle = "Missing Input!"
-                                alertMessage = "Please select and answer a security question and enter your password!"
-                            }
-                        }   // End of Button
-                        .tint(.blue)
-                        .buttonStyle(.bordered)
-                        .buttonBorderShape(.capsule)
-                        
-                        Spacer()
-                    }   // End of HStack
-                }
-                //section for removing the password protection from the app
-                Section(header: Text("Remove Password")) {
-                    HStack {
-                        Spacer()
-                        //when pressed, will set the UserDefailts for the password and question to nil, which will make it so the app will not require a passord when opened and will not have option to reset the password either
-                        Button("Remove Password") {
-                            // Set password to nil in the user’s defaults database
-                            UserDefaults.standard.set(nil, forKey: "Password")
-                            
-                            // Set security question to nil in the user’s defaults database
-                            UserDefaults.standard.set(nil, forKey: "SecurityQuestion")
-                            
+            }
+            Section(header: Text("Set Perenual API Key")) {
+                HStack {
+                    Spacer()
+                    Button("Set API Key") {
+                        if !perenualApiKeyValue.isEmpty {
+                            ApiKeyManager.shared.perenualApiKey = perenualApiKeyValue
                             showAlertMessage = true
-                            alertTitle = "Password Removed!"
-                            alertMessage = "You can now unclock the app without a password!"
+                            alertTitle = "API Key Set!"
+                            alertMessage = "The API you entered is set to start searching plants."
+                        } else {
+                            showAlertMessage = true
+                            alertTitle = "Missing API Key"
+                            alertMessage = "Please enter an API Key!"
                         }
-                        .tint(.blue)
-                        .buttonStyle(.bordered)
-                        .buttonBorderShape(.capsule)
-                        
-                        Spacer()
+                    } //end of button
+                    .tint(.blue)
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    
+                    Spacer()
+                } //end of hstack
+            }
+            //section with picker to choose a security question, which is saved as the selectedSecurityQuestionIndex state variable
+            Section(header: Text("Select a Security Question")) {
+                Picker("Selected:", selection: $selectedSecurityQuestionIndex) {
+                    ForEach(0 ..< securityQuestions.count, id: \.self) {
+                        Text(securityQuestions[$0])
                     }
                 }
-                
-            }   // End of Form
-            // Set font and size for the whole Form content
-            .font(.system(size: 14))
-            .navigationBarTitle(Text("Settings"), displayMode: .inline)
-            //shows alert with title/message determined when showAlertmessage is set to true
-            .alert(alertTitle, isPresented: $showAlertMessage, actions: {
-                Button("OK") {}
-            }, message: {
-                Text(alertMessage)
-            })
+            }
+            //section to answer selected security question, which is either a text or a secured field depending on whether the user selected to show or hide the endered values.
+            //similar to the reset password view, answerToSelectedSecurityQuestion being a state variable allows it to keep itself between switches of the hide/show toggle
+            Section(header: Text("Enter Answer to Selected Security Question")) {
+                HStack {
+                    if showEnteredValues {
+                        TextField("Enter Answer", text: $answerToSelectedSecurityQuestion)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    } else {
+                        SecureField("Enter Answer", text: $answerToSelectedSecurityQuestion)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    }
+                    // Button to clear the text field
+                    //seen before here and in other tutorials
+                    Button(action: {
+                        answerToSelectedSecurityQuestion = ""
+                    }) {
+                        Image(systemName: "clear")
+                            .imageScale(.medium)
+                            .font(Font.title.weight(.regular))
+                    }
+                    .padding()
+                }
+            }
+            //similar to above
+            Section(header: Text("Enter Password")) {
+                HStack {
+                    if showEnteredValues {
+                        TextField("Enter Password", text: $passwordEntered)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    } else {
+                        SecureField("Enter Password", text: $passwordEntered)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    }
+                    // Button to clear the text field
+                    Button(action: {
+                        passwordEntered = ""
+                    }) {
+                        Image(systemName: "clear")
+                            .imageScale(.medium)
+                            .font(Font.title.weight(.regular))
+                    }
+                    .padding()
+                }   // End of HStack
+            }
+            //similar to above
+            Section(header: Text("Verify Password")) {
+                HStack {
+                    if showEnteredValues {
+                        TextField("Verify Password", text: $passwordVerified)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    } else {
+                        SecureField("Verify Password", text: $passwordVerified)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
+                    }
+                    // Button to clear the text field
+                    Button(action: {
+                        passwordVerified = ""
+                    }) {
+                        Image(systemName: "clear")
+                            .imageScale(.medium)
+                            .font(Font.title.weight(.regular))
+                    }
+                    .padding()
+                }   // End of HStack
+            }
+            //section for the set password button, which preforms actions to alert or save the password as needed
+            Section(header: Text("Set Password")) {
+                HStack {
+                    Spacer()
+                    Button("Set Password") {
+                        //first checks that the password is not empty and the security answer is not empty
+                        if !passwordEntered.isEmpty && !answerToSelectedSecurityQuestion.isEmpty {
+                            //if they were both present, will verify that the two passwords match
+                            //if they do match, will store the password and question/answer to the UserDefaults and clear all the fields. then will send alert message letting the user know
+                            if passwordEntered == passwordVerified {
+                                /*
+                                 UserDefaults provides an interface to the user’s defaults database,
+                                 where you store key-value pairs persistently across launches of your app.
+                                 */
+                                // Store the password in the user’s defaults database
+                                UserDefaults.standard.set(passwordEntered, forKey: "Password")
+                                
+                                // Store the selected security question index in the user’s defaults database
+                                UserDefaults.standard.set(securityQuestions[selectedSecurityQuestionIndex], forKey: "SecurityQuestion")
+                                
+                                // Store the answer to the selected security question in the user’s defaults database
+                                UserDefaults.standard.set(answerToSelectedSecurityQuestion, forKey: "SecurityAnswer")
+                                
+                                passwordEntered = ""
+                                passwordVerified = ""
+                                answerToSelectedSecurityQuestion = ""
+                                
+                                showAlertMessage = true
+                                alertTitle = "Password Set!"
+                                alertMessage = "Password you entered is set to unlock the app!"
+                                //if passwords do not match, will send alert message letting the user know
+                            } else {
+                                showAlertMessage = true
+                                alertTitle = "Unmatched Password!"
+                                alertMessage = "Two entries of the password must match!"
+                            }
+                            //if one or both were empty, it will send alert to show letting the user know what is required
+                        } else {
+                            showAlertMessage = true
+                            alertTitle = "Missing Input!"
+                            alertMessage = "Please select and answer a security question and enter your password!"
+                        }
+                    }   // End of Button
+                    .tint(.blue)
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    
+                    Spacer()
+                }   // End of HStack
+            }
+            //section for removing the password protection from the app
+            Section(header: Text("Remove Password")) {
+                HStack {
+                    Spacer()
+                    //when pressed, will set the UserDefailts for the password and question to nil, which will make it so the app will not require a passord when opened and will not have option to reset the password either
+                    Button("Remove Password") {
+                        // Set password to nil in the user’s defaults database
+                        UserDefaults.standard.set(nil, forKey: "Password")
+                        
+                        // Set security question to nil in the user’s defaults database
+                        UserDefaults.standard.set(nil, forKey: "SecurityQuestion")
+                        
+                        showAlertMessage = true
+                        alertTitle = "Password Removed!"
+                        alertMessage = "You can now unclock the app without a password!"
+                    }
+                    .tint(.blue)
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    
+                    Spacer()
+                }
+            }
             
-        }   // End of NavigationView
+        }   // End of Form
+        // Set font and size for the whole Form content
+        .font(.system(size: 14))
+        .navigationBarTitle(Text("Settings"), displayMode: .inline)
+        //shows alert with title/message determined when showAlertmessage is set to true
+        .alert(alertTitle, isPresented: $showAlertMessage, actions: {
+            Button("OK") {}
+        }, message: {
+            Text(alertMessage)
+        })
+        
         .onAppear {
             if let apiKey = ApiKeyManager.shared.perenualApiKey {
                 perenualApiKeyValue = apiKey
