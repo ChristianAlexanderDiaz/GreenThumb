@@ -30,6 +30,7 @@
 		D363829C2A02A5A600C85306 /* DiseaseApiResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363829B2A02A5A600C85306 /* DiseaseApiResultItem.swift */; };
 		D363829E2A02A5B400C85306 /* DiseaseApiResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363829D2A02A5B400C85306 /* DiseaseApiResultList.swift */; };
 		D36382A02A02A7DB00C85306 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = D363829F2A02A7DB00C85306 /* Disease.swift */; };
+		D36382A62A02E45D00C85306 /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36382A52A02E45D00C85306 /* ApiKeyManager.swift */; };
 		D36F9E0E29E5E48F0085C0B2 /* MyPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E0D29E5E48F0085C0B2 /* MyPlants.swift */; };
 		D36F9E1429E5E4AA0085C0B2 /* ExploreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */; };
 		D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E1729E5E4C90085C0B2 /* More.swift */; };
@@ -90,6 +91,7 @@
 		D363829B2A02A5A600C85306 /* DiseaseApiResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseApiResultItem.swift; sourceTree = "<group>"; };
 		D363829D2A02A5B400C85306 /* DiseaseApiResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseApiResultList.swift; sourceTree = "<group>"; };
 		D363829F2A02A7DB00C85306 /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		D36382A52A02E45D00C85306 /* ApiKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyManager.swift; sourceTree = "<group>"; };
 		D36F9E0D29E5E48F0085C0B2 /* MyPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlants.swift; sourceTree = "<group>"; };
 		D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApi.swift; sourceTree = "<group>"; };
 		D36F9E1729E5E4C90085C0B2 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				D36F9E1929E5E4CE0085C0B2 /* Settings.swift */,
+				D36382A52A02E45D00C85306 /* ApiKeyManager.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -305,9 +308,9 @@
 			isa = PBXGroup;
 			children = (
 				D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */,
-				D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */,
-				D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */,
 				D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */,
+				D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */,
+				D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */,
 			);
 			path = "Explore API";
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				D36F9E1A29E5E4CE0085C0B2 /* Settings.swift in Sources */,
 				D3C3CAB529F74039002083AE /* AppInformation.swift in Sources */,
 				D36F9E2229E5E7040085C0B2 /* ExploreApiResultItem.swift in Sources */,
+				D36382A62A02E45D00C85306 /* ApiKeyManager.swift in Sources */,
 				D304EC6429DCA172005486C6 /* GreenThumbApp.swift in Sources */,
 				D3C3CAB729F74437002083AE /* PlantDiseases.swift in Sources */,
 				FF0177DE29F70A94001C6C0A /* MainView.swift in Sources */,

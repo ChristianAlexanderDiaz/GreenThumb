@@ -8,15 +8,11 @@
 
 import SwiftUI
 
+/**
+    A struct called `DiseaseApiResultDetails` that conforms to `View` which gives all the Details from what the API has.
+ */
 struct DiseaseApiResultDetails: View {
         let disease: DiseaseAPIStruct
-        
-//        @Environment(\.dismiss) private var dismiss
-//        @Environment(\.managedObjectContext) var managedObjectContext
-//
-//        @FetchRequest(fetchRequest: Disease.allDiseasesFetchRequest()) var allDiseases: FetchedResults<Disease>
-        
-//        @EnvironmentObject var databaseChange: DatabaseChange
         
         @State private var showAlertMessage = false
         @State private var alertTitle = ""
@@ -25,23 +21,28 @@ struct DiseaseApiResultDetails: View {
         var body: some View {
             Form {
                 Group {
-                    Section(header: Text("Plant Name")) {
+                    // A section with the Disease Name
+                    Section(header: Text("Disease Name")) {
                         Text(disease.common_name)
                     }
-                    Section(header: Text("Plant Image")) {
+                    // A section with the Diseases Image
+                    Section(header: Text("Disease Image")) {
                         getImageFromUrl(url: disease.thumbnail, defaultFilename: "ImageUnavailable")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: 300)
                     }
+                    // A section with Scientific Names for the Disease
                     Section(header: Text("Scientific Name")) {
                         Text(trimLeadingSpace(of: disease.scientific_name))
                     }
                 }
+                // A section with Other Names for the Disease
                 Section(header: Text("Other Names")) {
                     Text((disease.other_name.joined(separator: ", ")))
                 }
                 
+                // A section with a description for the Disease if it exists.
                 if let description = disease.descriptionValue, !description.isEmpty {
                     Section(header: Text("Description")) {
                         Text(description)
@@ -60,7 +61,7 @@ struct DiseaseApiResultDetails: View {
         A function called `capitalizeFirstLetter` of a function that is a String and returns the String with the first letter being capitalized. If in the extreme case, it's an empty string, it will return itself.
      */
     func capitalizeFirstLetterDisease(of string: String) -> String {
-        //the extreme case the string is empty for some reason
+        //the extreme case the string is empty if it ever happens
         guard !string.isEmpty else { return string }
         return string.prefix(1).capitalized + string.dropFirst()
     }

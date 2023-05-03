@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+/**
+    A struct called `DiseaseApiResultList` that conforms to View which combines the details and items.
+ */
 struct DiseaseApiResultsList: View {
     
     var diseaseAPIStructDetails: [DiseaseAPIStruct]

@@ -4,9 +4,8 @@
 //
 //  Created by Christian Alexander Diaz on 4/11/23.
 //  Edited by Taylor Flieg on 5/02/23.
+//  Edited by Christian Diaz on 5/03/23
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
-//
-
 //
 //  Tutorial by Osman Balci on 6/11/22.
 //  Copyright © 2022 Osman Balci. All rights reserved.
@@ -33,6 +32,8 @@ struct Settings: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     
+    @State private var perenualApiKeyValue = ""
+    
     //list of possible security questions
     let securityQuestions = ["In what city or town did your mother and father meet?", "In what city or town were you born?", "What did you want to be when you grew up?", "What do you remember most from your childhood?", "What is the name of the boy or girl that you first kissed?", "What is the name of the first school you attended?", "What is the name of your favorite childhood friend?", "What is the name of your first pet?", "What is your mother's maiden name?", "What was your favorite place to visit as a child?"]
     
@@ -49,6 +50,52 @@ struct Settings: View {
                 //toggle for showing entered values, which we saw in the reset password view in this tutorial
                 Section(header: Text("Show / Hide Entered Values")) {
                     Toggle("Show Entered Values", isOn: $showEnteredValues)
+                }
+                //section for to edit the perenual key
+                Section(header: Text("Enter a custom Perenual API Key")) {
+                    HStack {
+                        if showEnteredValues {
+                            TextField("Enter Perenual API Key", text: $perenualApiKeyValue)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .disableAutocorrection(true)
+                        } else {
+                            SecureField("Enter Perenual API Key", text: $perenualApiKeyValue)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .disableAutocorrection(true)
+                        }
+                        // Button to clear the text field
+                        //seen before here and in other tutorials
+                        Button(action: {
+                            perenualApiKeyValue = ""
+                        }) {
+                            Image(systemName: "clear")
+                                .imageScale(.medium)
+                                .font(Font.title.weight(.regular))
+                        }
+                        .padding()
+                    }
+                }
+                Section(header: Text("Set Perenual API Key")) {
+                    HStack {
+                        Spacer()
+                        Button("Set API Key") {
+                            if !perenualApiKeyValue.isEmpty {
+                                ApiKeyManager.shared.perenualApiKey = perenualApiKeyValue
+                                showAlertMessage = true
+                                alertTitle = "API Key Set!"
+                                alertMessage = "The API you entered is set to start searching plants."
+                            } else {
+                                showAlertMessage = true
+                                alertTitle = "Missing API Key"
+                                alertMessage = "Please enter an API Key!"
+                            }
+                        } //end of button
+                        .tint(.blue)
+                        .buttonStyle(.bordered)
+                        .buttonBorderShape(.capsule)
+                        
+                        Spacer()
+                    } //end of hstack
                 }
                 //section with picker to choose a security question, which is saved as the selectedSecurityQuestionIndex state variable
                 Section(header: Text("Select a Security Question")) {
@@ -215,6 +262,11 @@ struct Settings: View {
             })
             
         }   // End of NavigationView
+        .onAppear {
+            if let apiKey = ApiKeyManager.shared.perenualApiKey {
+                perenualApiKeyValue = apiKey
+            }
+        }
         // Use single column navigation view for iPhone and iPad
         .navigationViewStyle(StackNavigationViewStyle())
         

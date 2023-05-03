@@ -12,22 +12,25 @@ var foundPlantDetails = [PlantAPIStruct]()
 
 var foundDiseaseDetails = [DiseaseAPIStruct]()
 
-let perenualApiKey = "sk-LAYB6435bb62d3145488"
+//let perenualApiKey = "sk-LAYB6435bb62d3145488"
 
 //let perenualApiKey = "sk-gAna6447010cd6b5f621"
 
-let perenualApiHeaders = [
-    "accept": "application/json",
-    "authorization": "Bearer \(perenualApiKey)",
-    "cache-control": "no-cache",
-    "connection": "keep-alive"
-]
+let perenualApiHeaders: [String: String] = {
+    let apiKey = ApiKeyManager.shared.perenualApiKey
+    return [
+        "accept": "application/json",
+        "authorization": "Bearer \(apiKey ?? "")",
+        "cache-control": "no-cache",
+        "connection": "keep-alive"
+    ]
+}()
 
 public func getFoundPlantsFromApi(query: String, maxResults: Int) {
     foundPlantsSearchResultList = [PlantAPISearchResultStruct]()
     foundPlantDetails = [PlantAPIStruct]()
 
-    let apiUrlStringQuery = "https://perenual.com/api/species-list?key=\(perenualApiKey)&q=\(query)"
+    let apiUrlStringQuery = "https://perenual.com/api/species-list?key=\(ApiKeyManager.shared.perenualApiKey ?? "")&q=\(query)"
 
     var jsonDataFromApi: Data
 
@@ -68,7 +71,7 @@ public func getFoundPlantsFromApi(query: String, maxResults: Int) {
                     foundPlantsSearchResultList.append(searchResultPlant)
 
                     // Get plant details using the ID
-                    let apiUrlStringAttributes = "https://perenual.com/api/species/details/\(id)?key=\(perenualApiKey)"
+                    let apiUrlStringAttributes = "https://perenual.com/api/species/details/\(id)?key=\(ApiKeyManager.shared.perenualApiKey ?? "")"
 
                     var jsonDataFromAttributesApi: Data
 
@@ -123,7 +126,7 @@ public func getFoundPlantsFromApi(query: String, maxResults: Int) {
 public func getFoundDiseasesFromApi(query: String, maxResults: Int) {
     foundDiseaseDetails = [DiseaseAPIStruct]()
 
-    let apiUrlStringQuery = "https://perenual.com/api/pest-disease-list?key=\(perenualApiKey)&q=\(query)"
+    let apiUrlStringQuery = "https://perenual.com/api/pest-disease-list?key=\(ApiKeyManager.shared.perenualApiKey ?? "")&q=\(query)"
 
     guard let jsonDataFetchedFromApi = getJsonDataFromApi(apiHeaders: perenualApiHeaders, apiUrl: apiUrlStringQuery, timeout: 20.0) else {
         return
