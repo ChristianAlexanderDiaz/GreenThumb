@@ -118,7 +118,19 @@ struct ExploreApiResultDetails: View {
         plantEntity.scientific_name = plant.scientific_name
         plantEntity.other_name = plant.other_name
         plantEntity.cycle = plant.cycle
-        plantEntity.watering = plant.watering
+        
+        if plant.watering == "Frequent" {
+            plantEntity.watering = "4"
+        } else if plant.watering == "Average" {
+            plantEntity.watering = "8"
+        } else if plant.watering == "Minimal" {
+            plantEntity.watering = "14"
+        } else if plant.watering == "None" {
+            plantEntity.watering = "30"
+        } else {
+            plantEntity.watering = "7"
+        }
+        
         plantEntity.sunlight = plant.sunlight
         
         //NEED TO CHANGE CORE DATA IF THEY NEED THESE
