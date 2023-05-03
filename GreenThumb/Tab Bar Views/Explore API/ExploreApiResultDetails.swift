@@ -25,17 +25,22 @@ struct ExploreApiResultDetails: View {
     var body: some View {
         Form {
             Group {
-                Section(header: Text("Plant Name")) {
+                Section(header: Text("Plant Common Name")) {
                     Text(capitalizeFirstLetter(of: plant.common_name))
+                }
+                Section(header: Text("Plant Scientific Name")) {
+                    Text((plant.scientific_name.joined(separator: ", ")))
+                }
+                if !plant.other_name.isEmpty {
+                    Section(header: Text("Other Names")) {
+                        Text((plant.other_name.joined(separator: ", ")))
+                    }
                 }
                 Section(header: Text("Plant Image")) {
                     getImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 300)
-                }
-                Section(header: Text("Sunlight Requirements")) {
-                    Text((plant.sunlight.joined(separator: ", ")))
                 }
                 Section(header: Text("Add Plant To My Plant Tab")) {
                     Button(action: {
@@ -55,20 +60,17 @@ struct ExploreApiResultDetails: View {
                         .foregroundColor(.blue)
                     }
                 }
-                Section(header: Text("Cycle")) {
-                    Text(capitalizeFirstLetter(of: plant.cycle))
+                Section(header: Text("Plant Location")) {
+                    Text(plantLocationString(from: plant.indoor))
+                }
+                Section(header: Text("Sunlight Requirements")) {
+                    Text((plant.sunlight.joined(separator: ", ")))
                 }
                 Section(header: Text("Watering")) {
                     Text(capitalizeFirstLetter(of: plant.watering))
                 }
-            }
-            Section(header: Text("Scientific Names")) {
-                Text((plant.scientific_name.joined(separator: ", ")))
-            }
-
-            if !plant.other_name.isEmpty {
-                Section(header: Text("Other Names")) {
-                    Text((plant.other_name.joined(separator: ", ")))
+                Section(header: Text("Cycle")) {
+                    Text(capitalizeFirstLetter(of: plant.cycle))
                 }
             }
             
@@ -83,9 +85,6 @@ struct ExploreApiResultDetails: View {
             }
             Section(header: Text("Dimension for Plant")) {
                 Text(plant.dimension)
-            }
-            Section(header: Text("Preferred Location")) {
-                Text(plantLocationString(from: plant.indoor))
             }
         }
         .navigationBarTitle(Text("Plant API Details"), displayMode: .inline)
@@ -107,7 +106,7 @@ struct ExploreApiResultDetails: View {
     }
     
     func plantLocationString(from indoor: Bool) -> String {
-        return indoor ? "Keep the plant inside." : "Leave the plant outside."
+        return indoor ? "Indoors" : "Outdoors"
     }
     
     func savePlantsToDatabaseAsFavorite() {
@@ -144,5 +143,7 @@ struct ExploreApiResultDetails: View {
         // 3️⃣ It has no relationship to another Entity
         //todo - make!
         PersistenceController.shared.saveContext()
+        
+        databaseChange.indicator.toggle()
     }
 }

@@ -257,6 +257,22 @@
 			path = "Plant Diseases API";
 			sourceTree = "<group>";
 		};
+		D36382A32A02C0E500C85306 /* App Information */ = {
+			isa = PBXGroup;
+			children = (
+				D3C3CAB429F74039002083AE /* AppInformation.swift */,
+			);
+			path = "App Information";
+			sourceTree = "<group>";
+		};
+		D36382A42A02C10500C85306 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D36F9E1929E5E4CE0085C0B2 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		D36F9E0929E5E3F70085C0B2 /* MyPlants */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,10 +315,10 @@
 		D36F9E1629E5E4B90085C0B2 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				D363829A2A02A57E00C85306 /* Plant Diseases API */,
 				D36F9E1729E5E4C90085C0B2 /* More.swift */,
-				D3C3CAB429F74039002083AE /* AppInformation.swift */,
-				D36F9E1929E5E4CE0085C0B2 /* Settings.swift */,
+				D36382A42A02C10500C85306 /* Settings */,
+				D36382A32A02C0E500C85306 /* App Information */,
+				D363829A2A02A57E00C85306 /* Plant Diseases API */,
 			);
 			path = More;
 			sourceTree = "<group>";
