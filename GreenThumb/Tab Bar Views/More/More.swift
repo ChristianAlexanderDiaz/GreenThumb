@@ -8,10 +8,14 @@
 
 import SwiftUI
 
+/**
+    A struct called More that conforms to View which gives me a List filled with different NavigationLinks that act as more tabs for the application.
+ */
 struct More: View {
     var body: some View {
         NavigationView {
             List {
+                // Plant Diseases API
                 NavigationLink(destination: PlantDiseases()) {
                     HStack {
                         Image(systemName: "exclamationmark.triangle.fill")
@@ -23,6 +27,7 @@ struct More: View {
                     }
                     .foregroundColor(.blue)
                 }
+                // App Information with Details for all our information
                 NavigationLink(destination: AppInformation()) {
                     HStack {
                         Image(systemName: "info.circle.fill")
@@ -35,6 +40,7 @@ struct More: View {
                     .foregroundColor(.blue)
                     
                 }
+                // Settings Page that contains change of key and password setups
                 NavigationLink(destination: Settings()) {
                     HStack {
                         Image(systemName: "gear.circle.fill")

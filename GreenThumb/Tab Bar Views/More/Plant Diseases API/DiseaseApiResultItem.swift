@@ -8,11 +8,11 @@
 
 import SwiftUI
 
+/**
+    A struct called `DiseaseApiResultItem` that conforms to `View` which gives the item format for each plant in the list.
+ */
 struct DiseaseApiResultItem: View {
     let disease: DiseaseAPIStruct
-    
-//    // Subscribe to changes in Core Data database
-//    @EnvironmentObject var databaseChange: DatabaseChange
     
     var body: some View {
         HStack {

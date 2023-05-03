@@ -8,16 +8,24 @@
 
 import SwiftUI
 
+/**
+    A struct called `ExploreApiResultDetails` that conforms to `View` which gives all the Details from what the API has.
+ */
 struct ExploreApiResultDetails: View {
+    // A PlantAPIStruct object representing the found plant to display
     let plant: PlantAPIStruct
 
+    // Environment variables
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) var managedObjectContext
 
+    // Fetching the request to retrieve all plants from Core Data
     @FetchRequest(fetchRequest: Plant.allPlantsFetchRequest()) var allPlants: FetchedResults<Plant>
     
+    // Environemnt object that detects changes to the Core Data database to update values
     @EnvironmentObject var databaseChange: DatabaseChange
 
+    // Alert Messages
     @State private var showAlertMessage = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
@@ -25,23 +33,28 @@ struct ExploreApiResultDetails: View {
     var body: some View {
         Form {
             Group {
+                // A Section displaying the plant's common name
                 Section(header: Text("Plant Common Name")) {
                     Text(capitalizeFirstLetter(of: plant.common_name))
                 }
+                // A seciton displaying the plant's scientific name
                 Section(header: Text("Plant Scientific Name")) {
                     Text((plant.scientific_name.joined(separator: ", ")))
                 }
+                // A section displaying the plant's other names, if they exist.
                 if !plant.other_name.isEmpty {
                     Section(header: Text("Other Names")) {
                         Text((plant.other_name.joined(separator: ", ")))
                     }
                 }
+                // A section displaying the plant's thumbnail image
                 Section(header: Text("Plant Image")) {
                     getImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 300)
                 }
+                // A section for adding the selected plant to My Plants
                 Section(header: Text("Add Plant To My Plant Tab")) {
                     Button(action: {
                         savePlantsToDatabaseAsFavorite()
@@ -60,29 +73,35 @@ struct ExploreApiResultDetails: View {
                         .foregroundColor(.blue)
                     }
                 }
+                // A section displaying whether the plant is meant for indoor or outdoor growing
                 Section(header: Text("Plant Location")) {
                     Text(plantLocationString(from: plant.indoor))
                 }
+                // A section displaying the plant's sunlight requirements
                 Section(header: Text("Sunlight Requirements")) {
                     Text((plant.sunlight.joined(separator: ", ")))
                 }
+                // A section displaying the plant's watering needs
                 Section(header: Text("Watering")) {
                     Text(capitalizeFirstLetter(of: plant.watering))
                 }
+                // A section displaying the plant's cycle (annual, biennial, perennial)
                 Section(header: Text("Cycle")) {
                     Text(capitalizeFirstLetter(of: plant.cycle))
                 }
             }
             
+            // A section displaying what animals are attracted to this plant, if they exist.
             if !plant.attracts.isEmpty {
                 Section(header: Text("Attracts")) {
                     Text((plant.attracts.joined(separator: ", ")))
                 }
             }
-            
+            // A section that includes the Type of Plant, the footer will give you the possibilities.
             Section(header: Text("Type of Plant"), footer: Text("Includes: Herbs, Shrubs, Trees, Climbers, Creepers")) {
                 Text(capitalizeFirstLetter(of: plant.type))
             }
+            // A section that includes the size of the plant.
             Section(header: Text("Dimension for Plant")) {
                 Text(plant.dimension)
             }
@@ -97,18 +116,43 @@ struct ExploreApiResultDetails: View {
     }
     
     /**
-        A function called `capitalizeFirstLetter` of a function that is a String and returns the String with the first letter being capitalized. If in the extreme case, it's an empty string, it will return itself.
+        A function called `capitalizeFirstLetter` that takes a String as input and returns the same string with the first letter capitalized. If the string is empty, it will return itself.
      */
     func capitalizeFirstLetter(of string: String) -> String {
-        //the extreme case the string is empty for some reason
+        // Check if the string is empty
         guard !string.isEmpty else { return string }
+        // Capitalize the first letter of the string and return the modified string
         return string.prefix(1).capitalized + string.dropFirst()
     }
     
+    /**
+        A function called `plantLocationString` that takes a Boolean as input and returns a String. For example, if the value is true, it will show as "Indoors", vice versa.
+     */
     func plantLocationString(from indoor: Bool) -> String {
         return indoor ? "Indoors" : "Outdoors"
     }
     
+    /**
+        A function called `calculateWateringDays` that takes a String as input and returns the corresponding number of days for watering the plant as a String.
+     */
+    func calculateWateringDays(watering: String) -> String {
+        switch watering {
+        case "Frequent":
+            return "4"
+        case "Average":
+            return "8"
+        case "Minimal":
+            return "14"
+        case "None":
+            return "30"
+        default:
+            return "7"
+        }
+    }
+    
+    /**
+        A function called `savePlantsToDatabaseAsFavorite` that saves the individual plant that we are looking at and saves that on the database.
+     */
     func savePlantsToDatabaseAsFavorite() {
         let plantEntity = Plant(context: managedObjectContext)
         
@@ -118,24 +162,10 @@ struct ExploreApiResultDetails: View {
         plantEntity.other_name = plant.other_name
         plantEntity.cycle = plant.cycle
         
-        if plant.watering == "Frequent" {
-            plantEntity.watering = "4"
-        } else if plant.watering == "Average" {
-            plantEntity.watering = "8"
-        } else if plant.watering == "Minimal" {
-            plantEntity.watering = "14"
-        } else if plant.watering == "None" {
-            plantEntity.watering = "30"
-        } else {
-            plantEntity.watering = "7"
-        }
+        //contains a function to calculate the watering days from stirng -> string
+        plantEntity.watering = calculateWateringDays(watering: plant.watering)
         
         plantEntity.sunlight = plant.sunlight
-        
-        //NEED TO CHANGE CORE DATA IF THEY NEED THESE
-//        plantEntity.type = plant.type
-//        plantEntity.dimension = plant.dimension
-//        plantEntity.indoor = plant.indoor
         
         // Fetch Image Data
         plantEntity.primaryImage = getUIImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
