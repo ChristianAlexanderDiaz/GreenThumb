@@ -265,10 +265,10 @@
 		D36F9E0C29E5E42A0085C0B2 /* Explore API */ = {
 			isa = PBXGroup;
 			children = (
-				D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */,
-				D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */,
-				D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */,
 				D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */,
+				D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */,
+				D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */,
+				D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */,
 			);
 			path = "Explore API";
 			sourceTree = "<group>";

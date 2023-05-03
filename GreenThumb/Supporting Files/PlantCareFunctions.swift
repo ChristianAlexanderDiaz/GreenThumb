@@ -26,28 +26,32 @@ public func waterPlant(plant: Plant) {
 
 public func starPlant(plant: Plant) {
     plant.starred = true
+    plant.starredDate = Date()
     
     PersistenceController.shared.saveContext()
 }
 
 public func unstarPlant(plant: Plant) {
     plant.starred = false
+    plant.starredDate = nil
     
     PersistenceController.shared.saveContext()
 }
 
 public func diseasePlant(plant: Plant) {
-    //plant.diseased = true
-    plant.diseaseNotes = " "
+    plant.diseased = true
+    plant.diseasedDate = Date()
     
     PersistenceController.shared.saveContext()
+    
 }
 
 public func undiseasePlant(plant: Plant) {
-    //plant.diseased = false
-    plant.diseaseNotes = ""
+    plant.diseased = false
+    plant.diseasedDate = nil
     
     PersistenceController.shared.saveContext()
+                            
 }
 
 
