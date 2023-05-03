@@ -3,6 +3,7 @@
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/4/23.
+//  Edited by Taylor Flieg on 5/02/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 

@@ -48,7 +48,6 @@
 		FF0177E729F70C0F001C6C0A /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177E629F70C0F001C6C0A /* UserAuthentication.swift */; };
 		FF1218AE29F840C000FB976B /* PlantAPISearchResultStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1218AD29F840C000FB976B /* PlantAPISearchResultStruct.swift */; };
 		FFBB1B1529F72B9A00C260DC /* EditPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBB1B1429F72B9A00C260DC /* EditPlant.swift */; };
-		FFBF385929F5B27300926291 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385829F5B27300926291 /* UserData.swift */; };
 		FFBF385B29F5B37500926291 /* PlantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385A29F5B37500926291 /* PlantItem.swift */; };
 		FFBF385D29F5B37D00926291 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385C29F5B37D00926291 /* PlantDetails.swift */; };
 		FFBF385F29F5B38200926291 /* AddPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF385E29F5B38200926291 /* AddPlant.swift */; };
@@ -104,7 +103,6 @@
 		FF0177E629F70C0F001C6C0A /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAuthentication.swift; path = "GreenThumb/Supporting Files/UserAuthentication.swift"; sourceTree = SOURCE_ROOT; };
 		FF1218AD29F840C000FB976B /* PlantAPISearchResultStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantAPISearchResultStruct.swift; sourceTree = "<group>"; };
 		FFBB1B1429F72B9A00C260DC /* EditPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlant.swift; sourceTree = "<group>"; };
-		FFBF385829F5B27300926291 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FFBF385A29F5B37500926291 /* PlantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantItem.swift; sourceTree = "<group>"; };
 		FFBF385C29F5B37D00926291 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		FFBF385E29F5B38200926291 /* AddPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlant.swift; sourceTree = "<group>"; };
@@ -154,10 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				D304EC8429DCAB5B005486C6 /* PlantsData.json */,
-				D304EC7729DCA6DC005486C6 /* PlantsData.swift */,
 				D304EC7A29DCA75D005486C6 /* PlantStruct.swift */,
+				D304EC7729DCA6DC005486C6 /* PlantsData.swift */,
 				D304EC7029DCA271005486C6 /* DatabaseChange.swift */,
-				FFBF385829F5B27300926291 /* UserData.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -166,11 +163,12 @@
 			isa = PBXGroup;
 			children = (
 				D304EC7D29DCA7B6005486C6 /* UtilityFunctions.swift */,
-				D35DE8D829E60D7300E204E1 /* NotFound.swift */,
-				FFBF386029F5B7B200926291 /* NavigationStyle.swift */,
-				FFBF386229F5BE9700926291 /* ImagePicker.swift */,
 				34C9208B29F800E6009ABB0B /* PlantCareFunctions.swift */,
 				3495949F2A01762500875711 /* CurrentLocation.swift */,
+				FF0177E629F70C0F001C6C0A /* UserAuthentication.swift */,
+				FFBF386029F5B7B200926291 /* NavigationStyle.swift */,
+				D35DE8D829E60D7300E204E1 /* NotFound.swift */,
+				FFBF386229F5BE9700926291 /* ImagePicker.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -204,14 +202,14 @@
 			children = (
 				D304EC6329DCA172005486C6 /* GreenThumbApp.swift */,
 				D304EC6029DCA13D005486C6 /* AppDelegate.swift */,
-				D35DE8D329E5F14A00E204E1 /* API Data Model */,
 				D304EC6229DCA15F005486C6 /* Core Data Model */,
-				D304EC6729DCA1A8005486C6 /* Tab Bar Views */,
 				D304EC6F29DCA266005486C6 /* Data Model */,
-				D304EC7C29DCA7A6005486C6 /* Supporting Files */,
+				D35DE8D329E5F14A00E204E1 /* API Data Model */,
 				FF0177D729F70A94001C6C0A /* Startup Views */,
-				D3288F6829CCDDE600ED7EFB /* Info.plist */,
+				D304EC7C29DCA7A6005486C6 /* Supporting Files */,
+				D304EC6729DCA1A8005486C6 /* Tab Bar Views */,
 				D3288F5E29CCDDE600ED7EFB /* Assets.xcassets */,
+				D3288F6829CCDDE600ED7EFB /* Info.plist */,
 				D3288F6029CCDDE600ED7EFB /* Preview Content */,
 			);
 			path = GreenThumb;
@@ -228,8 +226,8 @@
 		D35DE8D329E5F14A00E204E1 /* API Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				D35DE8D429E5F1CF00E204E1 /* PerenualApiData.swift */,
 				D35DE8D629E5F1E100E204E1 /* GetJsonDataFromApi.swift */,
+				D35DE8D429E5F1CF00E204E1 /* PerenualApiData.swift */,
 				FF0177D529F70A88001C6C0A /* PlantAPIStruct.swift */,
 				FF1218AD29F840C000FB976B /* PlantAPISearchResultStruct.swift */,
 			);
@@ -289,11 +287,10 @@
 		FF0177D729F70A94001C6C0A /* Startup Views */ = {
 			isa = PBXGroup;
 			children = (
-				FF0177D829F70A94001C6C0A /* LoginView.swift */,
-				FF0177E629F70C0F001C6C0A /* UserAuthentication.swift */,
-				FF0177D929F70A94001C6C0A /* ResetPassword.swift */,
-				FF0177DA29F70A94001C6C0A /* MainView.swift */,
 				FF0177DB29F70A94001C6C0A /* ContentView.swift */,
+				FF0177D829F70A94001C6C0A /* LoginView.swift */,
+				FF0177DA29F70A94001C6C0A /* MainView.swift */,
+				FF0177D929F70A94001C6C0A /* ResetPassword.swift */,
 			);
 			path = "Startup Views";
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 				FF0177E529F70BE7001C6C0A /* GreenThumb.xcdatamodeld in Sources */,
 				34C9208C29F800E6009ABB0B /* PlantCareFunctions.swift in Sources */,
 				D36F9E1429E5E4AA0085C0B2 /* ExploreApi.swift in Sources */,
-				FFBF385929F5B27300926291 /* UserData.swift in Sources */,
 				FF0177DF29F70A94001C6C0A /* ContentView.swift in Sources */,
 				FF0177D029F70A78001C6C0A /* WateringPlantCareDetails.swift in Sources */,
 				FF0177D629F70A88001C6C0A /* PlantAPIStruct.swift in Sources */,
