@@ -3,6 +3,7 @@
 //  GreenThumb
 //
 //  Created by Brian Wood on 4/23/23.
+//  Edited by Taylor Flieg on 5/02/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
@@ -18,13 +19,12 @@ struct PlantItem: View {
 
     var body: some View {
         HStack {
-
-            getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 80.0)
-
-
+            if plant.primaryImage != nil {
+                getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80.0)
+            }
             VStack(alignment: .leading) {
                 if plant.nickname != nil && plant.nickname != "" {
                     HStack {

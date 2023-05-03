@@ -19,10 +19,12 @@ struct WateringPlantCareItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80.0)
+                if plant.primaryImage != nil {
+                    getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80.0)
+                }
                 VStack(alignment: .leading) {
                     if plant.nickname != "" {
                         Text(plant.nickname ?? "")
@@ -60,10 +62,12 @@ struct DiseasedPlantCareItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80.0)
+                if plant.primaryImage != nil {
+                    getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80.0)
+                }
                 VStack(alignment: .leading) {
                     if plant.nickname != "" {
                         Text(plant.nickname ?? "")
@@ -102,10 +106,12 @@ struct StarredPlantCareItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80.0)
+                if plant.primaryImage != nil {
+                    getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80.0)
+                }
                 VStack(alignment: .leading) {
                     if plant.nickname != "" {
                         Text(plant.nickname ?? "")
