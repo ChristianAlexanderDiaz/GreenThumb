@@ -76,7 +76,7 @@ struct MyPlants: View {
                 .onAppear {
                     plantLocationList = generateLocationsList()
                 }
-                .navigationBarTitle(Text("My Plants"), displayMode: .inline)
+                .navigationBarTitle(Text("\(plantLocationList[selectedSortIndex]) Plants"), displayMode: .inline)
                 // Place the Edit button on left and Add (+) button on right of the navigation bar
                 .navigationBarItems(leading: EditButton(), trailing:
                                         NavigationLink(destination: AddPlant()) {
