@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct Settings: View {
-    
     @AppStorage("darkMode") private var darkMode = false
     
     @State private var showEnteredValues = false
@@ -223,8 +222,3 @@ struct Settings: View {
     
 }
 
-struct Settings_Previews: PreviewProvider {
-    static var previews: some View {
-        Settings()
-    }
-}

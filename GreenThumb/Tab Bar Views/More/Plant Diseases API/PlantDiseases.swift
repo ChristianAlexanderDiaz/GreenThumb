@@ -1,14 +1,14 @@
 //
-//  ExploreApi.swift
+//  PlantDiseases.swift
 //  GreenThumb
 //
-//  Created by Christian Alexander Diaz on 4/11/23.
+//  Created by Christian Alexander Diaz on 4/24/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
 import SwiftUI
 
-struct ExploreApi: View {
+struct PlantDiseases: View {
     //values for searching
     @State private var searchValue = ""
     @State private var searchCompleted = false
@@ -37,7 +37,6 @@ struct ExploreApi: View {
         A body that pertains the `some View` which contains all the `Form` items in there.
      */
     var body: some View {
-        NavigationView {
             Form {
                 Section(header: Text("API Status")) {
                     HStack {
@@ -67,9 +66,9 @@ struct ExploreApi: View {
                         Text("10")
                     }
                 }
-                Section(header: Text("Look up a Plant"), footer: Text("Powered by Perenual API").italic()) {
+                Section(header: Text("Look up a Disease"), footer: Text("Powered by Perenual API").italic()) {
                     HStack {
-                        TextField("Enter a Plant", text: $searchValue)
+                        TextField("Enter a Disease", text: $searchValue)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .disableAutocorrection(true)
                         Button(action: {
@@ -83,7 +82,7 @@ struct ExploreApi: View {
                         } //end of button extension
                     } //end of HStack
                 } //end of Section 1
-                Section(header: Text("Search Plant")) {
+                Section(header: Text("Search Disease")) {
                     HStack {
                         Spacer()
                         Button(searchCompleted ? "Search Completed" : "Search") {
@@ -92,8 +91,8 @@ struct ExploreApi: View {
                                 searchCompleted = true
                             } else {
                                 showAlertMessage = true
-                                alertTitle = "Missing Plant Name!"
-                                alertMessage = "A plant name is required!"
+                                alertTitle = "Missing Disease Name!"
+                                alertMessage = "A disease name is required!"
                             }
                         }
                         .tint(.blue)
@@ -103,13 +102,13 @@ struct ExploreApi: View {
                     } //end of HStack
                 } //end of Section 2
                 if searchCompleted {
-                    Section(header: Text("Plants Found")) {
+                    Section(header: Text("Diseases Found")) {
                         NavigationLink(destination: showSearchResults) {
                             HStack {
                                 Image(systemName: "list.bullet")
                                     .imageScale(.medium)
                                     .font(Font.title.weight(.regular))
-                                Text("List Plants Found")
+                                Text("List Diseases Found")
                                     .font(.system(size: 16))
                             }
                             .foregroundColor(.blue)
@@ -117,11 +116,10 @@ struct ExploreApi: View {
                     }
                 }
             } //end of Form
-            .navigationBarTitle(Text("Explore API"), displayMode: .inline)
             .onAppear(perform: {
                 checkApiStatus()
             })
-        } //end of NavigationView
+            .navigationBarTitle(Text("Plant Diseases API"), displayMode: .inline)
     } //end of some view
     
     /**
@@ -159,13 +157,13 @@ struct ExploreApi: View {
      -------------------------
      */
     var showSearchResults: some View {
-        if foundPlantDetails.isEmpty {
+        if foundDiseaseDetails.isEmpty {
             return AnyView(
                 NotFound(message: "The Perenual API did not return any plant for the query entered.")
             )
         }
 
-        return AnyView(ExploreApiResultsList(exploreApiResultPlants: foundPlantDetails))
+        return AnyView(DiseaseApiResultsList(diseaseAPIStructDetails: foundDiseaseDetails))
     }
     
     /*
@@ -179,7 +177,7 @@ struct ExploreApi: View {
         // Each space in the query should be converted to +
         let termWithNoSpace = termCleaned.replacingOccurrences(of: " ", with: "+")
 
-        getFoundPlantsFromApi(query: termWithNoSpace, maxResults: Int(maxResults))
+        getFoundDiseasesFromApi(query: termWithNoSpace, maxResults: Int(maxResults))
     }
 
     
@@ -196,11 +194,5 @@ struct ExploreApi: View {
             return false
         }
         return true
-    }
-}
-
-struct ExploreApi_Previews: PreviewProvider {
-    static var previews: some View {
-        ExploreApi()
     }
 }
