@@ -3,6 +3,7 @@
 //  GreenThumb
 //
 //  Created by Brian Wood on 4/23/23.
+//  Edited by Taylor Flieg on 5/02/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
@@ -12,29 +13,18 @@ struct PlantItem: View {
 
     // ✳️ Input parameter: Core Data Plant Entity instance reference
     let plant: Plant
-
+    
     // Subscribe to changes in Core Data database
     @EnvironmentObject var databaseChange: DatabaseChange
 
     var body: some View {
         HStack {
-//            getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 80.0)
-            if let primaryImage = plant.primaryImage {
-                getImageFromBinaryData(binaryData: primaryImage, defaultFilename: "ImageUnavailable")
+            if plant.primaryImage != nil {
+                getImageFromBinaryData(binaryData: plant.primaryImage!, defaultFilename: "ImageUnavailable")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 80.0)
-            } else {
-                Image("ImageUnavailable")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 80.0)
+                    .frame(width: 80.0)
             }
-
-
             VStack(alignment: .leading) {
                 if plant.nickname != nil && plant.nickname != "" {
                     HStack {

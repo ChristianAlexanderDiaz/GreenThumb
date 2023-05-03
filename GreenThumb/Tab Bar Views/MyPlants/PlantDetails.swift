@@ -105,6 +105,24 @@ struct PlantDetails: View {
                 }
             }
             Group {
+                if plant.watering_history != nil {
+                    Section(header: Text("Plant Watering History")) {
+                        NavigationLink(destination: WateringHistoryView(dates: plant.watering_history!)) {
+                            Text("Watering History")
+                                .foregroundColor(.blue)
+                        }
+                    }
+                }
+                
+                if plant.photos != nil {
+                    Section(header: Text("Plant Growth Images")) {
+                        NavigationLink(destination: PlantGrowthImages(plant: plant)) {
+                            Text("Plant Images")
+                                .foregroundColor(.blue)
+                        }
+                    }
+                }
+                
                 if plant.diseaseNotes != nil  && plant.diseaseNotes != ""{
                     Section(header: Text("Plant Notes")) {
                         Text(plant.diseaseNotes!)
@@ -128,7 +146,6 @@ struct PlantDetails: View {
             })
 
     }   // End of body var
-
 
     // Convert the watered date to a string
     func wateredDate(date: Date) -> String {
@@ -204,12 +221,12 @@ struct PlantDetails: View {
 
 }
 
-//struct PlantDetails_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            let context = PersistenceController.shared.persistentContainer.viewContext
-//            let plant = try! context.fetch(Plant.allPlantsFetchRequest()).first!
-//            PlantDetails(plant: plant)
-//        }
-//    }
-//}
+struct PlantDetails_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            let context = PersistenceController.shared.persistentContainer.viewContext
+            let plant = try! context.fetch(Plant.allPlantsFetchRequest()).first!
+            PlantDetails(plant: plant)
+        }
+    }
+}

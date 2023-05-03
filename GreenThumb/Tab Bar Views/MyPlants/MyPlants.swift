@@ -107,13 +107,30 @@ struct MyPlants: View {
          */
         func move(from source: IndexSet, to destination: Int) {
             
-//            userData.plantsList.move(fromOffsets: source, toOffset: destination)
             
-            // Set the global variable point to the changed list
-//            plantStructList = userData.plantsList
+            // Create an array of Album entities from allMusicAlbums fetched from the database
+            var arrayOfAllPlants: [Plant] = allPlants.map{ $0 }
+
+            // ❎ Perform the move operation on the array
+            arrayOfAllPlants.move(fromOffsets: source, toOffset: destination )
+
+            /*
+             'stride' returns a sequence from a starting value toward, and possibly including,
+             an end value, stepping by the specified amount.
+             
+             Update the orderNumber attribute in reverse order starting from the end toward the first.
+             */
+            for index in stride(from: arrayOfAllPlants.count - 1, through: 0, by: -1) {
+                
+                arrayOfAllPlants[index].id = Int32(index) as NSNumber
+            }
             
-            // Set global flag defined in otesData
-//            plantDataChanged = true
+            // ❎ Save Changes to Core Data Database
+            PersistenceController.shared.saveContext()
+            
+            // Toggle database change indicator so that its subscribers can refresh their views
+            databaseChange.indicator.toggle()
+        
         }
     
     /*
