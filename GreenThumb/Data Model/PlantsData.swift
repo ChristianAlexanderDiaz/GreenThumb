@@ -76,7 +76,9 @@ public func createPlantsDatabase() {
         plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
         
         // 3️⃣ It has no relationship to another Entity
-        //todo - make!
+        //todo
+        
+        
         PersistenceController.shared.saveContext()
     }   // End of for loop
 }

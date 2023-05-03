@@ -12,10 +12,14 @@ struct AddPhotoView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
     
+    // Subscribe to changes in Core Data database
+    @EnvironmentObject var databaseChange: DatabaseChange
+    
     @State private var showImagePicker = false
     @State private var pickedUIImage: UIImage?
     @State private var pickedImage: Image?
     @State private var photoTitle = ""
+    @State private var makePrimary = false
     
     let plant: Plant
     
@@ -78,6 +82,12 @@ struct AddPhotoView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding()
                 
+                Section(header: Text("Make new primary photo")) {
+                    Toggle("Primary Photo", isOn: $makePrimary)
+                }
+                
+                
+                
                 Button("Save Photo") {
                     savePhoto()
                     dismiss()
@@ -118,7 +128,13 @@ struct AddPhotoView: View {
             photo.title = photoTitle.isEmpty ? "Untitled" : photoTitle
             photo.plant = plant
             
+            if makePrimary {
+                plant.primaryImage = photoData
+            }
+            
             PersistenceController.shared.saveContext()
+            // Toggle database change indicator so that its subscribers can refresh their views
+            databaseChange.indicator.toggle()
             
             pickedImage = Image(uiImage: UIImage(data: photoData)!)
         }

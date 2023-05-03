@@ -14,6 +14,9 @@ struct WateringPlantCareItem: View {
     // Input Parameter
     let plant: Plant
     
+    @State private var toBeWatered: Plant?
+    @State private var showConfirmation = false
+    
     @EnvironmentObject var databaseChange: DatabaseChange
     
     var body: some View {
@@ -41,7 +44,8 @@ struct WateringPlantCareItem: View {
                 Spacer()
                 
                 Button("Watered?") {
-                    waterPlant(plant: plant)
+                    toBeWatered = plant
+                    showConfirmation = true
                 }
                 //styling for the button
                 .tint(.blue)
@@ -49,6 +53,18 @@ struct WateringPlantCareItem: View {
                 .buttonBorderShape(.capsule)
             }
         }
+        .alert(Text("Water Confirmation"), isPresented: $showConfirmation, actions: {
+            Button("Yes") {
+                waterPlant(plant: toBeWatered ?? Plant())
+                toBeWatered = nil
+            }
+            Button("No") {
+                toBeWatered = nil
+            }
+        }, message: {
+            Text("Do you want to mark this plant as watered?")
+        })
+
     }
     
 }
@@ -56,6 +72,9 @@ struct WateringPlantCareItem: View {
 struct DiseasedPlantCareItem: View {
     // Input Parameter
     let plant: Plant
+    
+    @State private var toBeHealthy: Plant?
+    @State private var showConfirmation = false
     
     @EnvironmentObject var databaseChange: DatabaseChange
     
@@ -84,7 +103,8 @@ struct DiseasedPlantCareItem: View {
                 Spacer()
                 
                 Button("Healthy?") {
-                    undiseasePlant(plant: plant)
+                    toBeHealthy = plant
+                    showConfirmation = true
                 }
                 //styling for the button
                 .tint(.green)
@@ -93,6 +113,17 @@ struct DiseasedPlantCareItem: View {
                 .buttonBorderShape(.capsule)
             }
         }
+        .alert(Text("Healthy Confirmation"), isPresented: $showConfirmation, actions: {
+            Button("Yes") {
+                undiseasePlant(plant: toBeHealthy ?? Plant())
+                toBeHealthy = nil
+            }
+            Button("No") {
+                toBeHealthy = nil
+            }
+        }, message: {
+            Text("Do you want to mark this plant as healthy?")
+        })
     }
     
 }
@@ -100,6 +131,9 @@ struct DiseasedPlantCareItem: View {
 struct StarredPlantCareItem: View {
     // Input Parameter
     let plant: Plant
+    
+    @State private var toUnStar: Plant?
+    @State private var showConfirmation = false
     
     @EnvironmentObject var databaseChange: DatabaseChange
     
@@ -127,7 +161,8 @@ struct StarredPlantCareItem: View {
                 Spacer()
                 
                 Button("Remove Star?") {
-                    unstarPlant(plant: plant)
+                    toUnStar = plant
+                    showConfirmation = true
                 }
                 //styling for the button
                 .tint(.yellow)
@@ -136,6 +171,17 @@ struct StarredPlantCareItem: View {
                 .buttonBorderShape(.capsule)
             }
         }
+        .alert(Text("Un-Star Confirmation"), isPresented: $showConfirmation, actions: {
+            Button("Yes") {
+                unstarPlant(plant: toUnStar ?? Plant())
+                toUnStar = nil
+            }
+            Button("No") {
+                toUnStar = nil
+            }
+        }, message: {
+            Text("Do you want to remove this plant's star?")
+        })
     }
     
 }

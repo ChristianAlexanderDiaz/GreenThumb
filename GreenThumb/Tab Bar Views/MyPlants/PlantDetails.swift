@@ -129,6 +129,76 @@ struct PlantDetails: View {
                     }
                 }
             }
+            Section(header: Text("Plant Star")) {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        if plant.starred {
+                            unstarPlant(plant: plant)
+                        } else {
+                            starPlant(plant: plant)
+                        }
+                        databaseChange.indicator.toggle()
+                    } label: {
+                        if plant.starred {
+                            VStack {
+                                Image(systemName: "star.fill")
+                                    .tint(.yellow)
+                                    .imageScale(.large)
+                                    .font(Font.title.weight(.regular))
+                                    .frame(width: 60)
+                                Text("Remove star?")
+                            }
+                        } else {
+                            Image(systemName: "star")
+                                .tint(.yellow)
+                                .imageScale(.large)
+                                .font(Font.title.weight(.regular))
+                                .frame(width: 60)
+                            Text("Star plant?")
+                        }
+                    }
+                    
+                    Spacer()
+                
+                }
+            }
+            Section(header: Text("Plant Diseased")) {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        if plant.diseased {
+                            undiseasePlant(plant: plant)
+                        } else {
+                            diseasePlant(plant: plant)
+                        }
+                        databaseChange.indicator.toggle()
+                    } label: {
+                        if plant.diseased {
+                            VStack {
+                                Image(systemName: "medical.thermometer.fill")
+                                    .tint(.green)
+                                    .imageScale(.large)
+                                    .font(Font.title.weight(.regular))
+                                    .frame(width: 60)
+                                Text("Plant healthy?")
+                            }
+                        } else {
+                            Image(systemName: "medical.thermometer")
+                                .tint(.green)
+                                .imageScale(.large)
+                                .font(Font.title.weight(.regular))
+                                .frame(width: 60)
+                            Text("Plant diseased?")
+                        }
+                    }
+                    
+                    Spacer()
+                
+                }
+            }
             
 
         }   // End of Form
