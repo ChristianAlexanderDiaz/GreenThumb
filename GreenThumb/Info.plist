@@ -13,6 +13,8 @@
 	<string>GreenThumb app needs to use the Photo Library so that you can pick a photo.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>GreenThumb app needs to use the Camera so that you can take a photo.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>GreenThumb app needs to use the Media Library so that you can pick a photo.</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
