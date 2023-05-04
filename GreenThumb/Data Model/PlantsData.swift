@@ -5,6 +5,7 @@
 //  Created by Christian Alexander Diaz on 4/4/23.
 //  Edited by Taylor Adeline Flieg on 4/24/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
+//  Tutorial by Osman Balci.
 //
 
 import SwiftUI
@@ -73,11 +74,43 @@ public func createPlantsDatabase() {
         plantEntity.watering_history = arrayOfWatering
 
         // Fetch Image Data
-        plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
-        
-        // 3️⃣ It has no relationship to another Entity
-        //todo
-        
+        if aPlant.thumbnail != "" {
+            //sets primary image
+            plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
+            
+            //creates photo entity for the gallery feature
+            let photoEntity = Photo(context: managedObjectContext)
+            photoEntity.image = plantEntity.primaryImage
+            photoEntity.title = "First photo."
+            photoEntity.date = aPlant.lastWateringDate
+            
+            photoEntity.plant = plantEntity
+            
+        } else {
+            //for each example data, creares a photo entity
+            for (index, entry) in aPlant.images.enumerated() {
+                let photoEntity = Photo(context: managedObjectContext)
+                
+                // Obtain the album cover photo image from Assets.xcassets as UIImage
+                let photoUIImage = UIImage(named: entry)
+                
+                // Convert photoUIImage to photoData of type Data (Binary Data) in JPEG format with 100% quality
+                if let photoData = photoUIImage?.jpegData(compressionQuality: 1.0) {
+                    // Store JPEG data into database attribute albumCoverPhoto of type Binary Data
+                    photoEntity.image = photoData
+                    //sets primary image
+                    plantEntity.primaryImage = photoData
+                } else {
+                    photoEntity.image = nil
+                }
+
+                photoEntity.title = aPlant.titles[index]
+                photoEntity.date = aPlant.dates[index]
+                
+                //relationship
+                photoEntity.plant = plantEntity
+            }
+        }
         
         PersistenceController.shared.saveContext()
     }   // End of for loop

@@ -3,7 +3,6 @@
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/11/23.
-//  Edited by Taylor Flieg on 5/02/23.
 //  Edited by Christian Diaz on 5/03/23
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
@@ -11,7 +10,7 @@
 //  Copyright © 2022 Osman Balci. All rights reserved.
 //
 
-//todo add username
+//Settings view, like other auntentication tutorials, with added feature of custom API token entry for ease of use between users
 
 import SwiftUI
 
@@ -74,6 +73,7 @@ struct Settings: View {
                     .padding()
                 }
             }
+            //section for user to enter personal API key
             Section(header: Text("Set Perenual API Key")) {
                 HStack {
                     Spacer()

@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-//todo- edit to pass in array of photo names in assets? from my plant app on my phone maybe? (also need arrays with dates and captions for each!)
+//represents a plant from the example json data
 struct PlantStruct: Decodable {
     var id: Int32
     var common_name: String
@@ -26,6 +26,9 @@ struct PlantStruct: Decodable {
     var diseasedDate: String
     var starredDate: String
     var thumbnail: String
+    var images: [String]
+    var dates: [String]
+    var titles: [String]
     var location: String
     var nickname: String
     var watering_history: [String]

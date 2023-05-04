@@ -10,6 +10,8 @@ import SwiftUI
 
 let tempDate = Date()
 
+
+//view representing a plant which needs or is overdue for watering. Contains key information about the plant in regards to watering and allows the user to mark the plant as watered
 struct WateringPlantCareItem: View {
     // Input Parameter
     let plant: Plant
@@ -43,6 +45,7 @@ struct WateringPlantCareItem: View {
                     
                 Spacer()
                 
+                //button to mark plant as watered will ask user to confirm (since it will remove from list)
                 Button("Watered?") {
                     toBeWatered = plant
                     showConfirmation = true
@@ -69,6 +72,7 @@ struct WateringPlantCareItem: View {
     
 }
 
+//view representing a plant which is currently marked as diseased. Contains key information about the plant in regards to the diseased status and allows the user to mark the plant as healthy
 struct DiseasedPlantCareItem: View {
     // Input Parameter
     let plant: Plant
@@ -102,6 +106,7 @@ struct DiseasedPlantCareItem: View {
                     
                 Spacer()
                 
+                //button to mark plant as healthy will ask user to confirm (since it will remove from list)
                 Button("Healthy?") {
                     toBeHealthy = plant
                     showConfirmation = true
@@ -128,6 +133,7 @@ struct DiseasedPlantCareItem: View {
     
 }
 
+//view representing a plant which is currently starred. Contains key information about the plant in regards to the starred status and allows the user to un-star the plant
 struct StarredPlantCareItem: View {
     // Input Parameter
     let plant: Plant
@@ -160,6 +166,7 @@ struct StarredPlantCareItem: View {
                     
                 Spacer()
                 
+                //button to un-star will ask user to confirm (since it will remove from list)
                 Button("Remove Star?") {
                     toUnStar = plant
                     showConfirmation = true

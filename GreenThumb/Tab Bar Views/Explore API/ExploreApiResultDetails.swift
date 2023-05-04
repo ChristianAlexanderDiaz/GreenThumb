@@ -3,6 +3,7 @@
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/11/23.
+//  Edited by Taylor Flieg on 5/03/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
@@ -170,8 +171,21 @@ struct ExploreApiResultDetails: View {
         // Fetch Image Data
         plantEntity.primaryImage = getUIImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
         
-        // 3️⃣ It has no relationship to another Entity
-        //todo - make!
+        // creates the photo entity corresponding to the url photo
+        let photoEntity = Photo(context: managedObjectContext)
+
+        photoEntity.image = plantEntity.primaryImage
+        photoEntity.title = "First photo."
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        let dateString = dateFormatter.string(from: Date())
+        photoEntity.date = dateString
+
+        photoEntity.plant = plantEntity 
+        
+        waterPlant(plant: plantEntity)
         PersistenceController.shared.saveContext()
         
         databaseChange.indicator.toggle()

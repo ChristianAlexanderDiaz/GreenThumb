@@ -10,7 +10,7 @@
 //
 
 /*
- 
+ Login view, similar to tutorials, but changed to fit this app's needs. Rotates photos of the user's plants
  */
 
 import SwiftUI
@@ -31,7 +31,6 @@ struct LoginView : View {
     @State private var index = 0
     
     // State variables
-    @State private var enteredUsername = ""
     @State private var enteredPassword = ""
     @State private var showInvalidPasswordAlert = false
     @State private var showNoBiometricCapabilityAlert = false
@@ -54,6 +53,7 @@ struct LoginView : View {
                         .font(.headline)
                         .padding()
                     
+                    //displays photo of the user's plant
                     getImageFromBinaryData(binaryData: allPlants[index].primaryImage!, defaultFilename: "ImageUnavailable")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -66,6 +66,7 @@ struct LoginView : View {
                             }
                         }
                     
+                    //displays plant's nickname or common name
                     if allPlants[index].nickname != "" {
                         Text(allPlants[index].nickname ?? "")
                             .font(.system(size: 14, weight: .light, design: .serif))
@@ -77,11 +78,6 @@ struct LoginView : View {
                             .padding(.bottom)
                         
                     }
-                    
-                    TextField("Username", text: $enteredUsername)
-                        .textFieldStyle(RoundedBorderTextFieldStyle()) //style chosen for this textbox
-                        .frame(width: 300, height: 36)
-                        .padding()
                     
                     SecureField("Password", text: $enteredPassword)
                         .textFieldStyle(RoundedBorderTextFieldStyle()) //style chosen for this textbox

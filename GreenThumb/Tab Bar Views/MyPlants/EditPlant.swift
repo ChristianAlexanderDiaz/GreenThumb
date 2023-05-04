@@ -4,7 +4,10 @@
 //
 //  Created by Brian Wood on 4/23/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
+//  Tutorial by Osman Balci.
 //
+
+//allows the user to change details about a plant
 
 import SwiftUI
 
@@ -112,6 +115,7 @@ struct EditPlant: View {
         _sunlight = State(initialValue: plant.sunlight?.joined(separator: ",") ?? "")
         _location = State(initialValue: plant.location ?? "")
         _lastWatered = State(initialValue: plant.lastWateringDate ?? Date())
+        _diseaseNotes = State(initialValue: plant.diseaseNotes ?? "")
         
         if let binaryData = plant.primaryImage {
             _primaryImage = State(initialValue:UIImage(data: binaryData))

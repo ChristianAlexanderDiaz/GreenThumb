@@ -28,10 +28,7 @@ struct WateringHistoryBarChart: View {
                         x: .value("Date", dateString),
                         y: .value("Watering", 1)
                     )
-//                    .background(
-//                        Rectangle()
-//                            .foregroundColor(barColor)
-//                    )
+
                 }
                 .accessibilityLabel(dates.contains(date) ? "Watered" : "Not Watered")
             }

@@ -6,10 +6,6 @@
 //  Copyright © 2022 Osman Balci. All rights reserved.
 //
 
-/*
- 
- */
-
 import SwiftUI
 
 //special content view which is used for implementing a login screen

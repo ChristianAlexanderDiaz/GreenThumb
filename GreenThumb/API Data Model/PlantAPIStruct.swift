@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//represents results from the second API call, which contains all the required plant data
 struct PlantAPIStruct: Hashable, Codable, Identifiable {
     var id: Int32
     var common_name: String

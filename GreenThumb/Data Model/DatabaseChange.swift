@@ -1,3 +1,11 @@
+//
+//  DatabaseChange.swift
+//  MusicAlbums
+//
+//  Created by Osman Balci on 2/21/22.
+//  Copyright © 2022 Osman Balci. All rights reserved.
+//
+
 import Combine
 import SwiftUI
 

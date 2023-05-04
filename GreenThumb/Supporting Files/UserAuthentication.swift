@@ -6,12 +6,6 @@
 //  Copyright © 2022 Osman Balci. All rights reserved.
 //
 
-/*
- 
- */
-
-//TODO add username capability
-
 import Foundation
 import LocalAuthentication
 

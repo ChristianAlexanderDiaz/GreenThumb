@@ -14,7 +14,10 @@
 		"nextWateringDate": "05/02/2023",
 		"diseasedDate": "",
 		"starredDate": "03/10/2023",
-		"thumbnail": "https://perenual.com/storage/species_image/5257_monstera_deliciosa/thumbnail/4630938853_623dc33137_b.jpg",
+		"thumbnail": "",
+        "images": ["IMG_7567", "IMG_7566"],
+        "dates": ["03/27/2023", "04/27/2023"],
+        "titles": ["It grew!!!", "First photo."],
 		"location": "Living Room",
 		"nickname": "Mrs. Monster",
         "watering_history": ["04/15/2023", "04/22/2023", "04/27/2023"]
@@ -35,6 +38,9 @@
 		"diseasedDate": "05/02/2023",
 		"starredDate": "05/02/2023",
 		"thumbnail": "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_snake-plant-laurentii_small_hyde_olive.jpg?v=1660855943",
+        "images": [],
+        "dates": [],
+        "titles": [],
 		"location": "Bedroom",
 		"nickname": "Drake the Snake",
         "watering_history": ["04/01/2023", "04/16/2023", "05/01/2023"]
@@ -55,6 +61,9 @@
 		"diseasedDate": "",
 		"starredDate": "",
 		"thumbnail": "https://cdn.shopify.com/s/files/1/0150/6262/products/the_sill-variant-white_gloss-zz_plant.jpg?v=1680548849",
+        "images": [],
+        "dates": [],
+        "titles": [],
 		"location": "Bedroom",
 		"nickname": "",
         "watering_history": ["03/28/2023", "04/16/2023"]
@@ -75,6 +84,9 @@
 		"diseasedDate": "4/18/2023",
 		"starredDate": "",
 		"thumbnail": "https://gardenerspath.com/wp-content/uploads/2021/02/Pothos-Growing-Outdoors-Climbing-a-Tree.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
 		"location": "Outdoors",
 		"nickname": "",
         "watering_history": ["04/16/2023"]
@@ -95,6 +107,9 @@
 		"diseasedDate": "",
 		"starredDate": "",
 		"thumbnail": "https://images.thdstatic.com/productImages/6c558422-b89e-40b6-b0af-5a03bcf101ae/svn/altman-plants-annuals-0881219-64_600.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
 		"location": "Outdoors",
 		"nickname": "",
         "watering_history": ["05/01/2023"]
@@ -115,6 +130,9 @@
         "diseasedDate": "",
         "starredDate": "",
         "thumbnail": "https://perenual.com/storage/species_image/6_abies_koreana_aurea/thumbnail/49235570926_99ec10781d_b.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
         "location": "Outdoors",
         "nickname": "",
         "watering_history": ["05/01/2023"]
@@ -135,6 +153,9 @@
         "diseasedDate": "",
         "starredDate": "",
         "thumbnail": "https://perenual.com/storage/species_image/7_abies_lasiocarpa/thumbnail/51002756843_74fae3c2fa_b.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
         "location": "Outdoors",
         "nickname": "",
         "watering_history": ["05/01/2023"]
@@ -155,6 +176,9 @@
         "diseasedDate": "",
         "starredDate": "",
         "thumbnail": "https://perenual.com/storage/species_image/8_abies_pinsapo_glauca/thumbnail/21657514018_c0d9fed9f4_b.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
         "location": "Outdoors",
         "nickname": "",
         "watering_history": ["05/01/2023"]
@@ -175,6 +199,9 @@
         "diseasedDate": "",
         "starredDate": "",
         "thumbnail": "https://perenual.com/storage/species_image/9_abies_procera/thumbnail/49107504112_6bd7effb8b_b.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
         "location": "Outdoors",
         "nickname": "",
         "watering_history": ["05/01/2023"]
@@ -195,6 +222,9 @@
         "diseasedDate": "",
         "starredDate": "",
         "thumbnail": "https://perenual.com/storage/species_image/10_acer_johin/thumbnail/pexels-photo-2183508.jpg",
+        "images": [],
+        "dates": [],
+        "titles": [],
         "location": "Outdoors",
         "nickname": "",
         "watering_history": ["05/01/2023"]
