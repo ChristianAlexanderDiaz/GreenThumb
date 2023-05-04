@@ -31,7 +31,6 @@ struct LoginView : View {
     @State private var index = 0
     
     // State variables
-    @State private var enteredUsername = ""
     @State private var enteredPassword = ""
     @State private var showInvalidPasswordAlert = false
     @State private var showNoBiometricCapabilityAlert = false
@@ -77,11 +76,6 @@ struct LoginView : View {
                             .padding(.bottom)
                         
                     }
-                    
-                    TextField("Username", text: $enteredUsername)
-                        .textFieldStyle(RoundedBorderTextFieldStyle()) //style chosen for this textbox
-                        .frame(width: 300, height: 36)
-                        .padding()
                     
                     SecureField("Password", text: $enteredPassword)
                         .textFieldStyle(RoundedBorderTextFieldStyle()) //style chosen for this textbox

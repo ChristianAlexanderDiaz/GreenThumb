@@ -74,15 +74,11 @@ struct Home: View {
                       .background(.green)
                       .clipShape(Circle())
                     if WateringPlantCareList.count == 1 {
-                        Text("indoor plant needs watering today")
+                        Text(" plant needs watering today")
                     } else {
-                        Text("indoor plants need watering today")
+                        Text(" plants need watering today")
                     }
                 }
-                
-                
-                
-                
                 
                 Text("Powered By")
                     .font(.system(size: 18, weight: .light, design: .serif))

@@ -73,7 +73,32 @@ public func createPlantsDatabase() {
         plantEntity.watering_history = arrayOfWatering
 
         // Fetch Image Data
-        plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
+        if aPlant.thumbnail != "" {
+            plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
+        } else {
+            for (index, entry) in aPlant.images.enumerated() {
+                let photoEntity = Photo(context: managedObjectContext)
+                
+                // Obtain the album cover photo image from Assets.xcassets as UIImage
+                let photoUIImage = UIImage(named: entry)
+                
+                // Convert photoUIImage to photoData of type Data (Binary Data) in JPEG format with 100% quality
+                if let photoData = photoUIImage?.jpegData(compressionQuality: 1.0) {
+                    // Store JPEG data into database attribute albumCoverPhoto of type Binary Data
+                    photoEntity.image = photoData
+                    plantEntity.primaryImage = photoData
+                } else {
+                    photoEntity.image = nil
+                }
+
+                photoEntity.title = aPlant.titles[index]
+                photoEntity.date = aPlant.dates[index]
+                
+
+                photoEntity.plant = plantEntity
+                
+            }
+        }
         
         // 3️⃣ It has no relationship to another Entity
         //todo

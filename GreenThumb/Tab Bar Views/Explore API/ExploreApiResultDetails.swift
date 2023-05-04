@@ -170,8 +170,23 @@ struct ExploreApiResultDetails: View {
         // Fetch Image Data
         plantEntity.primaryImage = getUIImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
         
-        // 3️⃣ It has no relationship to another Entity
-        //todo - make!
+        // 1️⃣ Create an instance of the Photo Entity in managedObjectContext
+        let photoEntity = Photo(context: managedObjectContext)
+        
+
+        photoEntity.image = plantEntity.primaryImage
+        photoEntity.title = "First photo."
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        let dateString = dateFormatter.string(from: Date())
+        photoEntity.date = dateString
+        
+
+        photoEntity.plant = plantEntity 
+        
+        waterPlant(plant: plantEntity)
         PersistenceController.shared.saveContext()
         
         databaseChange.indicator.toggle()

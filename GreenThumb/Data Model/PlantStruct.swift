@@ -26,6 +26,9 @@ struct PlantStruct: Decodable {
     var diseasedDate: String
     var starredDate: String
     var thumbnail: String
+    var images: [String]
+    var dates: [String]
+    var titles: [String]
     var location: String
     var nickname: String
     var watering_history: [String]

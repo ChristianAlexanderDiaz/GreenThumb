@@ -11,7 +11,6 @@
 //  Copyright © 2022 Osman Balci. All rights reserved.
 //
 
-//todo add username
 
 import SwiftUI
 

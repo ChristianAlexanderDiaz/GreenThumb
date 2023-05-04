@@ -112,6 +112,7 @@ struct EditPlant: View {
         _sunlight = State(initialValue: plant.sunlight?.joined(separator: ",") ?? "")
         _location = State(initialValue: plant.location ?? "")
         _lastWatered = State(initialValue: plant.lastWateringDate ?? Date())
+        _diseaseNotes = State(initialValue: plant.diseaseNotes ?? "")
         
         if let binaryData = plant.primaryImage {
             _primaryImage = State(initialValue:UIImage(data: binaryData))

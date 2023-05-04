@@ -40,11 +40,8 @@
 		D36F9E2629E5E7180085C0B2 /* ExploreApiResultsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */; };
 		D3C3CAB529F74039002083AE /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3CAB429F74039002083AE /* AppInformation.swift */; };
 		D3C3CAB729F74437002083AE /* PlantDiseases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3CAB629F74437002083AE /* PlantDiseases.swift */; };
-		FF0177D029F70A78001C6C0A /* WateringPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CB29F70A78001C6C0A /* WateringPlantCareDetails.swift */; };
 		FF0177D129F70A78001C6C0A /* PlantCareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CC29F70A78001C6C0A /* PlantCareList.swift */; };
-		FF0177D229F70A78001C6C0A /* StarredPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CD29F70A78001C6C0A /* StarredPlantCareDetails.swift */; };
 		FF0177D329F70A78001C6C0A /* PlantCareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CE29F70A78001C6C0A /* PlantCareItem.swift */; };
-		FF0177D429F70A78001C6C0A /* DiseasedPlantCareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177CF29F70A78001C6C0A /* DiseasedPlantCareDetails.swift */; };
 		FF0177D629F70A88001C6C0A /* PlantAPIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177D529F70A88001C6C0A /* PlantAPIStruct.swift */; };
 		FF0177DC29F70A94001C6C0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177D829F70A94001C6C0A /* LoginView.swift */; };
 		FF0177DD29F70A94001C6C0A /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0177D929F70A94001C6C0A /* ResetPassword.swift */; };
@@ -101,11 +98,8 @@
 		D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApiResultsList.swift; sourceTree = "<group>"; };
 		D3C3CAB429F74039002083AE /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
 		D3C3CAB629F74437002083AE /* PlantDiseases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDiseases.swift; sourceTree = "<group>"; };
-		FF0177CB29F70A78001C6C0A /* WateringPlantCareDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WateringPlantCareDetails.swift; sourceTree = "<group>"; };
 		FF0177CC29F70A78001C6C0A /* PlantCareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantCareList.swift; sourceTree = "<group>"; };
-		FF0177CD29F70A78001C6C0A /* StarredPlantCareDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarredPlantCareDetails.swift; sourceTree = "<group>"; };
 		FF0177CE29F70A78001C6C0A /* PlantCareItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantCareItem.swift; sourceTree = "<group>"; };
-		FF0177CF29F70A78001C6C0A /* DiseasedPlantCareDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseasedPlantCareDetails.swift; sourceTree = "<group>"; };
 		FF0177D529F70A88001C6C0A /* PlantAPIStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantAPIStruct.swift; sourceTree = "<group>"; };
 		FF0177D829F70A94001C6C0A /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF0177D929F70A94001C6C0A /* ResetPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
@@ -297,9 +291,6 @@
 			children = (
 				FF0177CC29F70A78001C6C0A /* PlantCareList.swift */,
 				FF0177CE29F70A78001C6C0A /* PlantCareItem.swift */,
-				FF0177CF29F70A78001C6C0A /* DiseasedPlantCareDetails.swift */,
-				FF0177CD29F70A78001C6C0A /* StarredPlantCareDetails.swift */,
-				FF0177CB29F70A78001C6C0A /* WateringPlantCareDetails.swift */,
 			);
 			path = PlantCare;
 			sourceTree = "<group>";
@@ -308,9 +299,9 @@
 			isa = PBXGroup;
 			children = (
 				D36F9E1329E5E4AA0085C0B2 /* ExploreApi.swift */,
-				D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */,
-				D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */,
 				D36F9E2529E5E7180085C0B2 /* ExploreApiResultsList.swift */,
+				D36F9E2129E5E7040085C0B2 /* ExploreApiResultItem.swift */,
+				D36F9E1F29E5E6FD0085C0B2 /* ExploreApiResultDetails.swift */,
 			);
 			path = "Explore API";
 			sourceTree = "<group>";
@@ -434,7 +425,6 @@
 				FF0177DF29F70A94001C6C0A /* ContentView.swift in Sources */,
 				D36382992A02A57700C85306 /* DiseaseApiResultDetails.swift in Sources */,
 				D363829C2A02A5A600C85306 /* DiseaseApiResultItem.swift in Sources */,
-				FF0177D029F70A78001C6C0A /* WateringPlantCareDetails.swift in Sources */,
 				FF0177D629F70A88001C6C0A /* PlantAPIStruct.swift in Sources */,
 				D304EC6C29DCA1D7005486C6 /* Persistence.swift in Sources */,
 				FFBB1B1529F72B9A00C260DC /* EditPlant.swift in Sources */,
@@ -442,12 +432,10 @@
 				D36F9E1829E5E4C90085C0B2 /* More.swift in Sources */,
 				FFC9DE052A019E88000E724C /* WateringHistory.swift in Sources */,
 				D35DE8D529E5F1CF00E204E1 /* PerenualApiData.swift in Sources */,
-				FF0177D429F70A78001C6C0A /* DiseasedPlantCareDetails.swift in Sources */,
 				FF1218AE29F840C000FB976B /* PlantAPISearchResultStruct.swift in Sources */,
 				FFBF385B29F5B37500926291 /* PlantItem.swift in Sources */,
 				FFBF386329F5BE9700926291 /* ImagePicker.swift in Sources */,
 				D31906332A020E0D00B99F52 /* DiseaseAPIStruct.swift in Sources */,
-				FF0177D229F70A78001C6C0A /* StarredPlantCareDetails.swift in Sources */,
 				D304EC7129DCA271005486C6 /* DatabaseChange.swift in Sources */,
 				D304EC7529DCA2CD005486C6 /* Plant.swift in Sources */,
 				FF0177D329F70A78001C6C0A /* PlantCareItem.swift in Sources */,
@@ -592,10 +580,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenThumb/Preview Content\"";
-				DEVELOPMENT_TEAM = 53H489DJ2F;
+				DEVELOPMENT_TEAM = L27W559GC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenThumb/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "GreenThumb app needs to access the Camera so that you can take a photo.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID or Touch ID is used to authenticate you as the real user of the app!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GreenThumb app needs to obtain your location while using the app to obtain accurate weather data.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GreenThumb app needs to access your Photo Library so that you can pick a photo from it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -605,7 +597,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christiandiaz.GreenThumb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taylorflieg.GreenThumb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -623,10 +615,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenThumb/Preview Content\"";
-				DEVELOPMENT_TEAM = 53H489DJ2F;
+				DEVELOPMENT_TEAM = L27W559GC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenThumb/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "GreenThumb app needs to access the Camera so that you can take a photo.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID or Touch ID is used to authenticate you as the real user of the app!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GreenThumb app needs to obtain your location while using the app to obtain accurate weather data.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GreenThumb app needs to access your Photo Library so that you can pick a photo from it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -636,7 +632,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christiandiaz.GreenThumb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taylorflieg.GreenThumb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

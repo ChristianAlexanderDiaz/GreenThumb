@@ -44,7 +44,6 @@ struct PlantCareList: View {
                     //define database searches somewhere to be done each time the databse is changed
                     //in extension of plant core data class
                     ForEach(WateringPlantCareList) { aPlant in
-                        //NavigationLink(destination: WateringPlantCareDetails(plant: aPlant)) {
                         NavigationLink(destination: PlantDetails(plant: aPlant)) {
                             WateringPlantCareItem(plant: aPlant)
                         }
@@ -53,7 +52,6 @@ struct PlantCareList: View {
                     // contains only those plants which are marked as diseased by the user
                     
                     ForEach(DiseasedPlantCareList) { aPlant in
-                        //NavigationLink(destination: DiseasedPlantCareDetails(plant: aPlant)) {
                         NavigationLink(destination: PlantDetails(plant: aPlant)) {
                             DiseasedPlantCareItem(plant: aPlant)
                         }
@@ -62,7 +60,6 @@ struct PlantCareList: View {
                     // contains only those plants which are starred by the user
                     
                     ForEach(StarredPlantCareList) { aPlant in
-                        //NavigationLink(destination: StarredPlantCareDetails(plant: aPlant)) {
                         NavigationLink(destination: PlantDetails(plant: aPlant)) {
                             StarredPlantCareItem(plant: aPlant)
                         }
