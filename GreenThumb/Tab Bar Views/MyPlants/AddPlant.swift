@@ -336,6 +336,19 @@ struct AddPlant: View {
             plantEntity.location = plantLocationList[selectedLocationIndex]
         }
         
+        //create photo gallery entry
+        let photoEntity = Photo(context: managedObjectContext)
+        photoEntity.image = plantEntity.primaryImage
+        photoEntity.title = "First photo."
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        let dateString = dateFormatter.string(from: Date())
+        photoEntity.date = dateString
+        
+        photoEntity.plant = plantEntity
+        
         // 3️⃣ It has no relationship to another Entity
         PersistenceController.shared.saveContext()
     
