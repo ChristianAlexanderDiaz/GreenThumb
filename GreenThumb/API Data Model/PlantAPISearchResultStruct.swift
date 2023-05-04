@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//represents the results of the first API call
 struct PlantAPISearchResultStruct: Hashable, Codable, Identifiable {
     var id: Int32
     var common_name: String

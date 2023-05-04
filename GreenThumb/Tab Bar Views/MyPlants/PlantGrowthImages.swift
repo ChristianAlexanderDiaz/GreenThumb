@@ -6,6 +6,8 @@
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
+//gallery to view a plants growth over time
+
 import SwiftUI
 
 struct PlantGrowthImages: View {

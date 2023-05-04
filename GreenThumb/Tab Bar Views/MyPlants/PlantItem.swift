@@ -7,6 +7,8 @@
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
+//view shown to represent a plant in a list
+
 import SwiftUI
 
 struct PlantItem: View {

@@ -3,6 +3,7 @@
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/11/23.
+//  Edited by Taylor Flieg on 5/03/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
@@ -170,9 +171,8 @@ struct ExploreApiResultDetails: View {
         // Fetch Image Data
         plantEntity.primaryImage = getUIImageFromUrl(url: plant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
         
-        // 1️⃣ Create an instance of the Photo Entity in managedObjectContext
+        // creates the photo entity corresponding to the url photo
         let photoEntity = Photo(context: managedObjectContext)
-        
 
         photoEntity.image = plantEntity.primaryImage
         photoEntity.title = "First photo."
@@ -182,7 +182,6 @@ struct ExploreApiResultDetails: View {
         dateFormatter.timeStyle = .short
         let dateString = dateFormatter.string(from: Date())
         photoEntity.date = dateString
-        
 
         photoEntity.plant = plantEntity 
         

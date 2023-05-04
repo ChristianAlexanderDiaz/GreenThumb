@@ -3,8 +3,12 @@
 //  GreenThumb
 //
 //  Created by Brian Wood on 5/2/23.
+//  Edited by Taylor Flieg on 5/03/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
+//  Tutorial by Osman Balci.
 //
+
+//view for adding a new photo to the plant gallery to view plant progress
 
 import SwiftUI
 
@@ -82,11 +86,10 @@ struct AddPhotoView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding()
                 
+                //allows user to set this new photo to be the plant's primary photo
                 Section(header: Text("Make new primary photo")) {
                     Toggle("Primary Photo", isOn: $makePrimary)
                 }
-                
-                
                 
                 Button("Save Photo") {
                     savePhoto()

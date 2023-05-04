@@ -6,10 +6,6 @@
 //  Copyright © 2022 Osman Balci. All rights reserved.
 //
 
-/*
- 
- */
-
 import SwiftUI
 
 extension View {

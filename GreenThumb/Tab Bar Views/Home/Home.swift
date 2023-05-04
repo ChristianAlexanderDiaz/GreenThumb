@@ -10,7 +10,7 @@
 //
 
 /*
- 
+ Home view with information about how many plants require watering today
  */
 
 import SwiftUI

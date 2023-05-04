@@ -9,6 +9,7 @@
 import SwiftUI
 import CoreData
 
+//associated with the Photo entity in the core database
 public class Photo: NSManagedObject, Identifiable {
 
     // Attributes

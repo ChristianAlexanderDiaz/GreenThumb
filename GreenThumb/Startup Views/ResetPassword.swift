@@ -5,15 +5,6 @@
 //  Created by Osman Balci on 5/25/22.
 //  Copyright © 2022 Osman Balci. All rights reserved.
 //
-//  Edited by Taylor Flieg on 4/24/23.
-//  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
-//
-
-/*
- 
- */
-
-//TODO - edit for email things
 
 import SwiftUI
 

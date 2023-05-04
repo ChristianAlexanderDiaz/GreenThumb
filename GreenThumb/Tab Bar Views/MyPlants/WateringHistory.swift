@@ -6,6 +6,8 @@
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
 
+//view where user can view the watering date history for a plant
+
 import SwiftUI
 
 struct WateringHistoryView: View {

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//represents a disease pulled from the Perenual API
 struct DiseaseAPIStruct: Hashable, Codable, Identifiable {
     var id: Int32
     var common_name: String

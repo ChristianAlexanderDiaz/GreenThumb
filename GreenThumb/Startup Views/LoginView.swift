@@ -10,7 +10,7 @@
 //
 
 /*
- 
+ Login view, similar to tutorials, but changed to fit this app's needs. Rotates photos of the user's plants
  */
 
 import SwiftUI
@@ -53,6 +53,7 @@ struct LoginView : View {
                         .font(.headline)
                         .padding()
                     
+                    //displays photo of the user's plant
                     getImageFromBinaryData(binaryData: allPlants[index].primaryImage!, defaultFilename: "ImageUnavailable")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -65,6 +66,7 @@ struct LoginView : View {
                             }
                         }
                     
+                    //displays plant's nickname or common name
                     if allPlants[index].nickname != "" {
                         Text(allPlants[index].nickname ?? "")
                             .font(.system(size: 14, weight: .light, design: .serif))

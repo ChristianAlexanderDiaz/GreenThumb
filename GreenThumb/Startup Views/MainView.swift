@@ -3,7 +3,10 @@
 //  GreenThumb
 //
 //  Created by Christian Alexander Diaz on 4/4/23.
+//  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
 //
+
+//main view to set up the tab navigation
 
 import SwiftUI
 

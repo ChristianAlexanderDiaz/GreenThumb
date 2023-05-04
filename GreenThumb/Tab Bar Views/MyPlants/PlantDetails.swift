@@ -4,7 +4,10 @@
 //
 //  Created by Brian Wood on 4/23/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
+//  Tutorial by Osman Balci.
 //
+
+//view displaying the information about a plant
 
 import SwiftUI
 

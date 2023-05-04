@@ -5,6 +5,7 @@
 //  Created by Christian Alexander Diaz on 4/4/23.
 //  Edited by Taylor Adeline Flieg on 4/24/23.
 //  Copyright © 2023 Taylor Adeline Flieg, Christian Alexander Diaz, Brian Andrew Wood. All rights reserved.
+//  Tutorial by Osman Balci.
 //
 
 import SwiftUI
@@ -74,8 +75,19 @@ public func createPlantsDatabase() {
 
         // Fetch Image Data
         if aPlant.thumbnail != "" {
+            //sets primary image
             plantEntity.primaryImage = getUIImageFromUrl(url: aPlant.thumbnail, defaultFilename: "ImageUnavailable").jpegData(compressionQuality: 1.0)
+            
+            //creates photo entity for the gallery feature
+            let photoEntity = Photo(context: managedObjectContext)
+            photoEntity.image = plantEntity.primaryImage
+            photoEntity.title = "First photo."
+            photoEntity.date = aPlant.lastWateringDate
+            
+            photoEntity.plant = plantEntity
+            
         } else {
+            //for each example data, creares a photo entity
             for (index, entry) in aPlant.images.enumerated() {
                 let photoEntity = Photo(context: managedObjectContext)
                 
@@ -86,6 +98,7 @@ public func createPlantsDatabase() {
                 if let photoData = photoUIImage?.jpegData(compressionQuality: 1.0) {
                     // Store JPEG data into database attribute albumCoverPhoto of type Binary Data
                     photoEntity.image = photoData
+                    //sets primary image
                     plantEntity.primaryImage = photoData
                 } else {
                     photoEntity.image = nil
@@ -94,15 +107,10 @@ public func createPlantsDatabase() {
                 photoEntity.title = aPlant.titles[index]
                 photoEntity.date = aPlant.dates[index]
                 
-
+                //relationship
                 photoEntity.plant = plantEntity
-                
             }
         }
-        
-        // 3️⃣ It has no relationship to another Entity
-        //todo
-        
         
         PersistenceController.shared.saveContext()
     }   // End of for loop
