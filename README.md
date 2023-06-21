@@ -4,18 +4,24 @@ GreenThumb is a comprehensive iOS application designed to assist users with thei
 ## Key Features
 
 Plant Care Module: An extensive feature allowing users to track plant watering schedules and manage plant diseases.
+
 Plant Life Cycle Management: A comprehensive feature for managing the entire life cycle of plants. Users can add new plants, edit existing ones, and keep track of watering history.
+
 API Data Exploration: Interactive feature fetching plant data from an external API.
+
 Core Data Models: Advanced data handling techniques using Core Data models for efficient storage and retrieval of plant and disease data.
+
 Utility Functions: A set of utility functions for image picking, date formatting, and user location interactions.
+
 User Authentication: A secure user authentication system.
+
 User Interface: An intuitive and informative user interface featuring custom navigation styles, a user-friendly home screen, and interactive startup views.
 
 ## Requirements
 XCode: To deploy the application on the iPhone over iOS 16.0+ or newer.
 iPhone w/ Developer Mode turned ON
 
-##Usage
+## Usage
 Please replace the Perenual API keys with your own to connect to your own account at https://perenual.com/docs/api
 
 ## Known Issues
