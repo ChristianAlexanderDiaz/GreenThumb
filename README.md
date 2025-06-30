@@ -2,6 +2,8 @@
 
 A comprehensive iOS application built with SwiftUI that helps users manage their plant collection, track watering schedules, and identify plant diseases using integrated APIs.
 
+![GreenThumb_iOS_Architecture](https://github.com/user-attachments/assets/34e2fe96-778a-4486-aa65-36d20b227c57)
+
 ## 📱 Features
 
 - **Personal Plant Collection**: Add, edit, and organize your plants by location
