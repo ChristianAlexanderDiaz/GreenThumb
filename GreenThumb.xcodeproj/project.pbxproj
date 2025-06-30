@@ -572,14 +572,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenThumb/Preview Content\"";
-				DEVELOPMENT_TEAM = L27W559GC6;
+				DEVELOPMENT_TEAM = 53H489DJ2F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenThumb/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "GreenThumb app needs to access the Camera so that you can take a photo.";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "GreenThumb app needs to use the Media Library so that you can pick a photo.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GreenThumb app needs to use the Camera so that you can take a photo.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID or Touch ID is used to authenticate you as the real user of the app!";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GreenThumb app needs to obtain your location while using the app to obtain accurate weather data.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GreenThumb app needs to access your Photo Library so that you can pick a photo from it.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GreenThumb app needs to use the Photo Library so that you can pick a photo.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -589,7 +590,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taylorflieg.GreenThumb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christiandiaz.GreenThumb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -607,14 +608,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenThumb/Preview Content\"";
-				DEVELOPMENT_TEAM = L27W559GC6;
+				DEVELOPMENT_TEAM = 53H489DJ2F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenThumb/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "GreenThumb app needs to access the Camera so that you can take a photo.";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "GreenThumb app needs to use the Media Library so that you can pick a photo.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GreenThumb app needs to use the Camera so that you can take a photo.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID or Touch ID is used to authenticate you as the real user of the app!";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GreenThumb app needs to obtain your location while using the app to obtain accurate weather data.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GreenThumb app needs to access your Photo Library so that you can pick a photo from it.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "GreenThumb app needs to use the Photo Library so that you can pick a photo.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -624,7 +626,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taylorflieg.GreenThumb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christiandiaz.GreenThumb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

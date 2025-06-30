@@ -1,0 +1,153 @@
+@startuml GreenThumb_iOS_Architecture
+
+skinparam backgroundColor #FFFFFF
+skinparam package {
+    BackgroundColor #E8F5E8
+    BorderColor #4CAF50
+    FontColor #2E7D32
+}
+
+skinparam component {
+    BackgroundColor #F1F8E9
+    BorderColor #689F38
+    FontColor #33691E
+}
+
+title GreenThumb iOS Application Architecture
+
+package "App Entry Point" {
+    component GreenThumbApp
+    component AppDelegate
+}
+
+package "Authentication Layer" {
+    component ContentView
+    component LoginView
+    component MainView
+    component ResetPassword
+    component UserAuthentication
+}
+
+package "Core Data Layer" {
+    component Persistence
+    component PlantEntity
+    component PhotoEntity
+    database CoreDataModel
+}
+
+package "Data Models" {
+    component PlantStruct
+    component DatabaseChange
+    component PlantsData
+}
+
+package "API Integration" {
+    component APIClient
+    component PerenualAPI
+    component PlantAPIStruct
+    component DiseaseAPIStruct
+    component SearchResultStruct
+}
+
+package "Home Tab" {
+    component HomeView
+}
+
+package "My Plants Tab" {
+    component MyPlantsView
+    component AddPlantView
+    component EditPlantView
+    component PlantDetailsView
+    component PlantItemView
+    component AddPhotoView
+    component WateringHistoryView
+    component WateringChartView
+}
+
+package "Plant Care Tab" {
+    component PlantCareListView
+    component PlantCareItemView
+}
+
+package "Explore API Tab" {
+    component ExploreAPIView
+    component APIResultsListView
+    component APIResultItemView
+    component APIResultDetailsView
+}
+
+package "More Tab" {
+    component MoreView
+    component SettingsView
+    component APIKeyManager
+    component AppInfoView
+    component PlantDiseasesView
+}
+
+package "Supporting Files" {
+    component ImagePicker
+    component NavigationStyle
+    component PlantCareFunctions
+    component UtilityFunctions
+}
+
+cloud "External APIs" {
+    interface PerenualService
+    interface DiseaseService
+}
+
+' Main App Flow
+GreenThumbApp --> ContentView
+ContentView --> LoginView
+ContentView --> MainView
+LoginView --> UserAuthentication
+
+' Tab Navigation
+MainView --> HomeView
+MainView --> MyPlantsView
+MainView --> PlantCareListView
+MainView --> ExploreAPIView
+MainView --> MoreView
+
+' My Plants Flow
+MyPlantsView --> PlantItemView
+MyPlantsView --> AddPlantView
+PlantItemView --> PlantDetailsView
+PlantDetailsView --> EditPlantView
+PlantDetailsView --> AddPhotoView
+PlantDetailsView --> WateringHistoryView
+WateringHistoryView --> WateringChartView
+
+' Core Data
+PlantEntity --> CoreDataModel
+PhotoEntity --> CoreDataModel
+Persistence --> CoreDataModel
+MyPlantsView --> PlantEntity
+PlantDetailsView --> PlantEntity
+AddPlantView --> PlantEntity
+
+' API Integration
+ExploreAPIView --> APIClient
+PlantDiseasesView --> APIClient
+APIClient --> PerenualService
+APIClient --> DiseaseService
+PerenualAPI --> PlantAPIStruct
+DiseaseService --> DiseaseAPIStruct
+
+' More Tab
+MoreView --> SettingsView
+MoreView --> AppInfoView
+MoreView --> PlantDiseasesView
+SettingsView --> APIKeyManager
+
+' Supporting Files
+AddPhotoView --> ImagePicker
+MyPlantsView --> PlantCareFunctions
+PlantDetailsView --> UtilityFunctions
+
+' Data Flow
+DatabaseChange --> MyPlantsView
+DatabaseChange --> PlantCareListView
+PlantStruct --> PlantEntity
+
+@enduml
