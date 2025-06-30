@@ -100,6 +100,17 @@ GreenThumb/
 - Accessibility compliance
 - Performance optimization
 
+## Requirements
+- **Xcode**: iOS development environment
+- **iOS 16.0+**: Minimum deployment target
+- **Developer Mode**: Required for device testing
+
+## Usage
+Replace the Perenual API keys with your own from https://perenual.com/docs/api
+
+## Contributing
+Contributions are welcome. Please fork this repository and open a pull request to add features.
+
 ---
 
 *This project demonstrates proficiency in modern iOS development practices, including SwiftUI, Core Data, API integration, and collaborative development workflows.*
